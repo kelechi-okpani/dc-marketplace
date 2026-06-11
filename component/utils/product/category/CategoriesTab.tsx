@@ -3,27 +3,33 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { 
-  Store, Refrigerator, Smartphone, Sparkles, Home, Tv, 
-  Shirt, Apple, Monitor, Baby, Gamepad2, Layers,
-  ChevronLeft, ChevronRight, LucideIcon
-} from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { mainCategories } from '../../data/mockProducts';
 
-const ICON_REGISTRY: Record<string, LucideIcon> = {
-  'official-store': Store,
-  'appliances': Refrigerator,
-  'phones-tablets': Smartphone,
-  'health-beauty': Sparkles,
-  'home-office': Home,
-  'electronics': Tv,
-  'fashion': Shirt,
-  'supermarket': Apple,
-  'computing': Monitor,
-  'baby-products': Baby,
-  'gaming': Gamepad2,
-  'other-categories': Layers,
+// Explicitly typing based on your array structure
+interface CategoryItem {
+  id: string;
+  label: string;
+  subCats: string[];
+}
+
+
+const CATEGORY_IMAGE_REGISTRY: Record<string, string> = {
+  'official-store': '/categories/office.png',
+  'appliances': '/categories/appliances.jpg',
+  'phones-tablets': '/categories/phones.jpg',
+  'health-beauty': '/categories/beauty.jpg',
+  'home-office': '/categories/home.webp',
+  'electronics': '/categories/electronics.jpg',
+  'fashion': '/categories/fashion.jpg',
+  'supermarket': '/categories/supermarket.png',
+  'computing': '/categories/computing.jpg',
+  'baby-products': '/categories/baby.jpg',
+  'gaming': '/categories/gaming.jpg',
+  'other-categories': '/categories/deals.jpg',
 };
+
+const FALLBACK_IMAGE = '/categories/fallback.png';
 
 export default function CategoriesTab() {
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -42,58 +48,64 @@ export default function CategoriesTab() {
   };
 
   return (
-    <div className="mt-6 bg-white py-2 xs:py-3 px-3 sm:px-6 w-full select-none font-sans border-b border-slate-100">
+    <div className="w-full bg-white py-6 px-4 md:px-8 select-none font-sans border-b border-slate-100">
       <div className="max-w-[1400px] mx-auto relative group">
         
-        {/* Responsive Arrow: Left Controls */}
+        {/* Navigation Arrow Left (UI Overlay matching image_dba47c.png style) */}
         <button
           type="button"
           onClick={() => scroll('left')}
-          className="absolute left-[-12px] md:left-[-16px] top-1/2 -translate-y-1/2 z-20 bg-slate-900/80 hover:bg-slate-900 text-white p-1.5 md:p-2 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:block cursor-pointer"
+          className="absolute left-[-16px] top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white p-2.5 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:flex items-center justify-center cursor-pointer border border-white/10"
           aria-label="Scroll left"
         >
-          <ChevronLeft className="h-4 w-4 stroke-[2.5]" />
+          <ChevronLeft className="h-5 w-5 stroke-[2.5]" />
         </button>
 
-        {/* Dynamic Multi-screen Scroller Framework */}
+        {/* Scaled Slider Rail for Full-Bleed square cards */}
         <div
           ref={sliderRef}
-          className="flex items-start gap-2.5 xs:gap-3 md:gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 pt-1 px-0.5 no-scrollbar"
+          className="flex items-start gap-3 sm:gap-4 overflow-x-auto scroll-smooth pb-3 pt-1 no-scrollbar"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
           {mainCategories.map((cat) => {
-            const IconComponent = ICON_REGISTRY[cat.id] || Layers;
+            const imageSrc = CATEGORY_IMAGE_REGISTRY[cat.id] || FALLBACK_IMAGE;
             const isSelected = activeCategoryId === cat.id;
 
             return (
               <Link
                 key={cat.id}
                 href={`/categories/${cat.id}`}
-                className="flex flex-col items-center text-center space-y-1 xs:space-y-1.5 snap-start shrink-0 w-[72px] xs:w-[84px] sm:w-[96px] md:w-[104px] group/item focus:outline-hidden"
+                className="flex flex-col items-center text-center space-y-2 shrink-0 w-[115px] xs:w-[135px] sm:w-[148px] md:w-[160px] group/item focus:outline-hidden"
               >
-                {/* Fluid Adaptive Icon Circle/Frame */}
+                {/* 
+                  Square Container Edge-to-Edge Imagery Layout
+                  Matches the aspect properties of image_dba47c.png
+                */}
                 <div 
-                  className={`w-14 h-14 xs:w-16 h-16 sm:w-18 sm:h-18 md:w-19 md:h-19 rounded-xl md:rounded-2xl flex items-center justify-center transition-all duration-200 transform group-hover/item:scale-102 group-active/item:scale-98 relative overflow-hidden
+                  className={`w-full aspect-square rounded-xl overflow-hidden bg-slate-50 border transition-all duration-300
                     ${isSelected 
-                      ? 'bg-blue-600 text-white shadow-xs shadow-blue-600/10' 
-                      : 'bg-[#f8fafc] border border-slate-100 text-slate-700 group-hover/item:bg-slate-50 group-hover/item:border-slate-200 group-hover/item:shadow-xs'
+                      ? 'border-slate-900 ring-2 ring-slate-950/10 shadow-md scale-[1.02]' 
+                      : 'border-slate-100 group-hover/item:border-slate-300 group-hover/item:shadow-xs'
                     }`}
                 >
-                  {isSelected && (
-                    <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 mix-blend-overlay" />
-                  )}
-                  
-                  <IconComponent 
-                    className={`h-5 w-5 xs:h-6 w-6 md:h-7 md:w-7 transition-transform duration-200 group-hover/item:rotate-2 ${
-                      isSelected ? 'text-white' : 'text-slate-500 group-hover/item:text-slate-800'
-                    }`} 
+                  <img 
+                    src={imageSrc} 
+                    alt={cat.label}
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover/item:scale-105"
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = FALLBACK_IMAGE;
+                    }}
                   />
                 </div>
 
-                {/* Highly Scalable Typography System */}
+                {/* Exact Text Label System */}
                 <span 
-                  className={`text-[10px] xs:text-[11px] font-bold leading-tight px-0.5 tracking-tight max-w-full break-words line-clamp-2 transition-colors duration-150
-                    ${isSelected ? 'text-blue-600 font-extrabold' : 'text-slate-600 group-hover/item:text-slate-900'}`}
+                  className={`text-[12px] sm:text-[13px] leading-tight px-1 tracking-tight max-w-full break-words line-clamp-2 transition-colors duration-200
+                    ${isSelected 
+                      ? 'text-slate-950 font-bold' 
+                      : 'text-slate-800 font-medium group-hover/item:text-slate-950'
+                    }`}
                 >
                   {cat.label}
                 </span>
@@ -102,14 +114,14 @@ export default function CategoriesTab() {
           })}
         </div>
 
-        {/* Responsive Arrow: Right Controls */}
+        {/* Navigation Arrow Right */}
         <button
           type="button"
           onClick={() => scroll('right')}
-          className="absolute right-[-12px] md:right-[-16px] top-1/2 -translate-y-1/2 z-20 bg-slate-900/80 hover:bg-slate-900 text-white p-1.5 md:p-2 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:block cursor-pointer"
+          className="absolute right-[-16px] top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white p-2.5 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:flex items-center justify-center cursor-pointer border border-white/10"
           aria-label="Scroll right"
         >
-          <ChevronRight className="h-4 w-4 stroke-[2.5]" />
+          <ChevronRight className="h-5 w-5 stroke-[2.5]" />
         </button>
 
       </div>

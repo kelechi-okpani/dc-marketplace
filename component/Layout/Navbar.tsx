@@ -73,7 +73,7 @@ export default function MainNavbar() {
                   FIX: Rebalanced structural relative container. 
                   Matches the ~8:1 aspect ratio of the height-reduced logo asset.
                 */}
-                <div className="relative h-7 w-48 sm:h-8 sm:w-56 md:w-60 transition-all">
+                <div className="relative h-7 w-48 sm:h-12 sm:w-56 md:w-60 transition-all">
                   <Image
                     src="/dc.svg"
                     alt="DC Marketplace Logo"

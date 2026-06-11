@@ -11,40 +11,50 @@ const promoSlides = [
     title: "Upgrade Your Tech Matrix",
     subtitle: "Up to 40% Off Premium Laptops, Phones & Accessories",
     cta: "Shop Deals",
-    imageUrl: "/hero/hero1.png",
-    accentGlow: "bg-blue-600/20"
+    imageUrl: "/hero/banners1.webp",
+    gradient: "from-blue-600 via-indigo-900/90 to-transparent",
+    accentGlow: "bg-blue-500/30",
+    badgeBg: "bg-gradient-to-r from-blue-600 to-indigo-600"
   },
   {
     badge: "Mega Flash Offers",
     title: "Premium Workspace Essentials",
     subtitle: "Secure 100% vetted hardware gear and professional desktop electronics",
     cta: "Explore Tech",
-    imageUrl: "/hero/hero2.png",
-    accentGlow: "bg-emerald-600/20"
+    imageUrl: "/hero/banners2.webp",
+    gradient: "from-emerald-600 via-teal-900/90 to-transparent",
+    accentGlow: "bg-emerald-500/30",
+    badgeBg: "bg-gradient-to-r from-emerald-600 to-teal-600"
   },
   {
     badge: "Fashion Week",
     title: "Vetted Premium Designers",
     subtitle: "Discover bespoke couture and tailored fashion items securely via escrow",
     cta: "Browse Apparel",
-    imageUrl: "/hero/hero3.gif",
-    accentGlow: "bg-purple-600/20"
+    imageUrl: "/hero/banners3.webp",
+    gradient: "from-purple-600 via-fuchsia-900/90 to-transparent",
+    accentGlow: "bg-purple-500/30",
+    badgeBg: "bg-gradient-to-r from-purple-600 to-fuchsia-600"
   },
   {
     badge: "Official Stores",
     title: "Direct From Manufacturers",
     subtitle: "Authenticity guaranteed with absolute price-match protection frameworks",
     cta: "View Brands",
-    imageUrl: "/hero/hero4.png",
-    accentGlow: "bg-cyan-600/20"
+    imageUrl: "/hero/banners1.webp",
+    gradient: "from-cyan-600 via-sky-900/90 to-transparent",
+    accentGlow: "bg-cyan-500/30",
+    badgeBg: "bg-gradient-to-r from-cyan-600 to-sky-600"
   },
   {
     badge: "Home & Comfort",
     title: "Smart Living Spaces",
     subtitle: "Premium energy-efficient appliances built for modern residential infrastructure",
     cta: "Upgrade Now",
-    imageUrl: "/hero/hero5.png",
-    accentGlow: "bg-amber-600/20"
+    imageUrl: "/hero/banners2.webp",
+    gradient: "from-amber-500 via-orange-950/90 to-transparent",
+    accentGlow: "bg-amber-500/30",
+    badgeBg: "bg-gradient-to-r from-amber-500 to-orange-500"
   }
 ];
 
@@ -62,116 +72,123 @@ export default function ECommerceHeroSection() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + promoSlides.length) % promoSlides.length);
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 bg-[#f8fafc]">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+    <section className="mx-auto max-w-8xl px-4 py-6 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         
-        {/* ================= CENTER STAGE: FIXED RATIO SLIDER ================= */}
-        <main className="col-span-1 lg:col-span-9 relative overflow-hidden rounded-xl bg-slate-950 text-white aspect-[2/1] xs:aspect-[12/5] lg:h-[350px] lg:aspect-auto border border-slate-900 flex flex-col justify-between p-5 sm:p-8 lg:p-10 shadow-xs group">
+        {/* ================= CENTER STAGE: TALLER HORIZONTAL SLIDER ================= */}
+        <main className="col-span-1 lg:col-span-9 relative overflow-hidden rounded-2xl  text-white aspect-[4/3] xs:aspect-[16/9] lg:h-[480px] lg:aspect-auto border border-slate-800/80 flex flex-col justify-between p-6 sm:p-10 lg:p-12 shadow-2xl group">
           
-          {/* Background Layer Asset */}
-          <div className="absolute inset-0 z-0">
-            <img 
-              src={promoSlides[currentSlide].imageUrl} 
-              alt={promoSlides[currentSlide].title}
-              className="w-full h-full object-cover transition-all duration-700 ease-in-out scale-101 group-hover:scale-100"
-            />
-            {/* Dark gradient mapping to make text highly readable */}
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/80 to-transparent" />
-          </div>
-
-          {/* Ambient Lighting Layer */}
-          <div className={`absolute -right-16 -top-16 h-64 w-64 rounded-full ${promoSlides[currentSlide].accentGlow} blur-3xl transition-all duration-700 pointer-events-none z-10`} />
-
-          {/* Slide Progress Metabar */}
-          <div className="absolute top-0 inset-x-0 h-1 bg-white/10 flex gap-1 z-20">
-            {promoSlides.map((_, idx) => (
-              <div 
-                key={idx} 
-                className={`h-full transition-all duration-500 flex-1 ${idx === currentSlide ? 'bg-blue-500' : 'bg-transparent'}`}
-              />
+          {/* Sliding Track Viewport */}
+          <div className="absolute inset-0 z-0 flex transition-transform duration-700 ease-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            {promoSlides.map((slide, idx) => (
+              <div key={idx} className="relative w-full h-full flex-shrink-0">
+                <img 
+                  src={slide.imageUrl} 
+                  alt={slide.title}
+                  className="w-full h-full object-cover"
+                />
+                {/* <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient}`} /> */}
+                
+                {/* Scaled-up Ambient Radial Backglow */}
+                {/* <div className={`absolute -right-20 -top-20 h-96 w-96 rounded-full ${slide.accentGlow} blur-[120px] pointer-events-none`} /> */}
+              </div>
             ))}
           </div>
 
-          {/* Top Meta Badge Block */}
-          <div className="relative z-10">
-            <span className="inline-flex items-center rounded-md bg-blue-600 text-white px-2 py-0.5 text-[9px] font-black uppercase tracking-wider shadow-xs">
+          {/* Top Row: Meta Badge & Indicators */}
+          <div className="relative z-10 flex items-center justify-between w-full">
+            <span className={`inline-flex items-center rounded-full ${promoSlides[currentSlide].badgeBg} text-white px-3.5 py-1 text-[10px] font-black uppercase tracking-widest shadow-lg`}>
               {promoSlides[currentSlide].badge}
             </span>
+            
+            {/* Glassmorphic Dots Framework */}
+            <div className="flex gap-1.5 backdrop-blur-md bg-black/20 px-3 py-2 rounded-full border border-white/5">
+              {promoSlides.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${idx === currentSlide ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/60'}`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* Content Transition Box */}
-          <div className="relative z-10 max-w-xs sm:max-w-md my-auto pt-2">
-            <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-white leading-tight drop-shadow-xs">
-              {promoSlides[currentSlide].title}
+          {/* Elevated Content Block for Larger Heights */}
+          <div className="relative z-10 max-w-xs sm:max-w-2xl mt-auto pb-4 lg:pb-6">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.1] drop-shadow-md transition-all duration-500">
+              {/* {promoSlides[currentSlide].title} */}
             </h1>
-            <p className="mt-1 sm:mt-2 text-[10px] xs:text-xs sm:text-sm text-slate-200 leading-normal font-semibold max-w-[90%] drop-shadow-xs">
-              {promoSlides[currentSlide].subtitle}
+            <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-200/90 leading-relaxed font-medium max-w-[90%] drop-shadow-sm">
+              {/* {promoSlides[currentSlide].subtitle} */}
             </p>
-            <div className="mt-3 sm:mt-5">
-              <button className="inline-flex items-center gap-1 rounded-lg bg-blue-600 px-4 py-2 text-[10px] sm:text-xs font-bold text-white shadow-xs transition-all hover:bg-blue-700 active:scale-98 uppercase tracking-wider cursor-pointer group/btn">
+            <div className="mt-6 sm:mt-8">
+              <button className="inline-flex items-center gap-2.5 rounded-xl bg-white px-6 py-3.5 text-xs font-black text-slate-950 shadow-xl transition-all hover:bg-slate-100 hover:shadow-white/5 active:scale-95 uppercase tracking-wider cursor-pointer group/btn">
                 <span>{promoSlides[currentSlide].cta}</span>
-                <ArrowRight className="h-3 w-3 transition-transform group-hover/btn:translate-x-0.5" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1 text-slate-950" />
               </button>
             </div>
           </div>
 
-          {/* Manual Arrow Slider Controllers */}
-          <div className="absolute bottom-4 right-4 flex items-center gap-1 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {/* Manual Slider Arrows */}
+          <div className="absolute bottom-6 right-6 flex items-center gap-2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <button 
               onClick={prevSlide}
-              className="h-6 w-6 rounded-md bg-slate-900/90 border border-white/10 hover:bg-slate-800 flex items-center justify-center text-white transition-all cursor-pointer"
+              className="h-9 w-9 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:bg-white/10 flex items-center justify-center text-white transition-all cursor-pointer shadow-lg"
               aria-label="Previous Slide"
             >
-              <ArrowLeft className="h-3 w-3" />
+              <ArrowLeft className="h-4 w-4" />
             </button>
             <button 
               onClick={nextSlide}
-              className="h-6 w-6 rounded-md bg-slate-900/90 border border-white/10 hover:bg-slate-800 flex items-center justify-center text-white transition-all cursor-pointer"
+              className="h-9 w-9 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:bg-white/10 flex items-center justify-center text-white transition-all cursor-pointer shadow-lg"
               aria-label="Next Slide"
             >
-              <ArrowRight className="h-3 w-3" />
+              <ArrowRight className="h-4 w-4" />
             </button>
           </div>
         </main>
 
-        {/* ================= RIGHT SIDEBAR: ADAPTED CARDS ================= */}
-        <aside className="col-span-1 lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 items-stretch lg:max-h-[350px]">
+        {/* ================= RIGHT SIDEBAR: CORRESPONDING TALL CARDS ================= */}
+        <aside className="col-span-1 lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 items-stretch lg:max-h-[480px]">
           
-          {/* Service Banner Top Row */}
-          <div className="bg-white rounded-xl border border-slate-200/80 p-4 flex flex-col justify-between shadow-xs group">
-            <div className="flex gap-3 items-start">
-              <div className="h-8 w-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center shrink-0">
-                <ShieldCheck className="h-4.5 w-4.5" />
+          {/* Service Banner 1 */}
+          <div className=" rounded-2xl border border-blue-500/20 p-6 flex flex-col justify-between shadow-xl group relative overflow-hidden">
+            <div className="absolute inset-0 bg-blue-500/[0.02] mix-blend-overlay pointer-events-none" />
+            <div className="flex gap-4 items-start relative z-10">
+              <div className="h-10 w-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center shrink-0 border border-blue-500/20 shadow-inner">
+                <ShieldCheck className="h-5.5 w-5.5" />
               </div>
-              <div className="space-y-0.5">
-                <h4 className="text-xs font-black text-slate-900">100% Secure Escrow</h4>
-                <p className="text-[11px] text-slate-500 leading-normal font-medium">
-                  Funds held securely in non-custodial custody until inspection bounds clear.
+              <div className="space-y-1.5">
+                <h4 className="text-xs font-black text-white tracking-wide uppercase">100% Secure Escrow</h4>
+                <p className="text-[12px] sm:text-[13px] text-slate-800 leading-relaxed font-medium">
+                  Funds held safely via smart contract frameworks until verification clearings pass completely.
                 </p>
               </div>
             </div>
-            <a href="#" className="text-[11px] font-bold text-blue-600 group-hover:text-blue-700 inline-flex items-center gap-0.5 mt-2 self-start">
+            <a href="#" className="text-[11px] font-bold text-blue-400 group-hover:text-blue-300 inline-flex items-center gap-1 mt-6 self-start transition-colors relative z-10">
               <span>Learn protection protocols</span>
-              <ChevronRight className="h-3 w-3" />
+              <ChevronRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
 
-          {/* Service Banner Bottom Row */}
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50/60 rounded-xl border border-amber-200/60 p-4 flex flex-col justify-between shadow-xs group">
-            <div className="flex gap-3 items-start">
-              <div className="h-8 w-8 bg-amber-500 text-white rounded-lg flex items-center justify-center shrink-0 shadow-xs">
-                <Truck className="h-4.5 w-4.5" />
+          {/* Service Banner 2 */}
+          <div className=" rounded-2xl border border-amber-500/20 p-6 flex flex-col justify-between shadow-xl group relative overflow-hidden">
+            <div className="absolute inset-0 bg-amber-500/[0.02] mix-blend-overlay pointer-events-none" />
+            <div className="flex gap-4 items-start relative z-10">
+              <div className="h-10 w-10 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center shrink-0 border border-amber-500/20 shadow-inner">
+                <Truck className="h-5.5 w-5.5" />
               </div>
-              <div className="space-y-0.5">
-                <h4 className="text-xs font-black text-amber-900">Verified Delivery Systems</h4>
-                <p className="text-[11px] text-amber-800/80 leading-normal font-medium">
-                  Direct dispatch options matching transit routing vectors locally.
+              <div className="space-y-1.5">
+                <h4 className="text-xs font-black text-white tracking-wide uppercase">Verified Delivery Systems</h4>
+                <p className="text-[12px] sm:text-[13px] text-slate-800 leading-relaxed font-medium">
+                  Real-time direct shipping with active routing bounds localized straight to your coordinates.
                 </p>
               </div>
             </div>
-            <a href="#" className="text-[11px] font-bold text-amber-700 group-hover:text-amber-900 inline-flex items-center gap-0.5 mt-2 self-start">
+            <a href="#" className="text-[11px] font-bold text-amber-400 group-hover:text-amber-300 inline-flex items-center gap-1 mt-6 self-start transition-colors relative z-10">
               <span>Check rates matrix</span>
-              <ChevronRight className="h-3 w-3" />
+              <ChevronRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
 

@@ -12,7 +12,7 @@ import { toggleWishlist } from '@/store/slices/wishlistSlice';
 
 interface ProductCardProps {
   product: Product;
-  onViewDetails?: (product: Product) => void; // Maintained for custom analytics/logging if needed
+  onViewDetails?: (product: Product) => void;
 }
 
 export default function ProductCard({
@@ -35,28 +35,31 @@ export default function ProductCard({
   const productDetailsUrl = `/products/${product.id}`;
 
   return (
-    <div className="group bg-white rounded-xl border border-slate-200 p-3 flex flex-col justify-between transition-all duration-200 hover:shadow-lg hover:border-slate-300">
+    <div className="group bg-white rounded-2xl border border-slate-100 p-3.5 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/[0.04] hover:border-slate-200/80">
       
       {/* ================= IMAGE WINDOW CONTAINER ================= */}
-      <Link href={productDetailsUrl} className="relative aspect-square w-full rounded-lg bg-slate-50 overflow-hidden mb-2.5 block cursor-pointer">
+      <Link 
+        href={productDetailsUrl} 
+        className="relative aspect-square w-full rounded-xl bg-gradient-to-b from-slate-50 to-slate-100/50 overflow-hidden mb-3 block cursor-pointer"
+      >
         <img
           src={product.imageUrl}
           alt={product.title}
           loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-104"
         />
 
-        {/* Floating Percentage Discount Badge */}
+        {/* Floating Percentage Discount Badge — Upgraded with Gradient */}
         {discount > 0 && (
-          <span className="absolute top-2 left-2 rounded-md bg-red-600 px-1.5 py-0.5 text-[9px] font-black text-white tracking-wide shadow-xs">
-            -{discount}% OFF
+          <span className="absolute top-2.5 left-2.5 rounded-lg bg-gradient-to-r from-rose-600 to-red-500 px-2 py-0.5 text-[9px] font-black text-white tracking-wider shadow-sm uppercase">
+            {discount}% OFF
           </span>
         )}
 
-        {/* Verified Merchant/Official Store Badge */}
+        {/* Verified Merchant/Official Store Badge — Premium Glassmorphism Accent */}
         {product.isOfficialStore && (
-          <span className="absolute bottom-2 left-2 bg-blue-600 text-white text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded-md shadow-xs flex items-center gap-0.5">
-            <CheckCircle2 className="h-2 w-2 fill-white text-blue-600" />
+          <span className="absolute bottom-2.5 left-2.5 bg-blue-600/90 text-white text-[8px] font-black uppercase tracking-wider px-2 py-1 rounded-md shadow-xs flex items-center gap-1 backdrop-blur-xs">
+            <CheckCircle2 className="h-2.5 w-2.5 fill-white text-blue-600" />
             Official Store
           </span>
         )}
@@ -65,19 +68,19 @@ export default function ProductCard({
       {/* ================= META FIELDS BLOCK ================= */}
       <div className="flex flex-col flex-1">
         {/* Brand Label Context */}
-        <span className="text-[9px] font-black text-blue-600 uppercase tracking-wider mb-0.5">
+        <span className="text-[9px] font-black text-indigo-600 uppercase tracking-widest mb-1">
           {product.brand}
         </span>
         
-        {/* Component Title linked with Next.js dynamic detail route tracking */}
-        <Link href={productDetailsUrl} className="block cursor-pointer mb-1 h-8">
-          <h4 className="line-clamp-2 text-xs font-bold text-slate-800 leading-tight group-hover:text-blue-600 transition-colors">
+        {/* Title Node */}
+        <Link href={productDetailsUrl} className="block cursor-pointer mb-1.5 h-8">
+          <h4 className="line-clamp-2 text-xs font-bold text-slate-800 leading-snug group-hover:text-blue-600 transition-colors duration-200">
             {product.title}
           </h4>
         </Link>
 
         {/* Rating Star Vector Row */}
-        <div className="flex items-center gap-1 mb-2">
+        <div className="flex items-center gap-1.5 mb-2.5">
           <div className="flex items-center text-amber-400">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star
@@ -88,27 +91,26 @@ export default function ProductCard({
               />
             ))}
           </div>
-          <span className="text-[10px] font-bold text-slate-400">
-            ({product.reviewsCount})
+          <span className="text-[10px] font-bold text-slate-400 bg-slate-50 px-1.5 py-0.2 rounded-md">
+            {product.reviewsCount}
           </span>
         </div>
 
         {/* Leaf Subcategory Badge Indicator Tag */}
-        <div className="mb-2">
-          <span className="bg-slate-100 text-slate-500 text-[9px] font-bold px-1.5 py-0.5 rounded-md">
+        <div className="mb-3">
+          <span className="bg-indigo-50/60 text-indigo-600 border border-indigo-100/30 text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wide">
             {product.subCategory}
           </span>
         </div>
 
         {/* Pricing Matrix Stack */}
-        <div className="mt-auto pt-2 border-t border-slate-50">
-          <div className="flex items-baseline gap-1.5 flex-wrap">
-            <span className="text-sm font-black text-slate-950">
-              {/* Fallback pattern to catch numerical pricing safely */}
+        <div className="mt-auto pt-2.5 border-t border-slate-50">
+          <div className="flex items-baseline gap-2 flex-wrap">
+            <span className="text-sm font-black text-slate-950 bg-gradient-to-r from-slate-950 to-slate-800 bg-clip-text text-transparent">
               ₦{(product.price || 0).toLocaleString()}
             </span>
             {product.oldPrice && (
-              <span className="text-[11px] text-slate-400 line-through font-medium">
+              <span className="text-[11px] text-slate-400 line-through font-bold">
                 ₦{product.oldPrice.toLocaleString()}
               </span>
             )}
@@ -117,33 +119,37 @@ export default function ProductCard({
       </div>
 
       {/* ================= CARD ACTION CTA INTERACTION ROW ================= */}
-      <div className="mt-3.5 grid grid-cols-4 gap-1.5 border-t border-slate-100 pt-3">
+      <div className="mt-4 grid grid-cols-4 gap-1.5 border-t border-slate-100 pt-3">
         {/* Action: Add Product to Cart */}
         <button
           onClick={() => dispatch(addToCart(product))}
-          className="cursor-pointer col-span-2 inline-flex items-center justify-center gap-1 rounded-lg bg-blue-600 px-2 py-1.5 text-xs font-bold text-white transition-all hover:bg-blue-700 active:scale-95"
+          className="cursor-pointer col-span-2 inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-2 py-2 text-xs font-black text-white shadow-xs shadow-blue-600/10 transition-all hover:from-blue-700 hover:to-indigo-700 active:scale-97 tracking-wide uppercase"
         >
           <ShoppingCart className="h-3 w-3 stroke-[2.5]" />
           <span>Buy Now</span>
         </button>
         
-        {/* Navigation Detail Route Element Link */}
+        {/* Navigation Detail Route Handle */}
         <Link
           href={productDetailsUrl}
           onClick={() => onViewDetails?.(product)}
-          className="cursor-pointer col-span-1 inline-flex items-center justify-center gap-1 rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 hover:text-blue-600 active:scale-95"
+          className="cursor-pointer col-span-1 inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-500 transition-all hover:bg-slate-50 hover:text-blue-600 hover:border-blue-200 active:scale-95"
           aria-label="View Product Details"
         >
-          <Eye className="h-3 w-3" />
+          <Eye className="h-3.5 w-3.5" />
         </Link>
         
-        {/* Action: Toggle Product inside Wishlist Array Slice */}
+        {/* Action: Toggle Product with Reactive Color Palette Transitions */}
         <button
           onClick={() => dispatch(toggleWishlist(product))}
-          className="cursor-pointer col-span-1 inline-flex items-center justify-center gap-1 rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 hover:text-red-500 active:scale-95"
+          className={`cursor-pointer col-span-1 inline-flex items-center justify-center rounded-xl border transition-all active:scale-95
+            ${isWishlisted 
+              ? 'bg-rose-50 border-rose-200 text-rose-600 shadow-2xs' 
+              : 'bg-white border-slate-200 text-slate-400 hover:bg-rose-50/50 hover:text-rose-500 hover:border-rose-200'
+            }`}
           aria-label={isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
         >
-          <Heart className={`h-3 w-3 transition-colors ${isWishlisted ? 'fill-red-500 text-red-500 border-red-500' : ''}`} />
+          <Heart className={`h-3.5 w-3.5 transition-all duration-300 ${isWishlisted ? 'fill-rose-500 text-rose-600 scale-105' : ''}`} />
         </button>
       </div>
 
