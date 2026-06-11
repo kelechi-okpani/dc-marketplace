@@ -2,7 +2,10 @@
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, ArrowUpRight, Github, Twitter, Linkedin } from 'lucide-react';
+import { ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { FaGithub, FaXTwitter, FaLinkedinIn } from 'react-icons/fa6'; 
+import { MdOutlineShield, MdArrowOutward } from 'react-icons/md';
+
 
 interface FooterLink {
   label: string;
@@ -111,9 +114,9 @@ export default function Footer() {
           {/* Social Connections Tray */}
           <div className="flex items-center gap-2.5 order-1 sm:order-2">
             {[
-              { icon: Twitter, href: '#', label: 'Twitter Profile' },
-              { icon: Linkedin, href: '#', label: 'LinkedIn Page' },
-              { icon: Github, href: '#', label: 'GitHub Repository' },
+              { icon: FaXTwitter, href: '#', label: 'Twitter Profile' },
+              { icon: FaLinkedinIn, href: '#', label: 'LinkedIn Page' },
+              { icon: FaGithub, href: '#', label: 'GitHub Repository' },
             ].map((social, idx) => {
               const Icon = social.icon;
               return (
