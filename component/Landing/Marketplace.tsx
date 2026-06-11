@@ -157,7 +157,10 @@ export default function MarketplaceHome() {
         {activeTab === 'products' ?
 
         <div>
+        <ProductDealCarousel title='Jessica Store' products={paginatedProducts} storeId={'08y92y924'}/>   
+
         <FlashDealsMarquee/>
+
         <ProductGrid
             products={paginatedProducts}
             currentPage={currentPage}
@@ -166,9 +169,10 @@ export default function MarketplaceHome() {
             onResetFilters={resetAllFilters}
             onViewDetails={(prod) => console.log('Details preview triggered:', prod.id)}
             /> 
+
         <FlashDealsMarquee/>
 
-         <ProductDealCarousel title='flash deals' products={paginatedProducts} storeId={'08y92y924'}/>   
+         <ProductDealCarousel title='Kelvin ELectronics' products={paginatedProducts} storeId={'08y92y924'}/>   
         </div>
            
   : 

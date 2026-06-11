@@ -108,10 +108,10 @@ const products: FlashProduct[] = [
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full overflow-hidden mb-6">
+    <div className="flex flex-col gap-4 w-full overflow-hidden mb-6 ">
       
       {/* ================= HEADER SECTION ================= */}
-      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 mt-6">
         <div>
           <h3 className="text-lg font-black tracking-tight text-slate-900">⚡ Trending Flash Deals</h3>
           <p className="text-xs text-slate-500 font-medium">Secured markdown drops updating live</p>

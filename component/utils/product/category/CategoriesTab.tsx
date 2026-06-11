@@ -15,7 +15,7 @@ interface CategoryItem {
 
 
 const CATEGORY_IMAGE_REGISTRY: Record<string, string> = {
-  'official-store': '/categories/office.png',
+  'official-store': '/categories/office.jpg',
   'appliances': '/categories/appliances.jpg',
   'phones-tablets': '/categories/phones.jpg',
   'health-beauty': '/categories/beauty.jpg',
@@ -75,7 +75,7 @@ export default function CategoriesTab() {
               <Link
                 key={cat.id}
                 href={`/categories/${cat.id}`}
-                className="flex flex-col items-center text-center space-y-2 shrink-0 w-[115px] xs:w-[135px] sm:w-[148px] md:w-[160px] group/item focus:outline-hidden"
+                className="flex flex-col items-center text-center space-y-4 shrink-0 w-[115px] xs:w-[135px] sm:w-[148px] md:w-[160px] group/item focus:outline-hidden"
               >
                 {/* 
                   Square Container Edge-to-Edge Imagery Layout

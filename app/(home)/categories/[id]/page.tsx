@@ -161,7 +161,7 @@ export default function CategoryViewScreen({ params }: CategoryViewScreenProps) 
 
       <div className="mx-auto max-w-[1400px] px-4 pt-4 mb-2">
         <Link 
-          href="/categories"
+          href="/"
           className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-600 transition-colors"
         >
           <ArrowLeft className="h-3.5 w-3.5" />

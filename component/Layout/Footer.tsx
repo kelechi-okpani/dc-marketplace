@@ -107,7 +107,7 @@ export default function Footer() {
           
           {/* Copyright Context Statement */}
           <p className="text-[11px] font-medium text-slate-400 text-center sm:text-left order-2 sm:order-1">
-            &copy; {currentYear} NairaMarket. Fully secure multi-role settlement architecture. All protective escrow rights reserved.
+            &copy; {currentYear} DC Marketplace. Fully secure multi-role settlement architecture. All protective escrow rights reserved.
           </p>
 
           {/* Social Connections Tray */}
