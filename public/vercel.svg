@@ -1,1 +1,24 @@
-<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 140" width="100%" height="100%" fill="none">
+  <!-- Transparent Canvas Wrapper with safe horizontal clearance boundaries -->
+  <rect width="720" height="140" fill="transparent"/>
+
+  <!-- Left Side Badge: Balanced, compact scale to match lower height profile -->
+  <g transform="translate(15, 10) scale(0.75)">
+    <!-- Intersecting "D" Link Structure -->
+    <path d="M50 40 H110 C150 40 170 65 170 100 C170 135 150 160 110 160 H50 V40 Z" fill="#1E40AF" opacity="0.85"/>
+    <!-- Intersecting Escrow "C" Ring Structure -->
+    <path d="M130 60 C100 60 85 80 85 100 C85 120 100 140 130 140 H160 V165 H130 C75 165 45 135 45 100 C45 65 75 35 130 35 H160 V60 H130 Z" fill="#059669"/>
+    <!-- Central Protection Sign-off Mark -->
+    <path d="M105 100 L120 115 L145 85" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Right Side Typography Engine: Shifts right and scales safely inside grid limits -->
+  <g font-family="system-ui, -apple-system, sans-serif">
+    <!-- Primary Headings (Shifted right to x=185 to completely clear the emblem) -->
+    <text x="185" y="72" font-size="46" font-weight="900" fill="#0F172A" letter-spacing="1">DC</text>
+    <text x="265" y="72" font-size="46" font-weight="400" fill="#1E40AF" letter-spacing="0.5">MARKETPLACE</text>
+    
+    <!-- Sub-text Ecosystem Tracker -->
+    <text x="188" y="106" font-size="11.5" font-weight="700" fill="#64748B" letter-spacing="5">PRODUCTS • SERVICES • ESCROW</text>
+  </g>
+</svg>
