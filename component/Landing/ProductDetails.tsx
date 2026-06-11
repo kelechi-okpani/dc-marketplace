@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { 
-  ChevronRight, Heart, Facebook, Share2, Star, 
+  ChevronRight, Heart, Share2, Star, 
   AlertCircle, ShoppingCart, MessageSquare, Truck, 
   RotateCcw, Phone 
 } from 'lucide-react';
@@ -86,7 +86,7 @@ export default function ProductDetail() {
               </span>
               <div className="flex items-center gap-2">
                 <button type="button" className="p-2 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors text-blue-600 cursor-pointer">
-                  <Facebook className="h-4 w-4 fill-current" />
+                  {/* <Facebook className="h-4 w-4 fill-current" /> */}
                 </button>
                 <button type="button" className="p-2 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors text-slate-800 cursor-pointer">
                   <Share2 className="h-4 w-4" />

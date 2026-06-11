@@ -338,9 +338,7 @@ export default function CategoryViewScreen({ params }: CategoryViewScreenProps) 
               totalPages={totalPages}
               onPageChange={setCurrentPage}
               onResetFilters={resetAllFilters}
-              onBuyNow={(p) => console.log('Checkout Stream entry:', p.id)}
               onViewDetails={(p) => console.log('Detail Modal active:', p.id)}
-              onToggleWishlist={(p) => console.log('Wishlist Mutation:', p.id)}
             />
           </section>
 

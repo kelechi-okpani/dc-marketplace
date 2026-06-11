@@ -397,9 +397,7 @@ export default function StoreFrontPage({ params }: { params: { id: string } }) {
               totalPages={totalPages}
               onPageChange={setCurrentPage}
               onResetFilters={resetAllFilters}
-              onBuyNow={(prod) => console.log('Cart transaction hook input:', prod.id)}
               onViewDetails={(prod) => console.log('Details module triggered:', prod.id)}
-              onToggleWishlist={(prod) => console.log('Wishlist status inverted:', prod.id)}
             />
           </section>
 

@@ -7,6 +7,7 @@ import ProductDealCarousel from '../utils/product/Merchant/Merchant';
 import ServiceGrid_ from '../utils/service/ServiceGrid_';
 
 
+
 export default function MarketplaceHome() {
   const [activeTab, setActiveTab] = useState<'products' | 'services'>('products');
  // Navigation Filter Matrix States
@@ -19,7 +20,7 @@ export default function MarketplaceHome() {
   const [minRating, setMinRating] = useState<number | null>(null);
   const [onlyOfficial, setOnlyOfficial] = useState<boolean>(false);
   const [sortBy, setSortBy] = useState<string>('popularity');
-  const [showMobileFilters, setShowMobileFilters] = useState<boolean>(false);
+
   
   // Track which category's accordion is expanded in the sidebar view
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
@@ -163,11 +164,10 @@ export default function MarketplaceHome() {
             totalPages={totalPages}
             onPageChange={setCurrentPage}
             onResetFilters={resetAllFilters}
-            onBuyNow={(prod) => console.log('Cart stream entry:', prod.id)}
             onViewDetails={(prod) => console.log('Details preview triggered:', prod.id)}
-            onToggleWishlist={(prod) => console.log('Wishlist mutated:', prod.id)}
             /> 
         <FlashDealsMarquee/>
+
          <ProductDealCarousel title='flash deals' products={paginatedProducts} storeId={'08y92y924'}/>   
         </div>
            

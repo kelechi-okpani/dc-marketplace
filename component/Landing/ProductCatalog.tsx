@@ -347,9 +347,7 @@ export default function ProductCatalogPage() {
                     totalPages={totalPages}
                     onPageChange={setCurrentPage}
                     onResetFilters={resetAllFilters}
-                    onBuyNow={(prod) => console.log('Cart stream entry:', prod.id)}
                     onViewDetails={(prod) => console.log('Details preview triggered:', prod.id)}
-                    onToggleWishlist={(prod) => console.log('Wishlist mutated:', prod.id)}
                 />
           </section>
 
