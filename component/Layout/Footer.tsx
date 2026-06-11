@@ -17,7 +17,6 @@ interface FooterSection {
   title: string;
   links: FooterLink[];
 }
-
 const footerData: FooterSection[] = [
   {
     title: 'Marketplace',
