@@ -24,8 +24,8 @@ export default function WishlistPage() {
     <div className="min-h-screen bg-[#f8fafc] text-slate-900 antialiased py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       
       {/* Decorative Ambient Background Gradients */}
-      <div className="absolute top-0 right-0 h-[380px] w-[380px] rounded-full bg-gradient-to-br from-rose-400/10 to-orange-400/5 blur-[110px] pointer-events-none z-0" />
-      <div className="absolute bottom-20 left-[-60px] h-[320px] w-[320px] rounded-full bg-gradient-to-tr from-violet-400/5 to-indigo-400/10 blur-[95px] pointer-events-none z-0" />
+      <div className="absolute top-0 right-0 h-[380px] w-[380px] rounded-full bg-gradient-to-br from-emerald-400/10 to-teal-400/5 blur-[110px] pointer-events-none z-0" />
+      <div className="absolute bottom-20 left-[-60px] h-[320px] w-[320px] rounded-full bg-gradient-to-tr from-teal-400/5 to-emerald-400/10 blur-[95px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -33,7 +33,7 @@ export default function WishlistPage() {
         <div className="mb-6">
           <Link 
             href="/" 
-            className="inline-flex items-center gap-1.5 text-xs font-black text-slate-500 hover:text-rose-600 transition-colors uppercase tracking-wider group"
+            className="inline-flex items-center gap-1.5 text-xs font-black text-slate-500 hover:text-emerald-600 transition-colors uppercase tracking-wider group"
           >
             <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
             Back to Marketplace
@@ -43,11 +43,11 @@ export default function WishlistPage() {
         {/* Header Zone */}
         <header className="border-b border-slate-200/80 pb-6 mb-10">
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-950 flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-rose-500 via-rose-500 to-orange-500 text-white flex items-center justify-center shadow-md shadow-rose-500/15 animate-pulse">
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-600 via-emerald-600 to-teal-600 text-white flex items-center justify-center shadow-md shadow-emerald-600/15 animate-pulse">
               <Heart className="h-5 w-5 fill-white/20" />
             </div>
             Your Wishlist
-            <span className="text-sm font-black bg-rose-50 text-rose-600 px-3 py-1 rounded-full border border-rose-100 ml-1">
+            <span className="text-sm font-black bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full border border-emerald-100 ml-1">
               {wishlistItems.length} {wishlistItems.length === 1 ? 'Item' : 'Items'}
             </span>
           </h1>
@@ -59,7 +59,7 @@ export default function WishlistPage() {
         {/* Wishlist Conditional Layout Grid */}
         {wishlistItems.length === 0 ? (
           <div className="w-full bg-white border border-dashed border-slate-300 rounded-3xl p-16 flex flex-col items-center text-center max-w-xl mx-auto my-12 shadow-xl shadow-slate-200/50">
-            <div className="h-16 w-16 bg-gradient-to-tr from-rose-50 to-orange-50 text-rose-500 border border-rose-100 rounded-2xl flex items-center justify-center mb-5 shadow-inner">
+            <div className="h-16 w-16 bg-gradient-to-tr from-emerald-50 to-teal-50 text-emerald-600 border border-emerald-100 rounded-2xl flex items-center justify-center mb-5 shadow-inner">
               <Heart className="h-7 w-7" />
             </div>
             <h3 className="text-base font-black text-slate-900 uppercase tracking-wide">Your wishlist is empty</h3>
@@ -68,7 +68,7 @@ export default function WishlistPage() {
             </p>
             <Link 
               href="/" 
-              className="bg-gradient-to-r from-rose-600 to-orange-600 hover:from-rose-500 hover:to-orange-500 text-white font-black text-xs uppercase tracking-widest py-3 px-8 rounded-xl transition-all shadow-md shadow-rose-600/10 active:scale-98"
+              className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs uppercase tracking-widest py-3 px-8 rounded-xl transition-all shadow-md shadow-emerald-600/10 active:scale-98"
             >
               Browse Catalog
             </Link>
@@ -78,13 +78,13 @@ export default function WishlistPage() {
             {wishlistItems.map((product) => (
               <div 
                 key={product.id}
-                className="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-rose-200 hover:shadow-xl hover:shadow-rose-950/5 transition-all duration-300 transform hover:-translate-y-0.5"
+                className="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-950/5 transition-all duration-300 transform hover:-translate-y-0.5"
               >
                 {/* Delete Overlay Handle */}
                 <button 
                   type="button"
                   onClick={() => dispatch(toggleWishlist(product))}
-                  className="absolute top-3 right-3 z-20 h-8 w-8 bg-white/90 backdrop-blur-md border border-slate-200/60 text-slate-400 hover:text-rose-600 rounded-xl flex items-center justify-center transition-all shadow-xs cursor-pointer hover:scale-105 active:scale-95"
+                  className="absolute top-3 right-3 z-20 h-8 w-8 bg-white/90 backdrop-blur-md border border-slate-200/60 text-slate-400 hover:text-emerald-600 rounded-xl flex items-center justify-center transition-all shadow-xs cursor-pointer hover:scale-105 active:scale-95"
                   aria-label="Remove from Wishlist"
                 >
                   <Trash2 className="h-4 w-4" />
@@ -106,16 +106,16 @@ export default function WishlistPage() {
                 {/* Info & Cart Migration Block */}
                 <div className="p-4 flex-1 flex flex-col justify-between bg-white relative z-10">
                   <div className="space-y-1.5">
-                    <span className="inline-block text-[9px] font-black tracking-widest text-rose-600 bg-rose-50 border border-rose-100/60 px-2 py-0.5 rounded-md uppercase">
+                    <span className="inline-block text-[9px] font-black tracking-widest text-emerald-600 bg-emerald-50 border border-emerald-100/60 px-2 py-0.5 rounded-md uppercase">
                       {product.brand}
                     </span>
-                    <h3 className="text-xs sm:text-sm font-black text-slate-900 line-clamp-2 leading-snug tracking-tight group-hover:text-rose-950 transition-colors">
+                    <h3 className="text-xs sm:text-sm font-black text-slate-900 line-clamp-2 leading-snug tracking-tight group-hover:text-emerald-950 transition-colors">
                       {product.title}
                     </h3>
                   </div>
 
                   <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between gap-2">
-                    <span className="text-sm font-black text-slate-950 tracking-tight bg-gradient-to-r from-slate-950 to-rose-950 bg-clip-text">
+                    <span className="text-sm font-black text-slate-950 tracking-tight bg-gradient-to-r from-slate-950 to-emerald-950 bg-clip-text">
                       {formatNaira(product.price)}
                     </span>
 
@@ -123,11 +123,10 @@ export default function WishlistPage() {
                       type="button"
                       onClick={() => {
                         dispatch(addToCart(product));
-                        // Optional: dispatch(toggleWishlist(product));
                       }}
-                      className="h-9 px-3 rounded-xl border border-indigo-200 bg-indigo-50/50 text-indigo-600 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-violet-600 hover:text-white font-black text-[11px] uppercase tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-md hover:shadow-indigo-600/10 active:scale-97 group/btn"
+                      className="h-9 px-3 rounded-xl border border-emerald-200 bg-emerald-50/50 text-emerald-600 hover:bg-gradient-to-r hover:from-emerald-600 hover:to-teal-600 hover:text-white font-black text-[11px] uppercase tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-md hover:shadow-emerald-600/10 active:scale-97 group/btn"
                     >
-                      <ShoppingBag className="h-3.5 w-3.5 text-indigo-500 group-hover/btn:text-indigo-200 transition-colors" />
+                      <ShoppingBag className="h-3.5 w-3.5 text-emerald-500 group-hover/btn:text-emerald-200 transition-colors" />
                       <span>To Cart</span>
                     </button>
                   </div>

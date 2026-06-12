@@ -42,7 +42,6 @@ const filterTags = [
   "Plumbers",
 ];
 
-
 export default function ServiceGrid_ () {
   const [activeTag, setActiveTag] = useState("All Services");
   const [searchQuery, setSearchQuery] = useState("");
@@ -63,10 +62,8 @@ export default function ServiceGrid_ () {
   return (
     <div className="min-h-screen bg-[#f8fafc] pb-16">
       
-  
-
       {/* ================= 2. QUICK FILTER CHIPS ================= */}
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
+      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6">
         <div className="flex items-center gap-2 overflow-x-auto pb-3 no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none]">
           {filterTags.map((tag, idx) => (
             <button
@@ -74,8 +71,8 @@ export default function ServiceGrid_ () {
               onClick={() => setActiveTag(tag)}
               className={`rounded-xl px-4 py-2 text-xs font-bold transition-all shrink-0 cursor-pointer border ${
                 activeTag === tag
-                  ? 'bg-blue-600 border-blue-600 text-white shadow-xs'
-                  : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+                  ? 'bg-emerald-600 border-emerald-600 text-white shadow-xs'
+                  : 'bg-white border-slate-200 text-slate-600 hover:border-emerald-200 hover:bg-emerald-50/30 hover:text-emerald-700'
               }`}
             >
               {tag}
@@ -109,7 +106,7 @@ export default function ServiceGrid_ () {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-4 flex items-center justify-between">
           <div>
             <h2 className="text-sm font-black uppercase tracking-wider text-slate-400">Vetted Service Providers</h2>
-            <div className="h-0.5 w-8 bg-blue-600 mt-1 rounded-full" />
+            <div className="h-0.5 w-8 bg-emerald-600 mt-1 rounded-full" />
           </div>
           <span className="text-xs font-bold text-slate-400">
             {filteredArtisans.length} custom match{filteredArtisans.length !== 1 ? 'es' : ''} found
@@ -122,21 +119,21 @@ export default function ServiceGrid_ () {
               <Link 
                 key={artisan.id}
                 href={`/services/${artisan.id}`}
-                className="group relative flex flex-col rounded-2xl border border-gray-200 bg-white p-5 shadow-xs transition-all duration-200 hover:shadow-md hover:border-blue-200 cursor-pointer"
+                className="group relative flex flex-col rounded-2xl border border-gray-200 bg-white p-5 shadow-xs transition-all duration-200 hover:shadow-md hover:border-emerald-200 cursor-pointer"
               >
                 {/* Header Profile Info Row */}
                 <div className="flex items-start gap-4">
-                  <div className="relative h-14 w-14 flex-shrink-0 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-700 border-2 border-blue-50 group-hover:border-blue-500 transition-colors">
+                  <div className="relative h-14 w-14 flex-shrink-0 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-700 border-2 border-emerald-50 group-hover:border-emerald-500 transition-colors">
                     {artisan.name.split(' ').map(n => n[0]).join('')}
                     {artisan.isAvailable && (
-                      <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 ring-2 ring-white" />
+                      <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-white" />
                     )}
                   </div>
                   
                   <div className="flex-1">
                     <div className="flex items-center gap-1.5 flex-wrap">
-                      <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{artisan.name}</h3>
-                      <CheckCircle2 className="h-4 w-4 fill-blue-500 text-white shrink-0" />
+                      <h3 className="font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">{artisan.name}</h3>
+                      <CheckCircle2 className="h-4 w-4 fill-emerald-600 text-white shrink-0" />
                     </div>
                     <p className="text-xs font-medium text-gray-500 line-clamp-1">{artisan.role}</p>
                     
@@ -150,7 +147,7 @@ export default function ServiceGrid_ () {
                 </div>
 
                 {/* Pricing Rate Matrix Breakdown */}
-                <div className="my-5 rounded-xl bg-slate-50 p-3 flex items-center justify-between group-hover:bg-blue-50/40 transition-colors">
+                <div className="my-5 rounded-xl bg-slate-50 p-3 flex items-center justify-between group-hover:bg-emerald-50/40 transition-colors">
                   <div>
                     <span className="block text-[10px] font-bold uppercase tracking-wider text-gray-400">Starting Rate</span>
                     <span className="text-sm font-extrabold text-slate-900">
@@ -159,7 +156,7 @@ export default function ServiceGrid_ () {
                   </div>
                   <div className="text-right">
                     <span className="block text-[10px] font-bold uppercase tracking-wider text-gray-400">Availability</span>
-                    <span className={`text-xs font-semibold ${artisan.isAvailable ? 'text-green-600' : 'text-gray-400'}`}>
+                    <span className={`text-xs font-semibold ${artisan.isAvailable ? 'text-emerald-600' : 'text-gray-400'}`}>
                       {artisan.isAvailable ? 'Available Now' : 'Fully Booked'}
                     </span>
                   </div>
@@ -169,14 +166,14 @@ export default function ServiceGrid_ () {
                 <div className="mt-auto grid grid-cols-2 gap-3">
                   <button 
                     onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-xs font-bold text-gray-700 transition-colors hover:bg-slate-50 cursor-pointer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-xs font-bold text-gray-700 transition-colors hover:bg-slate-50 cursor-pointer hover:text-emerald-600 hover:border-emerald-100"
                   >
                     <MessageCircle className="h-3.5 w-3.5" />
                     Message
                   </button>
                   <button 
                     onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-blue-600 px-3 py-2.5 text-xs font-bold text-white transition-colors hover:bg-blue-700 shadow-xs cursor-pointer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-emerald-600 px-3 py-2.5 text-xs font-bold text-white transition-colors hover:bg-emerald-700 shadow-xs cursor-pointer"
                   >
                     <Calendar className="h-3.5 w-3.5" />
                     Quote
@@ -193,7 +190,7 @@ export default function ServiceGrid_ () {
             <p className="text-[11px] text-slate-400 mt-1">Try adjusting your keyword filter text or resetting your active trade category selector.</p>
             <button 
               onClick={() => { setSearchQuery(""); setActiveTag("All Services"); }}
-              className="mt-4 text-xs font-black text-blue-600 uppercase tracking-wider hover:text-blue-700 cursor-pointer"
+              className="mt-4 text-xs font-black text-emerald-600 uppercase tracking-wider hover:text-emerald-700 cursor-pointer"
             >
               Reset Filters
             </button>

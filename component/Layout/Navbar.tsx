@@ -8,7 +8,6 @@ import { ShoppingCart, Bell, MessageSquare, Search, Menu, X, User, Settings, Log
 import { useAppSelector } from '@/store/store';
 import { selectCartItemsCount, selectWishlistItemsCount } from '@/store/selectors';
 
-
 interface NavRoute {
   label: string;
   href: string;
@@ -70,10 +69,6 @@ export default function MainNavbar() {
             {/* ================= BRAND LOGO SECTION ================= */}
             <div className="flex flex-shrink-0 items-center">
               <Link href="/" className="group flex items-center focus:outline-none">
-                {/* 
-                  FIX: Rebalanced structural relative container. 
-                  Matches the ~8:1 aspect ratio of the height-reduced logo asset.
-                */}
                 <div className="relative h-7 w-48 sm:h-12 sm:w-56 md:w-60 transition-all">
                   <Image
                     src="/dc.svg"
@@ -96,12 +91,12 @@ export default function MainNavbar() {
                     key={route.href}
                     href={route.href}
                     className={`relative flex h-full items-center px-3.5 text-xs font-bold transition-all duration-200 ${
-                      isActive ? 'text-blue-600' : 'text-slate-600 hover:text-blue-600' 
+                      isActive ? 'text-emerald-600' : 'text-slate-600 hover:text-emerald-600' 
                     }`}
                   >
                     <span className="relative z-10">{route.label}</span>
                     {isActive && (
-                      <span className="absolute bottom-0 left-2 right-2 h-[3px] rounded-t-full bg-blue-600 origin-bottom" />
+                      <span className="absolute bottom-0 left-2 right-2 h-[3px] rounded-t-full bg-emerald-600 origin-bottom" />
                     )}
                   </Link>
                 );
@@ -111,47 +106,43 @@ export default function MainNavbar() {
             {/* ================= UTILITY TRAYS ================= */}
             <div className="flex items-center gap-1 sm:gap-2">
               
-              {/* Messages */}
-          
-              {/* Notifications */}
-               <Link 
-                href="/wislist"
-                className="rounded-full text-slate-500 hover:bg-slate-100 hover:text-blue-600 transition-all active:scale-95"
-                aria-label="Messages"
+              {/* Wishlist */}
+              <Link 
+                href="/wishlist"
+                className="rounded-full text-slate-500 hover:bg-slate-100 hover:text-emerald-600 transition-all active:scale-95"
+                aria-label="Wishlist"
               >
-                    <button 
-                      className="relative rounded-full p-2 text-slate-500 hover:bg-slate-100 hover:text-blue-600 transition-all active:scale-95 cursor-pointer"
-                      aria-label="wislist"
-                    >
-                      <Heart className="h-5 w-5 stroke-[2]" />
-                      {wishlistCount > 0 && (
-                      <span className="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-black text-white ring-2 ring-white animate-pulse">
-                        {wishlistCount}
-                      </span>
-                      )}
-                    </button>
-                </Link>
-
+                <button 
+                  className="relative rounded-full p-2 text-slate-500 hover:bg-slate-100 hover:text-emerald-600 transition-all active:scale-95 cursor-pointer"
+                  aria-label="Wishlist"
+                >
+                  <Heart className="h-5 w-5 stroke-[2]" />
+                  {wishlistCount > 0 && (
+                    <span className="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-black text-white ring-2 ring-white animate-pulse">
+                      {wishlistCount}
+                    </span>
+                  )}
+                </button>
+              </Link>
 
               {/* Shopping Cart */}
-               <Link 
+              <Link 
                 href="/cart"
-                className="rounded-full  text-slate-500 hover:bg-slate-100 hover:text-blue-600 transition-all active:scale-95"
+                className="rounded-full text-slate-500 hover:bg-slate-100 hover:text-emerald-600 transition-all active:scale-95"
                 aria-label="Cart"
               >
                 <button 
-                  className="relative rounded-full p-2 text-slate-500 hover:bg-slate-100 hover:text-blue-600 transition-all active:scale-95 cursor-pointer"
+                  className="relative rounded-full p-2 text-slate-500 hover:bg-slate-100 hover:text-emerald-600 transition-all active:scale-95 cursor-pointer"
                   aria-label="Cart"
                 >
                   <ShoppingCart className="h-5 w-5 stroke-[2]" />
                   {cartCount > 0 && (
-                  <span className="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600 text-[9px] font-black text-white ring-2 ring-white">
-                    {cartCount}
-                  </span>
+                    <span className="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-600 text-[9px] font-black text-white ring-2 ring-white">
+                      {cartCount}
+                    </span>
                   )}
                 </button>
-
-                 </Link>
+              </Link>
 
               <div className="hidden h-4 w-px bg-slate-200 sm:block mx-1.5" />
 
@@ -161,7 +152,7 @@ export default function MainNavbar() {
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
                   className="focus:outline-none flex items-center gap-1.5 p-1 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer"
                 >
-                  <div className="h-8 w-8 overflow-hidden rounded-xl bg-blue-600 shadow-sm border border-blue-700/10 flex items-center justify-center text-xs font-black text-white select-none transition-transform active:scale-95">
+                  <div className="h-8 w-8 overflow-hidden rounded-xl bg-emerald-600 shadow-sm border border-emerald-700/10 flex items-center justify-center text-xs font-black text-white select-none transition-transform active:scale-95">
                     KO
                   </div>
                 </button>
@@ -172,13 +163,13 @@ export default function MainNavbar() {
                       <p className="text-xs font-black text-slate-900 truncate">Kelechi Okpani</p>
                       <p className="text-[10px] font-medium text-slate-400 truncate mt-0.5">Buyer & Verified Provider</p>
                     </div>
-                    <Link href="/profile" className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors">
+                    <Link href="/profile" className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition-colors">
                       <User className="h-4 w-4 stroke-[2]" /> My Profile
                     </Link>
-                    <Link href="/escrow/dashboard" className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors">
+                    <Link href="/escrow/dashboard" className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition-colors">
                       <ShieldCheck className="h-4 w-4 stroke-[2]" /> Escrow Protection
                     </Link>
-                    <Link href="/settings" className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors">
+                    <Link href="/settings" className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition-colors">
                       <Settings className="h-4 w-4 stroke-[2]" /> Settings
                     </Link>
                     <hr className="my-1 border-slate-100" />
@@ -226,10 +217,6 @@ export default function MainNavbar() {
           {/* Top Panel Actions */}
           <div className="space-y-6">
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-              {/* 
-                FIX: Replaced static text branding system placeholder inside the mobile drawer 
-                with the actual height-reduced logo setup to maintain brand consistency.
-              */}
               <div className="relative h-7 w-40">
                 <Image
                   src="/dc.svg"
@@ -251,13 +238,13 @@ export default function MainNavbar() {
             {/* Responsive Fallback Search Input */}
             <form onSubmit={handleSearchSubmit} className="sm:hidden">
               <div className="relative group/mobsearch">
-                <Search className="absolute top-2.5 left-3.5 h-4 w-4 text-slate-400 transition-colors group-focus-within/mobsearch:text-blue-600" />
+                <Search className="absolute top-2.5 left-3.5 h-4 w-4 text-slate-400 transition-colors group-focus-within/mobsearch:text-emerald-600" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search products or services..."
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pr-4 pl-10 text-xs text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/10 transition-all"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pr-4 pl-10 text-xs text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500/10 transition-all"
                 />
               </div>
             </form>
@@ -273,8 +260,8 @@ export default function MainNavbar() {
                     onClick={() => setIsMobileOpen(false)}
                     className={`block rounded-xl px-4 py-3 text-sm font-bold transition-all ${
                       isActive
-                        ? 'bg-blue-50 text-blue-600'
-                        : 'text-slate-700 hover:bg-slate-50 hover:text-blue-600'
+                        ? 'bg-emerald-50 text-emerald-600'
+                        : 'text-slate-700 hover:bg-slate-50 hover:text-emerald-600'
                     }`}
                   >
                     {route.label}
@@ -287,7 +274,7 @@ export default function MainNavbar() {
           {/* Account Profile Summary Drawer Footer */}
           <div className="border-t border-slate-100 pt-4 flex items-center justify-between sm:hidden">
             <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xs font-black shadow-inner">
+              <div className="h-9 w-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-xs font-black shadow-inner">
                 KO
               </div>
               <div className="max-w-[140px]">

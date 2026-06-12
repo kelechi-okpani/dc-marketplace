@@ -4,8 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { ShieldCheck, ArrowUpRight } from 'lucide-react';
 import { FaGithub, FaXTwitter, FaLinkedinIn } from 'react-icons/fa6'; 
-import { MdOutlineShield, MdArrowOutward } from 'react-icons/md';
-
 
 interface FooterLink {
   label: string;
@@ -17,6 +15,7 @@ interface FooterSection {
   title: string;
   links: FooterLink[];
 }
+
 const footerData: FooterSection[] = [
   {
     title: 'Marketplace',
@@ -56,17 +55,16 @@ export default function Footer() {
           
           {/* Brand Descriptive Statement */}
           <div className="col-span-2 flex flex-col gap-3">
-             <Link href="/" className="group flex items-center font-sans tracking-tight">
-               <Image
-                  src="/dc.svg"
-                  alt="DC Marketplace Logo"
-                  width={400}     
-                  height={100}     
-                  priority       
-                  className="h-20 w-auto object-contain"
-                />
-               
-              </Link>
+            <Link href="/" className="group flex items-center font-sans tracking-tight">
+              <Image
+                src="/dc.svg"
+                alt="DC Marketplace Logo"
+                width={400}     
+                height={100}     
+                priority       
+                className="h-20 w-auto object-contain"
+              />
+            </Link>
             <p className="text-xs text-slate-500 leading-relaxed max-w-sm">
               Nigeria's dependable enterprise hybrid multi-role marketplace, delivering physical trades and on-demand verified services guarded by secure non-custodial escrow systems.
             </p>
@@ -90,7 +88,7 @@ export default function Footer() {
                       href={link.href}
                       target={link.isExternal ? '_blank' : undefined}
                       rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-slate-600 hover:text-blue-600 hover:translate-x-0.5 transition-all duration-200 ease-in-out"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-slate-600 hover:text-emerald-600 hover:translate-x-0.5 transition-all duration-200 ease-in-out"
                     >
                       {link.label}
                       {link.isExternal && <ArrowUpRight className="h-3 w-3 opacity-60" />}
@@ -123,9 +121,9 @@ export default function Footer() {
                   key={idx}
                   href={social.href}
                   aria-label={social.label}
-                  className="p-2 bg-white hover:bg-slate-100 border border-slate-200/60 text-slate-500 hover:text-blue-600 rounded-xl transition-all shadow-xs active:scale-95"
+                  className="p-2 bg-white hover:bg-slate-100 border border-slate-200/60 text-slate-500 hover:text-emerald-600 rounded-xl transition-all shadow-xs active:scale-95"
                 >
-                  <Icon className="h-4 w-4 stroke-[2]" />
+                  <Icon className="h-4 w-4" />
                 </a>
               );
             })}

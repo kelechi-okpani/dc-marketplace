@@ -8,8 +8,6 @@ import {
 } from 'lucide-react';
 import { mockProductDetails } from '../utils/data/mockProducts';
 
-
-
 export default function ProductDetail() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const [selectedVariation, setSelectedVariation] = useState<string>(mockProductDetails.variations[0]);
@@ -31,9 +29,9 @@ export default function ProductDetail() {
       <div className="bg-white border-b border-slate-200">
         <div className="mx-auto max-w-[1240px] px-4 py-3 flex items-center justify-between text-xs font-semibold text-slate-500">
           <div className="flex items-center gap-1.5 truncate">
-            <span className="hover:text-blue-600 cursor-pointer">Home</span>
+            <span className="hover:text-green-600 cursor-pointer">Home</span>
             <ChevronRight className="h-3 w-3" />
-            <span className="hover:text-blue-600 cursor-pointer uppercase">{mockProductDetails.category}</span>
+            <span className="hover:text-green-600 cursor-pointer uppercase">{mockProductDetails.category}</span>
             <ChevronRight className="h-3 w-3" />
             <span className="text-slate-800 truncate max-w-xs">{mockProductDetails.title}</span>
           </div>
@@ -60,7 +58,6 @@ export default function ProductDetail() {
                 alt={mockProductDetails.title}
                 className="object-cover w-full h-full transition-all duration-300"
               />
-            
             </div>
 
             {/* Thumbnail Carousel Strip */}
@@ -71,7 +68,7 @@ export default function ProductDetail() {
                   key={idx}
                   onClick={() => setSelectedImageIndex(idx)}
                   className={`w-20 h-16 rounded-md overflow-hidden bg-slate-50 border-2 transition-all shrink-0 cursor-pointer ${
-                    selectedImageIndex === idx ? 'border-blue-600 shadow-xs scale-95' : 'border-slate-200 hover:border-slate-400'
+                    selectedImageIndex === idx ? 'border-green-600 shadow-xs scale-95' : 'border-slate-200 hover:border-slate-400'
                   }`}
                 >
                   <img src={img} alt="Thumbnail preview" className="w-full h-full object-cover" />
@@ -85,14 +82,14 @@ export default function ProductDetail() {
                 Share this offering:
               </span>
               <div className="flex items-center gap-2">
-                <button type="button" className="p-2 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors text-blue-600 cursor-pointer">
-                  {/* <Facebook className="h-4 w-4 fill-current" /> */}
+                <button type="button" className="p-2 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors text-green-600 cursor-pointer">
+                  {/* Icon placeholder */}
                 </button>
                 <button type="button" className="p-2 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors text-slate-800 cursor-pointer">
                   <Share2 className="h-4 w-4" />
                 </button>
               </div>
-              <button type="button" className="text-xs font-bold text-slate-400 hover:text-blue-600 mt-4 block text-left transition-colors cursor-pointer">
+              <button type="button" className="text-xs font-bold text-slate-400 hover:text-green-600 mt-4 block text-left transition-colors cursor-pointer">
                 Report incorrect product information
               </button>
             </div>
@@ -103,12 +100,12 @@ export default function ProductDetail() {
             
             <div className="flex flex-wrap items-center gap-2">
               {mockProductDetails.isOfficialStore && (
-                <span className="bg-blue-600 text-white font-black uppercase text-[10px] tracking-wider px-2 py-0.5 rounded-sm">
+                <span className="bg-gradient-to-r from-emerald-600 to-green-600 text-white font-black uppercase text-[10px] tracking-wider px-2 py-0.5 rounded-sm">
                   Official Store
                 </span>
               )}
               <span className="text-xs text-slate-400 font-medium">
-                Brand: <span className="text-blue-600 font-bold hover:underline cursor-pointer">{mockProductDetails.brand}</span>
+                Brand: <span className="text-green-600 font-bold hover:underline cursor-pointer">{mockProductDetails.brand}</span>
               </span>
             </div>
 
@@ -124,7 +121,7 @@ export default function ProductDetail() {
                 ))}
               </div>
               <span className="text-xs font-black text-slate-800">{mockProductDetails.rating}</span>
-              <span className="text-xs text-blue-600 font-bold hover:underline cursor-pointer">
+              <span className="text-xs text-green-600 font-bold hover:underline cursor-pointer">
                 ({mockProductDetails.reviewCount} verified ratings)
               </span>
             </div>
@@ -161,7 +158,7 @@ export default function ProductDetail() {
                     onClick={() => setSelectedVariation(v)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all cursor-pointer ${
                       selectedVariation === v
-                        ? 'border-blue-600 bg-blue-50/50 text-blue-700 font-extrabold'
+                        ? 'border-green-600 bg-green-50/50 text-green-700 font-extrabold'
                         : 'border-slate-200 bg-white text-slate-600 hover:border-slate-400'
                     }`}
                   >
@@ -173,7 +170,7 @@ export default function ProductDetail() {
 
             {/* CORE TRANSACTION & INTERACTION STACK */}
             <div className="space-y-3 pt-2">
-              <button type="button" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black text-sm uppercase tracking-wider py-3 px-4 rounded-xl shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <button type="button" className="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-3 px-4 rounded-xl shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer">
                 <ShoppingCart className="h-4 w-4" />
                 <span>Add to Cart</span>
               </button>
@@ -192,7 +189,7 @@ export default function ProductDetail() {
                     </span>
                   </div>
                 </div>
-                <button type="button" className="inline-flex items-center gap-1.5 border border-blue-600 text-blue-600 hover:bg-blue-50 bg-white px-3 py-2 rounded-lg text-xs font-black tracking-wide uppercase transition-all shrink-0 cursor-pointer">
+                <button type="button" className="inline-flex items-center gap-1.5 border border-green-600 text-green-600 hover:bg-green-50 bg-white px-3 py-2 rounded-lg text-xs font-black tracking-wide uppercase transition-all shrink-0 cursor-pointer">
                   <MessageSquare className="h-3.5 w-3.5" />
                   <span>Message Merchant</span>
                 </button>
@@ -203,11 +200,11 @@ export default function ProductDetail() {
             <div className="border border-slate-200 rounded-xl overflow-hidden bg-white">
               <div className="bg-slate-50 px-4 py-2 flex items-center justify-between border-b border-slate-200">
                 <span className="text-[11px] font-black text-slate-500 uppercase tracking-wider">Cross-Sell Opportunity</span>
-                <span className="text-[10px] font-bold text-blue-600 hover:underline cursor-pointer">Details</span>
+                <span className="text-[10px] font-bold text-green-600 hover:underline cursor-pointer">Details</span>
               </div>
               <div className="p-4 flex items-start justify-between gap-4">
                 <div className="flex gap-3">
-                  <div className="h-9 w-12 bg-blue-900 rounded text-white font-black text-xs flex items-center justify-center tracking-tight shrink-0">
+                  <div className="h-9 w-12 bg-green-950 rounded text-white font-black text-xs flex items-center justify-center tracking-tight shrink-0">
                     {mockProductDetails.crossSell.logoText}
                   </div>
                   <div>
@@ -223,7 +220,7 @@ export default function ProductDetail() {
                   type="checkbox"
                   checked={includeCrossSell}
                   onChange={(e) => setIncludeCrossSell(e.target.checked)}
-                  className="h-4 w-4 rounded text-blue-600 border-slate-300 focus:ring-blue-500 cursor-pointer mt-1"
+                  className="h-4 w-4 rounded text-green-600 border-slate-300 focus:ring-green-500 cursor-pointer mt-1"
                 />
               </div>
               
@@ -250,7 +247,7 @@ export default function ProductDetail() {
                 <RotateCcw className="h-4 w-4 text-slate-400 shrink-0" />
                 <p className="font-medium">
                   {mockProductDetails.shippingInfo.returnPolicy}{' '}
-                  <span className="text-blue-600 font-bold hover:underline cursor-pointer">View details</span>
+                  <span className="text-green-600 font-bold hover:underline cursor-pointer">View details</span>
                 </p>
               </div>
             </div>
@@ -274,7 +271,7 @@ export default function ProductDetail() {
                 onClick={() => setActiveTab(tab)}
                 className={`px-6 py-3.5 text-xs font-black tracking-wide uppercase border-b-2 transition-all cursor-pointer ${
                   activeTab === tab
-                    ? 'border-blue-600 text-blue-600 bg-white font-black'
+                    ? 'border-green-600 text-green-600 bg-white font-black'
                     : 'border-transparent text-slate-400 hover:text-slate-700'
                 }`}
               >

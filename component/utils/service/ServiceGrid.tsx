@@ -68,18 +68,17 @@ export default function ServicesMarketplace() {
   }, [activeTag, searchQuery]);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 pb-24 selection:bg-indigo-600/10 selection:text-indigo-900 antialiased overflow-hidden">
+    <div className="min-h-screen bg-white text-slate-900 pb-24 selection:bg-emerald-600/10 selection:text-emerald-900 antialiased overflow-hidden">
       
       {/* ================= 1. PREMIUM RADIANT HERO HEADER ================= */}
       <header className="relative py-20 sm:py-28 border-b border-slate-100 bg-slate-50/50">
         
-        {/* Colorful High-Contrast Ambient Blur Rings */}
-        <div className="absolute -right-20 -top-20 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-indigo-500/10 to-purple-500/10 blur-[120px] pointer-events-none z-10" />
-        <div className="absolute left-[-100px] bottom-[-100px] h-[450px] w-[450px] rounded-full bg-gradient-to-tr from-emerald-500/10 to-cyan-500/10 blur-[100px] pointer-events-none z-10" />
+        {/* Colorful High-Contrast Ambient Blur Rings switched to Greens/Teals */}
+        <div className="absolute -right-20 -top-20 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-emerald-500/10 to-teal-500/10 blur-[120px] pointer-events-none z-10" />
+        <div className="absolute left-[-100px] bottom-[-100px] h-[450px] w-[450px] rounded-full bg-gradient-to-tr from-green-500/10 to-emerald-500/10 blur-[100px] pointer-events-none z-10" />
 
         {/* Hero Banner Background Graphic Mix */}
         <div className="absolute inset-0 z-0 opacity-75 select-none pointer-events-none mix-blend-multiply">
-          {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white z-10" /> */}
           <Image
             src="/hero/service.webp" 
             alt="Marketplace Freelancer Collaborative Banner"
@@ -93,13 +92,13 @@ export default function ServicesMarketplace() {
         {/* Main Content Content Frame */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-20 text-center space-y-6">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-indigo-50 border border-indigo-100 px-4 py-1.5 text-xs font-bold tracking-wide text-indigo-600 shadow-xs">
-              <Sparkles className="h-3.5 w-3.5 text-indigo-500 animate-pulse" />
+            <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-100 px-4 py-1.5 text-xs font-bold tracking-wide text-emerald-600 shadow-xs">
+              <Sparkles className="h-3.5 w-3.5 text-emerald-500 animate-pulse" />
               Verified Professional Ecosystem
             </span>
           </div>
           
-          <h1 className="text-4xl font-black tracking-tight sm:text-5xl md:text-6xl max-w-4xl mx-auto leading-tight bg-gradient-to-r from-slate-950 via-slate-800 to-indigo-950 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-black tracking-tight sm:text-5xl md:text-6xl max-w-4xl mx-auto leading-tight bg-gradient-to-r from-slate-950 via-slate-800 to-emerald-950 bg-clip-text text-transparent">
             Hire Elite Vetted Artisans & Freelancers
           </h1>
           
@@ -109,9 +108,9 @@ export default function ServicesMarketplace() {
 
           {/* Luxury Floating Input Hub */}
           <div className="max-w-2xl mx-auto pt-4 px-2 sm:px-0">
-            <div className="flex flex-col sm:flex-row gap-2.5 p-2 rounded-2xl bg-white border border-slate-200/80 shadow-xl shadow-indigo-900/5">
+            <div className="flex flex-col sm:flex-row gap-2.5 p-2 rounded-2xl bg-white border border-slate-200/80 shadow-xl shadow-emerald-900/5">
               <div className="relative flex-1 group flex items-center">
-                <Search className="absolute left-4 h-4 w-4 text-slate-400 group-focus-within:text-indigo-600 transition-colors" />
+                <Search className="absolute left-4 h-4 w-4 text-slate-400 group-focus-within:text-emerald-600 transition-colors" />
                 <input
                   type="text"
                   value={searchQuery}
@@ -129,7 +128,7 @@ export default function ServicesMarketplace() {
                 )}
               </div>
               
-              <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 px-6 py-3.5 text-xs font-black uppercase tracking-wider text-white transition-all active:scale-98 cursor-pointer shadow-lg shadow-indigo-600/20 shrink-0">
+              <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 px-6 py-3.5 text-xs font-black uppercase tracking-wider text-white transition-all active:scale-98 cursor-pointer shadow-lg shadow-emerald-600/20 shrink-0">
                 <SlidersHorizontal className="h-3.5 w-3.5" />
                 <span>Filters</span>
               </button>
@@ -149,8 +148,8 @@ export default function ServicesMarketplace() {
                 onClick={() => setActiveTag(tag)}
                 className={`rounded-xl px-5 py-2.5 text-xs font-bold tracking-wide transition-all duration-300 shrink-0 cursor-pointer border ${
                   isSelected
-                    ? 'bg-gradient-to-r from-indigo-600 to-violet-600 border-indigo-500 text-white shadow-md shadow-indigo-600/20 -translate-y-[1px]'
-                    : 'bg-slate-50 border-slate-200/60 text-slate-600 hover:text-indigo-600 hover:border-indigo-200 hover:bg-indigo-50/30'
+                    ? 'bg-gradient-to-r from-emerald-600 to-green-600 border-emerald-500 text-white shadow-md shadow-emerald-600/20 -translate-y-[1px]'
+                    : 'bg-slate-50 border-slate-200/60 text-slate-600 hover:text-emerald-600 hover:border-emerald-200 hover:bg-emerald-50/30'
                 }`}
               >
                 {tag}
@@ -184,7 +183,7 @@ export default function ServicesMarketplace() {
       <main className="mt-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-6 flex items-end justify-between">
           <div>
-            <span className="text-[10px] font-black uppercase tracking-widest text-indigo-600">Curated Talent Index</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-emerald-600">Curated Talent Index</span>
             <h2 className="text-base font-black text-slate-900 mt-0.5 tracking-tight">Verified Talents</h2>
           </div>
           <span className="text-xs font-bold text-slate-500 bg-slate-50 px-3 py-1 rounded-md border border-slate-100">
@@ -201,14 +200,14 @@ export default function ServicesMarketplace() {
                 <Link 
                   key={artisan.id}
                   href={`/services/${artisan.id}`}
-                  className="group relative flex flex-col rounded-2xl border border-slate-150 bg-white p-5 transition-all duration-300 hover:border-indigo-200 hover:bg-slate-50/30 cursor-pointer overflow-hidden hover:-translate-y-1 shadow-xs hover:shadow-xl hover:shadow-indigo-900/5"
+                  className="group relative flex flex-col rounded-2xl border border-slate-150 bg-white p-5 transition-all duration-300 hover:border-emerald-200 hover:bg-slate-50/30 cursor-pointer overflow-hidden hover:-translate-y-1 shadow-xs hover:shadow-xl hover:shadow-emerald-900/5"
                 >
                   {/* Subtle dynamic background color pop on hover */}
                   <div className={`absolute -top-12 -right-12 w-24 h-24 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-300 ${currentTheme.bg}`} />
 
                   {/* Header Profile Info Row */}
                   <div className="flex items-start gap-3.5">
-                    <div className="relative h-14 w-14 shrink-0 rounded-xl bg-slate-900 text-white flex items-center justify-center font-black text-sm border border-slate-800 transition-all group-hover:bg-indigo-600 group-hover:border-indigo-500 shadow-md shadow-slate-950/10">
+                    <div className="relative h-14 w-14 shrink-0 rounded-xl bg-slate-900 text-white flex items-center justify-center font-black text-sm border border-slate-800 transition-all group-hover:bg-emerald-600 group-hover:border-emerald-500 shadow-md shadow-slate-950/10">
                       {artisan.name.split(' ').map(n => n[0]).join('')}
                       {artisan.isAvailable && (
                         <span className="absolute -bottom-1 -right-1 h-3.5 w-3.5 rounded-full bg-emerald-500 ring-4 ring-white animate-pulse" />
@@ -217,8 +216,8 @@ export default function ServicesMarketplace() {
                     
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5 max-w-full">
-                        <h3 className="font-bold text-slate-900 text-sm group-hover:text-indigo-600 transition-colors truncate">{artisan.name}</h3>
-                        <CheckCircle2 className="h-3.5 w-3.5 fill-indigo-600 text-white shrink-0" />
+                        <h3 className="font-bold text-slate-900 text-sm group-hover:text-emerald-600 transition-colors truncate">{artisan.name}</h3>
+                        <CheckCircle2 className="h-3.5 w-3.5 fill-emerald-600 text-white shrink-0" />
                       </div>
                       <p className="text-xs font-medium text-slate-500 truncate mt-0.5">{artisan.role}</p>
                       
@@ -260,14 +259,14 @@ export default function ServicesMarketplace() {
                   <div className="mt-auto grid grid-cols-2 gap-2.5">
                     <button 
                       onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
-                      className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 px-3 py-2.5 text-xs font-bold text-slate-700 transition-colors cursor-pointer shadow-xs"
+                      className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 px-3 py-2.5 text-xs font-bold text-slate-700 transition-colors cursor-pointer shadow-xs hover:text-emerald-600 hover:border-emerald-200"
                     >
-                      <MessageCircle className="h-3.5 w-3.5 text-slate-500" />
+                      <MessageCircle className="h-3.5 w-3.5 text-slate-500 transition-colors group-hover/btn:text-emerald-500" />
                       Chat
                     </button>
                     <button 
                       onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
-                      className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 px-3 py-2.5 text-xs font-black uppercase tracking-wider text-white shadow-md shadow-indigo-600/10 transition-all cursor-pointer"
+                      className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 px-3 py-2.5 text-xs font-black uppercase tracking-wider text-white shadow-md shadow-emerald-600/10 transition-all cursor-pointer"
                     >
                       <Calendar className="h-3.5 w-3.5" />
                       Book
@@ -285,7 +284,7 @@ export default function ServicesMarketplace() {
             <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">Try clarifying your target search query keyword strings or reset the active filter tag index tracker.</p>
             <button 
               onClick={() => { setSearchQuery(""); setActiveTag("All Services"); }}
-              className="mt-6 inline-flex items-center gap-1.5 text-xs font-black text-indigo-600 uppercase tracking-widest hover:text-indigo-700 cursor-pointer border-b border-indigo-600/20 pb-0.5 transition-colors"
+              className="mt-6 inline-flex items-center gap-1.5 text-xs font-black text-emerald-600 uppercase tracking-widest hover:text-emerald-700 cursor-pointer border-b border-emerald-600/20 pb-0.5 transition-colors"
             >
               Reset Filters 
               <ArrowUpRight className="h-3.5 w-3.5" />

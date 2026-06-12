@@ -42,21 +42,19 @@ export default function EscrowHub() {
   const [contractIdInput, setContractIdInput] = useState("");
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] pb-24 text-slate-900 selection:bg-indigo-600/10 selection:text-indigo-900 antialiased overflow-hidden">
+    <div className="min-h-screen bg-[#f8fafc] pb-24 text-slate-900 selection:bg-emerald-600/10 selection:text-emerald-950 antialiased overflow-hidden">
       
       {/* ================= 1. RADIANT BRANDED HERO HEADER ================= */}
-      <header className="relative py-66 border-b border-slate-200/60 bg-gradient-to-b from-indigo-50/60 via-white to-transparent">
+      <header className="relative py-16 border-b border-slate-200/60 bg-gradient-to-b from-emerald-50/40 via-white to-transparent">
         
         {/* Cinematic Multi-Color Blur Ambient Glow Fields */}
-        <div className="absolute -right-24 top-0 h-[450px] w-[450px] rounded-full bg-gradient-to-br from-emerald-400/15 to-teal-400/10 blur-[130px] pointer-events-none z-10" />
-        <div className="absolute left-[-50px] bottom-[-50px] h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-indigo-400/15 to-purple-400/10 blur-[110px] pointer-events-none z-10" />
+        <div className="absolute -right-24 top-0 h-[350px] w-[350px] rounded-full bg-gradient-to-br from-emerald-400/15 to-teal-400/10 blur-[130px] pointer-events-none z-10" />
+        <div className="absolute left-[-50px] bottom-[-50px] h-[300px] w-[400px] rounded-full bg-gradient-to-tr from-teal-400/15 to-emerald-400/10 blur-[110px] pointer-events-none z-10" />
 
         {/* Live Graphic Background Layer Mix */}
-     
-  <div className="absolute inset-0 z-0 opacity-95 select-none pointer-events-none mix-blend-multiply">
-          {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white z-10" /> */}
+        <div className="absolute inset-0 z-0 opacity-95 select-none pointer-events-none mix-blend-multiply">
           <Image
-           src="/hero/escrow.webp" 
+            src="/hero/banners3.webp" 
             alt="Marketplace Freelancer Collaborative Banner"
             fill
             priority
@@ -64,7 +62,6 @@ export default function EscrowHub() {
             className="object-cover object-center contrast-110 scale-105"
           />
         </div>
-
 
         {/* Hero Content Container */}
         <div className="mx-auto max-w-5xl px-4 text-center space-y-6 relative z-20">
@@ -75,7 +72,7 @@ export default function EscrowHub() {
             </span>
           </div>
           
-          <h1 className="text-4xl font-black tracking-tight sm:text-5xl bg-gradient-to-r from-slate-950 via-slate-800 to-indigo-950 bg-clip-text text-transparent leading-tight max-w-3xl mx-auto">
+          <h1 className="text-4xl font-black tracking-tight sm:text-5xl bg-gradient-to-r from-slate-950 via-slate-800 to-emerald-950 bg-clip-text text-transparent leading-tight max-w-3xl mx-auto">
             Secure Marketplace Escrow Hub
           </h1>
           
@@ -85,8 +82,8 @@ export default function EscrowHub() {
 
           {/* Luxury Input Engine Card */}
           <div className="max-w-md mx-auto pt-4 px-2 sm:px-0">
-            <div className="relative group flex items-center bg-white rounded-2xl border border-slate-200 shadow-xl shadow-indigo-950/5 p-1.5">
-              <Search className="absolute left-4 h-4 w-4 text-slate-400 group-focus-within:text-indigo-600 transition-colors" />
+            <div className="relative group flex items-center bg-white rounded-2xl border border-slate-200 shadow-xl shadow-emerald-950/5 p-1.5">
+              <Search className="absolute left-4 h-4 w-4 text-slate-400 group-focus-within:text-emerald-600 transition-colors" />
               <input
                 type="text"
                 value={contractIdInput}
@@ -94,7 +91,7 @@ export default function EscrowHub() {
                 placeholder="Enter Secure Escrow ID or Order Reference..."
                 className="w-full bg-transparent py-3 pr-4 pl-11 text-xs text-slate-900 placeholder-slate-400 focus:outline-none"
               />
-              <button className="rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 px-4 py-2.5 text-[10px] font-black uppercase tracking-wider text-white shadow-md shadow-indigo-600/10 shrink-0 transition-all active:scale-98">
+              <button className="rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 px-4 py-2.5 text-[10px] font-black uppercase tracking-wider text-white shadow-md shadow-emerald-600/10 shrink-0 transition-all active:scale-98">
                 Track Status
               </button>
             </div>
@@ -105,29 +102,29 @@ export default function EscrowHub() {
       {/* ================= 2. TWO-STREAM VIBRANT ECOSYSTEM OVERVIEW ================= */}
       <section className="mx-auto max-w-5xl px-4 pt-16">
         <div className="text-center mb-10">
-          <span className="text-[10px] font-black uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">Dual Processing Networks</span>
+          <span className="text-[10px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">Dual Processing Networks</span>
           <p className="text-2xl font-black text-slate-900 mt-3 tracking-tight">Unified Safe Channels For Goods & Services</p>
-          <div className="h-1 w-8 bg-indigo-500 mx-auto mt-2.5 rounded-full" />
+          <div className="h-1 w-8 bg-emerald-500 mx-auto mt-2.5 rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Stream A: Product Purchases */}
-          <div className="group bg-white border border-slate-200/80 p-6 rounded-2xl shadow-xs hover:border-blue-200 transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/5">
-            <div className="h-11 w-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-xs">
+          <div className="group bg-white border border-slate-200/80 p-6 rounded-2xl shadow-xs hover:border-emerald-200 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-900/5">
+            <div className="h-11 w-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-xs">
               <ShoppingBag className="h-5 w-5 stroke-[2]" />
             </div>
-            <h3 className="text-sm font-black text-slate-900 mt-4 group-hover:text-blue-600 transition-colors">1. Product Purchase Escrow</h3>
+            <h3 className="text-sm font-black text-slate-900 mt-4 group-hover:text-emerald-600 transition-colors">1. Product Purchase Escrow</h3>
             <p className="text-xs text-slate-500 font-medium leading-relaxed mt-2">
               Designed for physical assets and standard stock merchandise items. Capital remains guarded within our primary vault while your seller fulfills logistics. We verify products match documentation specs perfectly before releasing payouts.
             </p>
           </div>
 
           {/* Stream B: Artisan Services */}
-          <div className="group bg-white border border-slate-200/80 p-6 rounded-2xl shadow-xs hover:border-purple-200 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/5">
-            <div className="h-11 w-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100 group-hover:bg-purple-600 group-hover:text-white transition-all shadow-xs">
+          <div className="group bg-white border border-slate-200/80 p-6 rounded-2xl shadow-xs hover:border-teal-200 transition-all duration-300 hover:shadow-xl hover:shadow-teal-900/5">
+            <div className="h-11 w-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center border border-teal-100 group-hover:bg-teal-600 group-hover:text-white transition-all shadow-xs">
               <Wrench className="h-5 w-5 stroke-[2]" />
             </div>
-            <h3 className="text-sm font-black text-slate-900 mt-4 group-hover:text-purple-600 transition-colors">2. Artisan Service Milestones</h3>
+            <h3 className="text-sm font-black text-slate-900 mt-4 group-hover:text-teal-600 transition-colors">2. Artisan Service Milestones</h3>
             <p className="text-xs text-slate-500 font-medium leading-relaxed mt-2">
               Tailored specifically for contractual project milestones, technical trades, and professional gigs. Overall milestones are segmented transparently, allowing funds to deploy incrementally as each specific item is systematically finalized.
             </p>
@@ -137,10 +134,10 @@ export default function EscrowHub() {
 
       {/* ================= 3. CHROMATIC PIPELINE WORKFLOW CARD ================= */}
       <section className="mx-auto max-w-5xl px-4 pt-20">
-        <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-950 text-white rounded-3xl p-8 sm:p-10 relative overflow-hidden shadow-xl shadow-indigo-950/20">
+        <div className="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-950 text-white rounded-3xl p-8 sm:p-10 relative overflow-hidden shadow-xl shadow-emerald-950/20">
           
           {/* Internal Geometric Decorative Ambient Pop */}
-          <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute right-0 top-0 w-80 h-full bg-gradient-to-l from-emerald-500/10 to-transparent blur-2xl pointer-events-none" />
 
           <div className="relative z-10 text-center max-w-2xl mx-auto mb-12 space-y-2">
@@ -151,7 +148,7 @@ export default function EscrowHub() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
             {/* Step 1 */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-md space-y-3">
-              <div className="h-9 w-9 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center font-black text-xs">
+              <div className="h-9 w-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-black text-xs">
                 <Lock className="h-4 w-4" />
               </div>
               <h4 className="text-xs font-black uppercase tracking-wider text-slate-200">1. Client Depositing</h4>
@@ -173,7 +170,7 @@ export default function EscrowHub() {
 
             {/* Step 3 */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-md space-y-3">
-              <div className="h-9 w-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-black text-xs">
+              <div className="h-9 w-9 rounded-lg bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center font-black text-xs">
                 <Unlock className="h-4 w-4" />
               </div>
               <h4 className="text-xs font-black uppercase tracking-wider text-slate-200">3. Verified Release</h4>
@@ -232,9 +229,9 @@ export default function EscrowHub() {
               </div>
             </div>
             
-            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs hover:border-blue-200 transition-colors">
+            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs hover:border-emerald-200 transition-colors">
               <div className="flex items-start gap-3.5">
-                <div className="h-9 w-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+                <div className="h-9 w-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
                   <ShieldCheck className="h-4 w-4" />
                 </div>
                 <div>
@@ -263,15 +260,15 @@ export default function EscrowHub() {
             return (
               <div 
                 key={idx} 
-                className={`bg-white border rounded-xl overflow-hidden transition-all duration-300 ${isOpen ? 'border-indigo-200 shadow-md shadow-indigo-950/5' : 'border-slate-200'}`}
+                className={`bg-white border rounded-xl overflow-hidden transition-all duration-300 ${isOpen ? 'border-emerald-200 shadow-md shadow-emerald-950/5' : 'border-slate-200'}`}
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
-                  className={`w-full flex items-center justify-between p-4 text-left font-bold text-xs transition-colors cursor-pointer ${isOpen ? 'text-indigo-600 bg-indigo-50/20' : 'text-slate-800 hover:bg-slate-50/60'}`}
+                  className={`w-full flex items-center justify-between p-4 text-left font-bold text-xs transition-colors cursor-pointer ${isOpen ? 'text-emerald-600 bg-emerald-50/20' : 'text-slate-800 hover:bg-slate-50/60'}`}
                 >
                   <span className="pr-4">{faq.q}</span>
-                  <ChevronDown className={`h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-indigo-600' : ''}`} />
+                  <ChevronDown className={`h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-emerald-600' : ''}`} />
                 </button>
                 
                 <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-40 border-t border-slate-100' : 'max-h-0'}`}>
