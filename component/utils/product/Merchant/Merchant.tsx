@@ -19,7 +19,7 @@ interface ProductDealCarouselProps {
   title: string;
   storeId: string; 
   products: ProductItem[];
-  // Extended configuration fallback for premium custom themes
+  // Defaulting to emerald for the agricultural theme
   gradientTheme?: 'blue' | 'orange' | 'purple' | 'emerald' | 'rose' | 'amber';
 }
 
@@ -36,14 +36,14 @@ export default function ProductDealCarousel({
   title,
   storeId,
   products,
-  gradientTheme = 'blue'
+  gradientTheme = 'emerald' // Switched default to emerald
 }: ProductDealCarouselProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const activeTheme = THEME_MAP[gradientTheme] || THEME_MAP.blue;
+  const activeTheme = THEME_MAP[gradientTheme] || THEME_MAP.emerald;
 
   const formatCurrency = (val: number) => new Intl.NumberFormat('en-NG').format(val);
   
@@ -54,7 +54,6 @@ export default function ProductDealCarousel({
     return null;
   };
 
-  // Dynamically toggle visibility weights of overlay arrows
   const checkScrollPosition = () => {
     const container = scrollContainerRef.current;
     if (container) {
@@ -68,7 +67,6 @@ export default function ProductDealCarousel({
     const container = scrollContainerRef.current;
     if (container) {
       container.addEventListener('scroll', checkScrollPosition);
-      // Run once on assembly to handle viewport limitations
       checkScrollPosition();
     }
     return () => container?.removeEventListener('scroll', checkScrollPosition);
@@ -78,7 +76,6 @@ export default function ProductDealCarousel({
     const container = scrollContainerRef.current;
     if (!container) return;
     
-    // Dynamic sliding based on immediate width metrics
     const scrollAmount = container.clientWidth * 0.75; 
     container.scrollBy({
       left: direction === 'left' ? -scrollAmount : scrollAmount,
@@ -93,7 +90,7 @@ export default function ProductDealCarousel({
   return (
     <div className="w-full rounded-lg overflow-hidden bg-slate-50/40 border border-slate-100/80 shadow-2xs mt-6">
       
-      {/* ================= HIGH CONTRAST GRADIENT BAR HEADER ================= */}
+      {/* ================= EMERALD GRADIENT BAR HEADER ================= */}
       <div 
         onClick={navigateToStore}
         className={`bg-gradient-to-r ${activeTheme.header} px-5 py-3.5 flex items-center justify-between text-white select-none cursor-pointer group/header relative overflow-hidden`}
@@ -112,7 +109,7 @@ export default function ProductDealCarousel({
             e.stopPropagation();
             navigateToStore();
           }}
-          className="z-10 text-xs font-bold uppercase tracking-wider flex items-center gap-1 bg-white/10 hover:bg-white text-white hover:text-slate-900 px-3 py-1.5 rounded-full backdrop-blur-xs transition-all duration-300 transform group-hover/header:translate-x-0.5 shadow-2xs cursor-pointer"
+          className="z-10 text-xs font-bold uppercase tracking-wider flex items-center gap-1 bg-white/10 hover:bg-white text-white hover:text-emerald-900 px-3 py-1.5 rounded-full backdrop-blur-xs transition-all duration-300 transform group-hover/header:translate-x-0.5 shadow-2xs cursor-pointer"
         >
           See All 
           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/header:translate-x-0.5" />
@@ -122,10 +119,10 @@ export default function ProductDealCarousel({
       {/* ================= SCROLL TRACK RUNNER ================= */}
       <div className="relative p-3 group">
         
-        {/* Smart Toggle Arrow Left */}
+        {/* Navigation Arrows - Emerald focus on hover */}
         <button 
           onClick={() => handleScroll('left')}
-          className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-slate-950/90 text-white p-2.5 rounded-full shadow-xl hover:bg-slate-950 transition-all cursor-pointer border border-white/10 ${
+          className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-slate-950/90 text-white p-2.5 rounded-full shadow-xl hover:bg-emerald-600 transition-all cursor-pointer border border-white/10 ${
             canScrollLeft ? 'opacity-0 group-hover:opacity-100 flex items-center justify-center' : 'hidden'
           }`}
           aria-label="Scroll Left"
@@ -133,10 +130,9 @@ export default function ProductDealCarousel({
           <ChevronLeft className="h-4 w-4 stroke-[3]" />
         </button>
         
-        {/* Smart Toggle Arrow Right */}
         <button 
           onClick={() => handleScroll('right')}
-          className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-slate-950/90 text-white p-2.5 rounded-full shadow-xl hover:bg-slate-950 transition-all cursor-pointer border border-white/10 ${
+          className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-slate-950/90 text-white p-2.5 rounded-full shadow-xl hover:bg-emerald-600 transition-all cursor-pointer border border-white/10 ${
             canScrollRight ? 'opacity-0 group-hover:opacity-100 flex items-center justify-center' : 'hidden'
           }`}
           aria-label="Scroll Right"
@@ -159,7 +155,7 @@ export default function ProductDealCarousel({
                 className={`w-[176px] sm:w-[192px] shrink-0 bg-white p-3 rounded-xl border border-slate-100/70 shadow-2xs transition-all duration-300 snap-start flex flex-col justify-between group/card hover:-translate-y-1 hover:shadow-md ${activeTheme.border}`}
               >
                 {/* Image Canvas Box */}
-                <div className="relative h-[150px] sm:h-[165px] w-full bg-linear-to-b from-slate-50/50 to-white overflow-hidden rounded-lg mb-3 select-none shrink-0 border border-slate-50 flex items-center justify-center">
+                <div className="relative h-[150px] sm:h-[165px] w-full bg-linear-to-b from-emerald-50/20 to-white overflow-hidden rounded-lg mb-3 select-none shrink-0 border border-slate-50 flex items-center justify-center">
                   <img 
                     src={product.imageUrl} 
                     alt={product.title} 
@@ -167,7 +163,6 @@ export default function ProductDealCarousel({
                     loading="lazy"
                   />
                   
-                  {/* Brand Badge (Clean top-left tag) */}
                   {product.brandBadgeUrl && (
                     <div className="absolute top-1.5 left-1.5 bg-white/90 shadow-2xs p-1 rounded-md backdrop-blur-xs border border-slate-100">
                       <img 
@@ -178,23 +173,20 @@ export default function ProductDealCarousel({
                     </div>
                   )}
 
-                  {/* Official Store Badge Ribbon */}
                   {product.officialStoreBadge && !product.brandBadgeUrl && (
-                    <span className="absolute top-1.5 left-1.5 bg-slate-900 text-white text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md shadow-2xs">
+                    <span className="absolute top-1.5 left-1.5 bg-emerald-700 text-white text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md shadow-2xs">
                       Official
                     </span>
                   )}
 
-                  {/* Vibrant Calculated Discount Badge */}
                   {discount && (
-                    <span className="absolute top-1.5 right-1.5 bg-red-50 text-red-600 text-[10px] font-extrabold px-2 py-0.5 rounded-md border border-red-100/50">
+                    <span className="absolute top-1.5 right-1.5 bg-rose-50 text-rose-600 text-[10px] font-extrabold px-2 py-0.5 rounded-md border border-rose-100/50">
                       {discount}
                     </span>
                   )}
 
-                  {/* Dark Mode Overlay Spec Tag */}
                   {product.extraBadgeText && (
-                    <span className="absolute bottom-1.5 right-1.5 bg-slate-900/90 text-white text-[9px] font-bold tracking-tight px-1.5 py-0.5 rounded-md backdrop-blur-xs">
+                    <span className="absolute bottom-1.5 right-1.5 bg-emerald-900/90 text-white text-[9px] font-bold tracking-tight px-1.5 py-0.5 rounded-md backdrop-blur-xs">
                       {product.extraBadgeText}
                     </span>
                   )}
@@ -202,7 +194,7 @@ export default function ProductDealCarousel({
 
                 {/* Typography Block */}
                 <div className="space-y-3 text-left flex-1 flex flex-col justify-between">
-                  <h3 className="text-xs text-slate-600 font-medium line-clamp-2 leading-snug tracking-tight group-hover/card:text-slate-900 transition-colors">
+                  <h3 className="text-xs text-slate-600 font-medium line-clamp-2 leading-snug tracking-tight group-hover/card:text-emerald-700 transition-colors">
                     {product.title}
                   </h3>
                   
@@ -218,25 +210,22 @@ export default function ProductDealCarousel({
                       )}
                     </div>
 
-                    {/* Integrated CTA Button */}
                     <button 
                       onClick={(e) => {
                         e.stopPropagation();
                         navigateToStore();
                       }}
-                      className={`w-full text-[10px] uppercase font-bold tracking-wider text-white py-2 rounded-lg transition-all duration-200 opacity-0 group-hover/card:opacity-100 shadow-2xs cursor-pointer text-center block ${activeTheme.badge}`}
+                      className={`w-full text-[10px] uppercase font-bold tracking-wider text-white py-2 rounded-lg transition-all duration-200 opacity-0 group-hover/card:opacity-100 shadow-2xs cursor-pointer text-center block ${activeTheme.badge} hover:brightness-110`}
                     >
                       Visit Store
                     </button>
                   </div>
                 </div>
-
               </div>
             );
           })}
         </div>
       </div>
-
     </div>
   );
 }

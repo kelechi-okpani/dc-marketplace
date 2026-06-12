@@ -6,11 +6,9 @@ import { mockProducts } from '../utils/data/mockProducts';
 import ProductDealCarousel from '../utils/product/Merchant/Merchant';
 import ServiceGrid_ from '../utils/service/ServiceGrid_';
 
-
-
 export default function MarketplaceHome() {
   const [activeTab, setActiveTab] = useState<'products' | 'services'>('products');
- // Navigation Filter Matrix States
+  // Navigation Filter Matrix States
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [activeSubCategory, setActiveSubCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -21,7 +19,6 @@ export default function MarketplaceHome() {
   const [onlyOfficial, setOnlyOfficial] = useState<boolean>(false);
   const [sortBy, setSortBy] = useState<string>('popularity');
 
-  
   // Track which category's accordion is expanded in the sidebar view
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
@@ -59,7 +56,6 @@ export default function MarketplaceHome() {
       dataset = dataset.filter(p => p.title.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
     }
     if (activeCategory !== 'all') {
-      // If filtering by "official-store", grab items marked as official
       if (activeCategory === 'official-store') {
         dataset = dataset.filter(p => p.isOfficialStore);
       } else {
@@ -124,15 +120,15 @@ export default function MarketplaceHome() {
 
       {/* Main View Toggle Container */}
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-col items-center justify-between gap-4  border-gray-200 pb-5 sm:flex-row">
+        <div className="mb-8 flex flex-col items-center justify-between gap-4 border-gray-200 pb-5 sm:flex-row">
           
-          {/* Segmented Controller Tab Pill */}
+          {/* Segmented Controller Tab Pill - Switched to Emerald Green theme */}
           <div className="inline-flex rounded-full bg-white p-1 shadow-sm ring-1 ring-black/5">
             <button
               onClick={() => setActiveTab('products')}
               className={`cursor-pointer rounded-full px-6 py-2 text-sm font-semibold transition-all duration-200 ${
                 activeTab === 'products'
-                  ? 'bg-blue-600 text-white shadow-sm'
+                  ? 'bg-emerald-600 text-white shadow-sm'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -142,43 +138,49 @@ export default function MarketplaceHome() {
               onClick={() => setActiveTab('services')}
               className={`cursor-pointer rounded-full px-6 py-2 text-sm font-semibold transition-all duration-200 ${
                 activeTab === 'services'
-                  ? 'bg-blue-600 text-white shadow-sm'
+                  ? 'bg-emerald-600 text-white shadow-sm'
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               Services
             </button>
           </div>
-
          
         </div>
 
         {/* Dynamic Display Rendering */}
-        {activeTab === 'products' ?
+        {activeTab === 'products' ? (
+          <div className="space-y-6">
+            <ProductDealCarousel 
+              title="Jessica Store" 
+              products={paginatedProducts} 
+              storeId="08y92y924" 
+              gradientTheme="emerald"
+            />   
 
-        <div>
-        <ProductDealCarousel title='Jessica Store' products={paginatedProducts} storeId={'08y92y924'}/>   
+            <FlashDealsMarquee />
 
-        <FlashDealsMarquee/>
-
-        <ProductGrid
-            products={paginatedProducts}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={setCurrentPage}
-            onResetFilters={resetAllFilters}
-            onViewDetails={(prod) => console.log('Details preview triggered:', prod.id)}
+            <ProductGrid
+              products={paginatedProducts}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
+              onResetFilters={resetAllFilters}
+              onViewDetails={(prod) => console.log('Details preview triggered:', prod.id)}
             /> 
 
-        <FlashDealsMarquee/>
+            <FlashDealsMarquee />
 
-         <ProductDealCarousel title='Kelvin ELectronics' products={paginatedProducts} storeId={'08y92y924'}/>   
-        </div>
-           
-  : 
-  
-      <ServiceGrid_ />
-  }
+            <ProductDealCarousel 
+              title="Kelvin Electronics" 
+              products={paginatedProducts} 
+              storeId="08y92y924" 
+              gradientTheme="emerald"
+            />   
+          </div>
+        ) : (
+          <ServiceGrid_ />
+        )}
       </main>
     </div>
   );

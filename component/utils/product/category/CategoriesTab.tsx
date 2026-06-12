@@ -13,7 +13,6 @@ interface CategoryItem {
   subCats: string[];
 }
 
-
 const CATEGORY_IMAGE_REGISTRY: Record<string, string> = {
   'official-store': '/categories/office.jpg',
   'agric-farm-produce': '/categories/farm.jpg',
@@ -21,7 +20,6 @@ const CATEGORY_IMAGE_REGISTRY: Record<string, string> = {
   'phones-tablets': '/categories/phones.jpg',
   'health-beauty': '/categories/beauty.jpg',
   'home-office': '/categories/home.webp',
-  // 'agro-Seeds': '/categories/seeds.jpg',
   'electronics': '/categories/electronics.jpg',
   'fashion': '/categories/fashion.jpg',
   'supermarket': '/categories/supermarket.png',
@@ -53,11 +51,11 @@ export default function CategoriesTab() {
     <div className="w-full bg-white py-6 px-4 md:px-8 select-none font-sans border-b border-slate-100">
       <div className="max-w-[1400px] mx-auto relative group">
         
-        {/* Navigation Arrow Left (UI Overlay matching image_dba47c.png style) */}
+        {/* Navigation Arrow Left - Changes to emerald focus on hover */}
         <button
           type="button"
           onClick={() => scroll('left')}
-          className="absolute left-[-16px] top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white p-2.5 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:flex items-center justify-center cursor-pointer border border-white/10"
+          className="absolute left-[-16px] top-1/2 -translate-y-1/2 z-20 bg-slate-950/40 hover:bg-emerald-600 text-white p-2.5 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:flex items-center justify-center cursor-pointer border border-white/10"
           aria-label="Scroll left"
         >
           <ChevronLeft className="h-5 w-5 stroke-[2.5]" />
@@ -79,15 +77,14 @@ export default function CategoriesTab() {
                 href={`/categories/${cat.id}`}
                 className="flex flex-col items-center text-center space-y-4 shrink-0 w-[115px] xs:w-[135px] sm:w-[148px] md:w-[160px] group/item focus:outline-hidden"
               >
-                {/* 
-                  Square Container Edge-to-Edge Imagery Layout
-                  Matches the aspect properties of image_dba47c.png
+                {/* Square Container Edge-to-Edge Imagery Layout
+                  Active state utilizes an emerald green border and a soft green glow ring
                 */}
                 <div 
                   className={`w-full aspect-square rounded-xl overflow-hidden bg-slate-50 border transition-all duration-300
                     ${isSelected 
-                      ? 'border-slate-900 ring-2 ring-slate-950/10 shadow-md scale-[1.02]' 
-                      : 'border-slate-100 group-hover/item:border-slate-300 group-hover/item:shadow-xs'
+                      ? 'border-emerald-600 ring-2 ring-emerald-600/20 shadow-md scale-[1.02]' 
+                      : 'border-slate-100 group-hover/item:border-emerald-300 group-hover/item:shadow-xs'
                     }`}
                 >
                   <img 
@@ -105,8 +102,8 @@ export default function CategoriesTab() {
                 <span 
                   className={`text-[12px] sm:text-[13px] leading-tight px-1 tracking-tight max-w-full break-words line-clamp-2 transition-colors duration-200
                     ${isSelected 
-                      ? 'text-slate-950 font-bold' 
-                      : 'text-slate-800 font-medium group-hover/item:text-slate-950'
+                      ? 'text-emerald-700 font-bold' 
+                      : 'text-slate-800 font-medium group-hover/item:text-emerald-600'
                     }`}
                 >
                   {cat.label}
@@ -116,11 +113,11 @@ export default function CategoriesTab() {
           })}
         </div>
 
-        {/* Navigation Arrow Right */}
+        {/* Navigation Arrow Right - Changes to emerald focus on hover */}
         <button
           type="button"
           onClick={() => scroll('right')}
-          className="absolute right-[-16px] top-1/2 -translate-y-1/2 z-20 bg-black/40 hover:bg-black/60 text-white p-2.5 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:flex items-center justify-center cursor-pointer border border-white/10"
+          className="absolute right-[-16px] top-1/2 -translate-y-1/2 z-20 bg-slate-950/40 hover:bg-emerald-600 text-white p-2.5 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:flex items-center justify-center cursor-pointer border border-white/10"
           aria-label="Scroll right"
         >
           <ChevronRight className="h-5 w-5 stroke-[2.5]" />

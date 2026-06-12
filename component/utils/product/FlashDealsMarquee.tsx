@@ -18,62 +18,62 @@ export default function FlashDealsMarquee() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Synced with structural product database matching production dynamic asset bucket topology
-const products: FlashProduct[] = [
-  { 
-    id: '1', 
-    title: 'Samsung Galaxy S24 Ultra Phone (256GB, Titanium Gray)', 
-    price: 1250000, 
-    oldPrice: 1500000,
-    imageUrl: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=400&h=400&q=80', 
-    category: 'phones-tablets',
-    subCategory: 'Mobile Phones'
-  },
-  { 
-    id: '3', 
-    title: 'Oraimo Traveler 4 20000mAh Power Bank Fast Charging', 
-    price: 24500, 
-    oldPrice: 32000,
-    imageUrl: 'https://images.unsplash.com/photo-1609592424083-040203f196a6?auto=format&fit=crop&w=400&h=400&q=80', 
-    category: 'phones-tablets',
-    subCategory: 'Power Banks'
-  },
-  { 
-    id: '16', 
-    title: 'Oraimo FreePods 4 TWS True Wireless Stereo Earbuds', 
-    price: 36000, 
-    oldPrice: 45000,
-    imageUrl: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=400&h=400&q=80', 
-    category: 'electronics',
-    subCategory: 'Audio Gear'
-  },
-  { 
-    id: '26', 
-    title: 'Men Casual Slim-Fit Structured Button Up Shirt', 
-    price: 14500, 
-    oldPrice: 22000,
-    imageUrl: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=400&h=400&q=80', 
-    category: 'fashion', 
-    subCategory: 'Mens Fashion'
-  },
-  { 
-    id: '28', 
-    title: 'Premium Cashmere Senator Soft Plain Fabric Material (4 Yards)', 
-    price: 28000, 
-    oldPrice: 35000,
-    imageUrl: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=400&h=400&q=80', 
-    category: 'fashion', 
-    subCategory: 'Fabrics'
-  },
-  { 
-    id: '38', 
-    title: 'Nivea Perfect & Radiant Even Tone Day Cream SPF 15', 
-    price: 6800, 
-    oldPrice: 8500,
-    imageUrl: 'https://images.unsplash.com/photo-1608248597481-496100c8c836?auto=format&fit=crop&w=400&h=400&q=80', 
-    category: 'health-beauty', 
-    subCategory: 'Skin Care'
-  }
-];
+  const products: FlashProduct[] = [
+    { 
+      id: '1', 
+      title: 'Samsung Galaxy S24 Ultra Phone (256GB, Titanium Gray)', 
+      price: 1250000, 
+      oldPrice: 1500000,
+      imageUrl: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=400&h=400&q=80', 
+      category: 'phones-tablets',
+      subCategory: 'Mobile Phones'
+    },
+    { 
+      id: '3', 
+      title: 'Oraimo Traveler 4 20000mAh Power Bank Fast Charging', 
+      price: 24500, 
+      oldPrice: 32000,
+      imageUrl: 'https://images.unsplash.com/photo-1609592424083-040203f196a6?auto=format&fit=crop&w=400&h=400&q=80', 
+      category: 'phones-tablets',
+      subCategory: 'Power Banks'
+    },
+    { 
+      id: '16', 
+      title: 'Oraimo FreePods 4 TWS True Wireless Stereo Earbuds', 
+      price: 36000, 
+      oldPrice: 45000,
+      imageUrl: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=400&h=400&q=80', 
+      category: 'electronics',
+      subCategory: 'Audio Gear'
+    },
+    { 
+      id: '26', 
+      title: 'Men Casual Slim-Fit Structured Button Up Shirt', 
+      price: 14500, 
+      oldPrice: 22000,
+      imageUrl: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=400&h=400&q=80', 
+      category: 'fashion', 
+      subCategory: 'Mens Fashion'
+    },
+    { 
+      id: '28', 
+      title: 'Premium Cashmere Senator Soft Plain Fabric Material (4 Yards)', 
+      price: 28000, 
+      oldPrice: 35000,
+      imageUrl: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=400&h=400&q=80', 
+      category: 'fashion', 
+      subCategory: 'Fabrics'
+    },
+    { 
+      id: '38', 
+      title: 'Nivea Perfect & Radiant Even Tone Day Cream SPF 15', 
+      price: 6800, 
+      oldPrice: 8500,
+      imageUrl: 'https://images.unsplash.com/photo-1608248597481-496100c8c836?auto=format&fit=crop&w=400&h=400&q=80', 
+      category: 'health-beauty', 
+      subCategory: 'Skin Care'
+    }
+  ];
 
   // Triplicating array constructs a perfectly continuous visual cycle loop boundary
   const duplicatedProducts = [...products, ...products, ...products];
@@ -108,7 +108,7 @@ const products: FlashProduct[] = [
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full overflow-hidden mb-6 ">
+    <div className="flex flex-col gap-4 w-full overflow-hidden mb-6">
       
       {/* ================= HEADER SECTION ================= */}
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 mt-6">
@@ -121,14 +121,14 @@ const products: FlashProduct[] = [
           <button 
             onClick={() => handleManualScroll('left')}
             aria-label="Scroll left"
-            className="rounded-full border border-slate-200 bg-white p-1.5 text-slate-600 hover:bg-slate-50 active:scale-90 hover:text-blue-600 hover:border-blue-200 shadow-xs transition-all duration-150 cursor-pointer"
+            className="rounded-full border border-slate-200 bg-white p-1.5 text-slate-600 hover:bg-slate-50 active:scale-90 hover:text-emerald-600 hover:border-emerald-200 shadow-xs transition-all duration-150 cursor-pointer"
           >
             <ChevronLeft className="h-4 w-4 stroke-[2.5]" />
           </button>
           <button 
             onClick={() => handleManualScroll('right')}
             aria-label="Scroll right"
-            className="rounded-full border border-slate-200 bg-white p-1.5 text-slate-600 hover:bg-slate-50 active:scale-90 hover:text-blue-600 hover:border-blue-200 shadow-xs transition-all duration-150 cursor-pointer"
+            className="rounded-full border border-slate-200 bg-white p-1.5 text-slate-600 hover:bg-slate-50 active:scale-90 hover:text-emerald-600 hover:border-emerald-200 shadow-xs transition-all duration-150 cursor-pointer"
           >
             <ChevronRight className="h-4 w-4 stroke-[2.5]" />
           </button>
@@ -180,7 +180,7 @@ const products: FlashProduct[] = [
 
                 {/* Title & Price Information */}
                 <div className="flex flex-col flex-1">
-                  <h4 className="line-clamp-2 text-xs font-black text-slate-800 leading-tight group-hover:text-blue-600 transition-colors h-8">
+                  <h4 className="line-clamp-2 text-xs font-black text-slate-800 leading-tight group-hover:text-emerald-600 transition-colors h-8">
                     {product.title}
                   </h4>
                   
