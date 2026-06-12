@@ -26,9 +26,9 @@ export default function ProductGrid({
   if (products.length === 0) {
     return (
       /* ================= VIBRANT EMPTY FALLBACK STATE ================= */
-      <div className="flex flex-col items-center justify-center py-20 border border-indigo-100 rounded-2xl bg-gradient-to-b from-slate-50 to-white text-center px-4 shadow-3xs max-w-2xl mx-auto my-6">
-        <div className="p-4 bg-indigo-50 border border-indigo-100 rounded-2xl mb-4 transform transition-transform hover:rotate-6 duration-300">
-          <PackageX className="h-7 w-7 text-indigo-500" />
+      <div className="flex flex-col items-center justify-center py-20 border border-emerald-100 rounded-2xl bg-gradient-to-b from-slate-50 to-white text-center px-4 shadow-3xs max-w-2xl mx-auto my-6">
+        <div className="p-4 bg-emerald-50 border border-emerald-100 rounded-2xl mb-4 transform transition-transform hover:rotate-6 duration-300">
+          <PackageX className="h-7 w-7 text-emerald-600" />
         </div>
         <h5 className="text-sm font-black text-slate-900 uppercase tracking-wider">
           Empty Subcategory
@@ -38,7 +38,7 @@ export default function ProductGrid({
         </p>
         <button
           onClick={onResetFilters}
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:from-blue-700 hover:to-indigo-700 transition-all active:scale-98 cursor-pointer tracking-wide uppercase"
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:from-emerald-700 hover:to-green-700 transition-all active:scale-98 cursor-pointer tracking-wide uppercase"
         >
           <RotateCcw className="h-3.5 w-3.5" />
           <span>Reset All Active Filters</span>
@@ -81,8 +81,8 @@ export default function ProductGrid({
                 onClick={() => onPageChange(num)}
                 className={`cursor-pointer w-8 h-8 rounded-xl text-xs font-black transition-all border ${
                   isCurrent 
-                    ? 'bg-gradient-to-br from-blue-600 to-indigo-600 text-white border-transparent shadow-xs shadow-blue-600/20 scale-105' 
-                    : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600 hover:bg-blue-50/30'
+                    ? 'bg-gradient-to-br from-emerald-600 to-green-600 text-white border-transparent shadow-xs shadow-emerald-600/20 scale-105' 
+                    : 'bg-white border-slate-200 text-slate-600 hover:border-emerald-300 hover:text-emerald-600 hover:bg-emerald-50/30'
                 }`}
               >
                 {num}
