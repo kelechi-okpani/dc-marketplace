@@ -67,7 +67,7 @@ export default function ProductCard({
 
       {/* ================= META FIELDS BLOCK ================= */}
       <div className="flex flex-col flex-1">
-        /* Brand Label Context */
+   
         <span className="text-[9px] font-black text-emerald-600 uppercase tracking-widest mb-1">
           {product.brand}
         </span>

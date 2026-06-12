@@ -163,8 +163,12 @@ export default function MainNavbar() {
                       <p className="text-xs font-black text-slate-900 truncate">Kelechi Okpani</p>
                       <p className="text-[10px] font-medium text-slate-400 truncate mt-0.5">Buyer & Verified Provider</p>
                     </div>
-                    <Link href="/profile" className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition-colors">
+                    {/* <Link href="/profile" className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition-colors">
                       <User className="h-4 w-4 stroke-[2]" /> My Profile
+                    </Link>   */}
+                    
+                    <Link href="/choose-role" className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition-colors">
+                      <User className="h-4 w-4 stroke-[2]" /> Sign In
                     </Link>
                     <Link href="/escrow/dashboard" className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-600 transition-colors">
                       <ShieldCheck className="h-4 w-4 stroke-[2]" /> Escrow Protection

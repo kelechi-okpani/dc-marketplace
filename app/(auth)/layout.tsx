@@ -1,5 +1,6 @@
 import React from 'react';
 import { Inter } from 'next/font/google';
+import AuthNav from '@/component/Layout/AuthLayout/AuthNav';
 
 // Optimize typography loading for sleek, high-fidelity UI layout
 const inter = Inter({
@@ -19,14 +20,12 @@ interface AuthLayoutProps {
 
 export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
-    <div className={`${inter.variable} font-sans antialiased`}>
-    
-      <div className="min-h-screen w-full relative bg-[#090D1A] overflow-x-hidden selection:bg-blue-600/30">
+    <div className={`${inter.variable} font-sans antialiased bg-white text-slate-900`}>
+      <div className="min-h-screen w-full relative overflow-x-hidden selection:bg-green-600/20">
         
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-900/20 blur-[120px] pointer-events-none animate-pulse duration-[8000ms]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-indigo-950/40 blur-[140px] pointer-events-none" />
-
+        {/* Content Layer */}
         <div className="relative z-10 w-full min-h-screen flex flex-col">
+          <AuthNav/>
           {children}
         </div>
         

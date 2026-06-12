@@ -51,11 +51,18 @@ export default function CategoriesTab() {
     <div className="w-full bg-white py-6 px-4 md:px-8 select-none font-sans border-b border-slate-100">
       <div className="max-w-[1400px] mx-auto relative group">
         
+        {/* Title Section */}
+        <div className="mb-4">
+          <h2 className="text-lg sm:text-xl font-black tracking-tight text-slate-900">
+            Categories
+          </h2>
+        </div>
+        
         {/* Navigation Arrow Left - Changes to emerald focus on hover */}
         <button
           type="button"
           onClick={() => scroll('left')}
-          className="absolute left-[-16px] top-1/2 -translate-y-1/2 z-20 bg-slate-950/40 hover:bg-emerald-600 text-white p-2.5 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:flex items-center justify-center cursor-pointer border border-white/10"
+          className="absolute left-[-16px] top-[calc(50%+14px)] -translate-y-1/2 z-20 bg-slate-950/40 hover:bg-emerald-600 text-white p-2.5 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:flex items-center justify-center cursor-pointer border border-white/10"
           aria-label="Scroll left"
         >
           <ChevronLeft className="h-5 w-5 stroke-[2.5]" />
@@ -77,9 +84,7 @@ export default function CategoriesTab() {
                 href={`/categories/${cat.id}`}
                 className="flex flex-col items-center text-center space-y-4 shrink-0 w-[115px] xs:w-[135px] sm:w-[148px] md:w-[160px] group/item focus:outline-hidden"
               >
-                {/* Square Container Edge-to-Edge Imagery Layout
-                  Active state utilizes an emerald green border and a soft green glow ring
-                */}
+                {/* Square Container Edge-to-Edge Imagery Layout */}
                 <div 
                   className={`w-full aspect-square rounded-xl overflow-hidden bg-slate-50 border transition-all duration-300
                     ${isSelected 
@@ -117,7 +122,7 @@ export default function CategoriesTab() {
         <button
           type="button"
           onClick={() => scroll('right')}
-          className="absolute right-[-16px] top-1/2 -translate-y-1/2 z-20 bg-slate-950/40 hover:bg-emerald-600 text-white p-2.5 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:flex items-center justify-center cursor-pointer border border-white/10"
+          className="absolute right-[-16px] top-[calc(50%+14px)] -translate-y-1/2 z-20 bg-slate-950/40 hover:bg-emerald-600 text-white p-2.5 rounded-full shadow-md transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs hidden md:flex items-center justify-center cursor-pointer border border-white/10"
           aria-label="Scroll right"
         >
           <ChevronRight className="h-5 w-5 stroke-[2.5]" />
