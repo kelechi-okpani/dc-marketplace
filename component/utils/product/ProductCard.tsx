@@ -35,7 +35,7 @@ export default function ProductCard({
   const productDetailsUrl = `/products/${product.id}`;
 
   return (
-    <div className="group bg-white rounded-2xl border border-slate-100 p-3.5 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/[0.04] hover:border-slate-200/80">
+    <div className="group bg-white rounded-2xl border border-slate-100 p-3.5 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-emerald-600/[0.03] hover:border-slate-200/80">
       
       {/* ================= IMAGE WINDOW CONTAINER ================= */}
       <Link 
@@ -58,8 +58,8 @@ export default function ProductCard({
 
         {/* Verified Merchant/Official Store Badge — Premium Glassmorphism Accent */}
         {product.isOfficialStore && (
-          <span className="absolute bottom-2.5 left-2.5 bg-blue-600/90 text-white text-[8px] font-black uppercase tracking-wider px-2 py-1 rounded-md shadow-xs flex items-center gap-1 backdrop-blur-xs">
-            <CheckCircle2 className="h-2.5 w-2.5 fill-white text-blue-600" />
+          <span className="absolute bottom-2.5 left-2.5 bg-emerald-600/90 text-white text-[8px] font-black uppercase tracking-wider px-2 py-1 rounded-md shadow-xs flex items-center gap-1 backdrop-blur-xs">
+            <CheckCircle2 className="h-2.5 w-2.5 fill-white text-emerald-600" />
             Official Store
           </span>
         )}
@@ -67,14 +67,14 @@ export default function ProductCard({
 
       {/* ================= META FIELDS BLOCK ================= */}
       <div className="flex flex-col flex-1">
-        {/* Brand Label Context */}
-        <span className="text-[9px] font-black text-indigo-600 uppercase tracking-widest mb-1">
+        /* Brand Label Context */
+        <span className="text-[9px] font-black text-emerald-600 uppercase tracking-widest mb-1">
           {product.brand}
         </span>
         
         {/* Title Node */}
         <Link href={productDetailsUrl} className="block cursor-pointer mb-1.5 h-8">
-          <h4 className="line-clamp-2 text-xs font-bold text-slate-800 leading-snug group-hover:text-blue-600 transition-colors duration-200">
+          <h4 className="line-clamp-2 text-xs font-bold text-slate-800 leading-snug group-hover:text-emerald-600 transition-colors duration-200">
             {product.title}
           </h4>
         </Link>
@@ -98,7 +98,7 @@ export default function ProductCard({
 
         {/* Leaf Subcategory Badge Indicator Tag */}
         <div className="mb-3">
-          <span className="bg-indigo-50/60 text-indigo-600 border border-indigo-100/30 text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wide">
+          <span className="bg-emerald-50/60 text-emerald-700 border border-emerald-100/30 text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-wide">
             {product.subCategory}
           </span>
         </div>
@@ -123,7 +123,7 @@ export default function ProductCard({
         {/* Action: Add Product to Cart */}
         <button
           onClick={() => dispatch(addToCart(product))}
-          className="cursor-pointer col-span-2 inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-2 py-2 text-xs font-black text-white shadow-xs shadow-blue-600/10 transition-all hover:from-blue-700 hover:to-indigo-700 active:scale-97 tracking-wide uppercase"
+          className="cursor-pointer col-span-2 inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 px-2 py-2 text-xs font-black text-white shadow-xs shadow-emerald-600/10 transition-all hover:from-emerald-700 hover:to-green-700 active:scale-97 tracking-wide uppercase"
         >
           <ShoppingCart className="h-3 w-3 stroke-[2.5]" />
           <span>Buy Now</span>
@@ -133,7 +133,7 @@ export default function ProductCard({
         <Link
           href={productDetailsUrl}
           onClick={() => onViewDetails?.(product)}
-          className="cursor-pointer col-span-1 inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-500 transition-all hover:bg-slate-50 hover:text-blue-600 hover:border-blue-200 active:scale-95"
+          className="cursor-pointer col-span-1 inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-500 transition-all hover:bg-slate-50 hover:text-emerald-600 hover:border-emerald-200 active:scale-95"
           aria-label="View Product Details"
         >
           <Eye className="h-3.5 w-3.5" />
