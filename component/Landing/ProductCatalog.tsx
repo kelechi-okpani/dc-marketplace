@@ -126,32 +126,33 @@ export default function ProductCatalogPage() {
   };
 
 
-  const HERO_SLIDES = [
+const HERO_SLIDES = [
   {
     id: 1,
-    title: "Next-Gen Electronics & Smart Tech",
-    tagline: "Upgrade Your Digital Lifestyle",
-    description: "Explore flagship smartphones, high-performance laptops, and premium audio gear with authentic global warranties.",
-    bgImage: "/hero/product1.webp",
-    badge: "100% Authentic Brands"
+    title: "Premium Beverages & Refreshments",
+    tagline: "Sip Excellence Every Day",
+    description: "Stock up on fine coffees, organic teas, sparkling juices, and functional wellness drinks sourced from top global brands.",
+        bgImage: "/hero/product3.jpg",
+    badge: "Fresh & Premium Quality"
   },
-  {
-    id: 2,
-    title: "Curated Modern Fashion & Apparel",
-    tagline: "Redefine Your Everyday Wardrobe",
-    description: "Discover minimalist seasonal collections, premium footwear, and timeless accessories designed for the modern lifestyle.",
-    bgImage: "/hero/product2.jpg",
-    badge: "New Season Arrivals"
-  },
+{
+  id: 2,
+  title: "Zesty Condiments & Premium Spreads",
+  tagline: "Bold Flavors, Perfect Pairings",
+  description: "Elevate your meals with creamy mayonnaise, rich double-concentrated tomato paste, and gourmet spreads perfect for your morning toast.",
+  bgImage: "/hero/product2.jpg",
+  badge: "Rich & Flavorful"
+},
   {
     id: 3,
-    title: "Premium Home Comfort & Living",
-    tagline: "Elevate Your Personal Space",
-    description: "Transform your home with contemporary smart appliances, ergonomic workspaces, and luxury decor essentials.",
-    bgImage: "/hero/product3.jpg",
-    badge: "Free Delivery Nationwide"
+    title: "Advanced Detergents & Home Sanitaries",
+    tagline: "Flawless Clean, Absolute Hygiene",
+    description: "Keep your spaces and fabrics pristine with high-efficiency laundry detergents, premium surface sanitizers, and household essentials.",
+        bgImage: "/hero/product1.webp",
+    badge: "Maximum Germ Protection"
   }
 ];
+
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
