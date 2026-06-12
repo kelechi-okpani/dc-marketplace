@@ -63,8 +63,7 @@ const handleSearchSubmit = (
   if (!searchQuery.trim()) return;
 
   router.push(
-    `/searching?q=${encodeURIComponent(searchQuery)}`
-    // `/search?q=${encodeURIComponent(searchQuery)}`
+    `/search?q=${encodeURIComponent(searchQuery)}`
   );
 };
 
