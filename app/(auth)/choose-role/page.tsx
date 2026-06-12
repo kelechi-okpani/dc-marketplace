@@ -7,7 +7,7 @@ import { ShoppingCart, Store, Wrench, ShieldCheck, HelpCircle } from 'lucide-rea
 type RoleId = 'buyer' | 'seller' | 'artisan' | 'admin';
 
 export default function RoleSelectionPortal() {
-  const [selectedRole, setSelectedRole] = useState<RoleId>('artisan');
+  const [selectedRole, setSelectedRole] = useState<RoleId>('buyer');
 
   const roles = [
     {

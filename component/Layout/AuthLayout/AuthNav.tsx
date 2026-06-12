@@ -33,12 +33,13 @@ export default function AuthNav() {
           <HelpCircle className="h-4 w-4" />
           <span>Help</span>
         </button>
-        <Link 
-          href="/auth/signin" 
+
+        {/* <Link 
+          href="/login" 
           className="border border-slate-200 bg-slate-50 hover:bg-slate-100 px-4 py-1.5 rounded-lg text-slate-700 transition-all text-xs font-bold"
         >
           Sign In
-        </Link>
+        </Link> */}
       </div>
     </header>
   );
