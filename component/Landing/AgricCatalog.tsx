@@ -6,11 +6,11 @@ import {
   CheckCircle2, ChevronDown, ChevronUp,
   Layers, ChevronLeft, ChevronRight, ShoppingBag
 } from 'lucide-react';
-import FlashDealsMarquee from '../utils/product/FlashDealsMarquee';
 import ProductGrid from '../utils/product/ProductGrid';
-import { brands, mockProducts } from '../utils/data/mockProducts';
+import { allAvailableBrands, categoryBrands, mockProducts } from '../utils/data/mockProducts';
 
-// Luxury High-Contrast Real Agricultural Photography Slider Dataset
+
+
 const HERO_SLIDES = [
   {
     id: 1,
@@ -40,19 +40,19 @@ const HERO_SLIDES = [
 
 // Single target category specification configuration
 const TARGET_CATEGORY = { 
-  id: 'agric-farm-produce', 
-  label: 'Agric & Farm Produce', 
-  subCats: [
-    'Grains & Flours',       
-    'Tubers & Roots',        
-    'Oils & Local Spices',   
-    'Livestock & Poultry',   
-    'Fresh Fruits & Veggies',
-    'Cash Crops Bulk',     
-    'Agro-Chemicals',        
-    'Fertilizers & Soil',    
-    'Animal Feed & Care',   
-    'Farm Tools & Machinery' 
+    id: 'agric-farm-produce', 
+    label: 'Agric & Farm Produce', 
+    subCats: [
+      'Grains & Flours',       
+      'Tubers & Roots',        
+      'Oils & Local Spices',   
+      'Livestock & Poultry',   
+      'Fresh Fruits & Veggies',
+      'Cash Crops Bulk',  
+      'Agro-Chemicals',        
+      'Fertilizers & Soil',    
+      'Animal Feed & Care',   
+      'Farm Tools & Machinery' 
   ] 
 };
 
@@ -68,6 +68,7 @@ export default function AgroCatalog () {
   const [sortBy, setSortBy] = useState<string>('popularity');
   const [showMobileFilters, setShowMobileFilters] = useState<boolean>(false);
   const [expandedCategory, setExpandedCategory] = useState<boolean>(true);
+  const [activeCategory, setActiveCategory] = useState<string>('all');
 
   // Hero Slider State Machinery
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -75,6 +76,16 @@ export default function AgroCatalog () {
   // Pagination Parameters
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 12; 
+
+  const brands = useMemo(() => {
+    const categoryData = categoryBrands[TARGET_CATEGORY.id] || [];
+    return [...categoryData].sort();
+  }, []);
+    
+      useEffect(() => {
+      setSelectedBrands([]);
+    }, [activeCategory]);
+    
 
   // Auto-slide carousel rotation interval execution
   useEffect(() => {
@@ -353,7 +364,7 @@ export default function AgroCatalog () {
                         <button
                           key={sub}
                           onClick={() => setActiveSubCategory(sub)}
-                          className={`cursor-pointer text-left text-[11px] py-1 flex items-center justify-between transition-colors ${
+                          className={`cursor-pointer text-left text-[11px] py-2 flex items-center justify-between transition-colors ${
                             activeSubCategory === sub 
                               ? 'text-emerald-600 font-black' 
                               : 'text-slate-500 hover:text-slate-800 font-medium'
@@ -392,7 +403,7 @@ export default function AgroCatalog () {
               <h4 className="text-[11px] font-black text-slate-400 uppercase tracking-widest">Agro Brand Pools</h4>
               <div className="max-h-36 overflow-y-auto no-scrollbar space-y-1.5 pr-1">
                 {brands.map((brand) => (
-                  <label key={brand} className="flex items-center gap-2.5 cursor-pointer group select-none">
+                  <label key={brand} className="flex items-center gap-2.5 cursor-pointer group select-none mt-3">
                     <input 
                       type="checkbox"
                       checked={selectedBrands.includes(brand)}

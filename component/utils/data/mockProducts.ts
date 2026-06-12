@@ -31,11 +31,38 @@ export interface Product {
 }
 
 
-export const brands = ['SAMSUNG', 'PHILIPS', 'SONY', 'Ankara Hub', 'Shea Gold', 'APPLE', 'Baileys'];
+// export const brands = ['SAMSUNG', 'PHILIPS', 'SONY', 'Ankara Hub', 'Shea Gold', 'APPLE', 'Baileys'];
+
+export const categoryBrands: Record<string, string[]> = {
+  // Agriculture & Farm
+  'agric-farm-produce': ['Mama Gold', 'Caprice', 'Olam', 'Vital Feeds', 'Farm Fresh', 'Dangote'],
+  
+  // Electronics
+  'appliances': ['Scanfrost', 'Haier Thermocool', 'Binatone', 'Century', 'LG', 'Samsung'],
+  'phones-tablets': ['SAMSUNG', 'APPLE', 'SONY', 'Xiaomi', 'Google', 'Infinix', 'Tecno', 'Oppo', 'Oraimo'],
+  'electronics': ['SAMSUNG', 'PHILIPS', 'SONY', 'LG', 'Hisense', 'TCL', 'Panasonic'],
+  'computing': ['Apple', 'HP', 'Dell', 'Lenovo', 'Asus', 'Acer', 'Microsoft'],
+  'gaming': ['Sony', 'Microsoft', 'Nintendo', 'Logitech', 'Razer'],
+
+  // Fashion & Personal
+  'fashion': ['Nike', 'Adidas', 'Puma', 'Clarks', 'Timberland', 'Zara', 'Gucci', 'Rolex', 'Fossil'],
+  'health-beauty': ['Nivea', 'Dove', 'L\'Oreal', 'Maybelline', 'Estee Lauder'],
+  
+  // Home & Supermarket
+  'home-office': ['Harpic', 'Morning Fresh', 'Dettol', 'Ajax', 'Sunlight', 'Century'],
+  'supermarket': ['Coca-Cola', 'Pepsi', 'Nestle', 'Chi', 'Baileys', 'Golden Penny', 'Kellogg'],
+  'baby-products': ['Pampers', 'Huggies', 'Nestle', 'Johnson & Johnson']
+};
+
+export const allAvailableBrands = Array.from(
+  new Set(Object.values(categoryBrands).flat())
+).sort();
+
 
 // ==================== SIMULATED MERCHANT REGISTRY ====================
 
 export const MOCK_STORES_DATABASE: Record<string, { merchant: MerchantProfile; categories: string[] }> = {
+
   "aeon-appliances-nigeria": {
     merchant: {
       id: "aeon-appliances-nigeria",
@@ -168,742 +195,103 @@ export const mockProductDetails = {
 // ==================== REVISED MOCK DATA WITH MERCHANT RELATIONS ====================
 
 export const mockProducts: Product[] = [
-  // ================= PHONES & TABLETS (1 - 7) =================
-  { 
-    id: '1', 
-    title: 'Samsung Galaxy S24 Ultra Phone (256GB, Titanium Gray)', 
-    price: 1250000, oldPrice: 1500000,
-    description: '256GB, Titanium Gray, AI Features, 5G Network', 
-    imageUrl: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=600&q=80', 
-    category: 'phones-tablets', subCategory: 'Mobile Phones',
-    brand: 'SAMSUNG', rating: 5, reviewsCount: 316, isOfficialStore: true,
-    merchantId: 'slot-matrix-phones' // Belongs to Phones Deal Hub
-  },
-  { 
-    id: '2', 
-    title: 'Apple iPad Pro 11-Inch M4 Wi-Fi (256GB, Space Black)', 
-    price: 1420000, oldPrice: 1550000,
-    description: 'Ultra Retina XDR display, ProMotion technology, Apple M4 Chip', 
-    imageUrl: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80', 
-    category: 'phones-tablets', subCategory: 'Tablets',
-    brand: 'APPLE', rating: 5, reviewsCount: 48, isOfficialStore: true,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '3', 
-    title: 'Oraimo Traveler 4 20000mAh Power Bank Fast Charging', 
-    price: 24500, oldPrice: 32000,
-    description: '20A multi-output speed charging, hyper-durable slim profile pack', 
-    imageUrl: 'https://images.unsplash.com/photo-1609592424261-2830459a7144?auto=format&fit=crop&w=600&q=80', 
-    category: 'phones-tablets', subCategory: 'Power Banks',
-    brand: 'ORAIMO', rating: 4, reviewsCount: 1240, isOfficialStore: true,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '4', 
-    title: 'Magnetic Matte Transparent MagSafe Case for iPhone 15 Pro Max', 
-    price: 8500, oldPrice: 12000,
-    description: 'Shockproof bumper frame casing with clear anti-yellow backplate', 
-    imageUrl: 'https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=600&q=80', 
-    category: 'phones-tablets', subCategory: 'Accessories',
-    brand: 'Spigen', rating: 4, reviewsCount: 185,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '5', 
-    title: 'Infinix Hot 40 Pro (256GB+8GB RAM, Horizon Gold)', 
-    price: 215000, oldPrice: 245000,
-    description: '108MP Camera, Helio G99 Processor, 5000mAh Battery', 
-    imageUrl: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80', 
-    category: 'phones-tablets', subCategory: 'Mobile Phones',
-    brand: 'INFINIX', rating: 4, reviewsCount: 94, isOfficialStore: true,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '6', 
-    title: 'Tecno Spark 20 Pro+ (256GB, Radiant Axinite)', 
-    price: 230000, oldPrice: 260000,
-    description: '120Hz Curved AMOLED Display, 108MP Ultra Sensing Camera', 
-    imageUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80', 
-    category: 'phones-tablets', subCategory: 'Mobile Phones',
-    brand: 'TECNO', rating: 4, reviewsCount: 112, isOfficialStore: true,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '7', 
-    title: 'Anker PowerCore 10000mAh Ultra-Compact Battery Pack', 
-    price: 18500, oldPrice: 22000,
-    description: 'High-speed charging PowerIQ technology for phones and tablets', 
-    imageUrl: 'https://images.unsplash.com/photo-1622445262465-2481c4574875?auto=format&fit=crop&w=600&q=80', 
-    category: 'phones-tablets', subCategory: 'Power Banks',
-    brand: 'ANKER', rating: 5, reviewsCount: 421,
-    merchantId: 'slot-matrix-phones'
-  },
+  
 
-  // ================= ELECTRONICS (8 - 14) =================
-  { 
-    id: '8', 
-    title: 'Sony WH-1000XM5 Premium Noise Cancelling Wireless Headphones', 
-    price: 280000, 
-    description: 'Industry-leading Active Noise Cancelling, Premium 30hr Battery Life', 
-    imageUrl: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80', 
-    category: 'electronics', subCategory: 'Audio Gear',
-    brand: 'SONY', rating: 5, reviewsCount: 712, isOfficialStore: true,
-    merchantId: 'aeon-appliances-nigeria' // Managed via Aeon Hub Store
-  },
-  { 
-    id: '9', 
-    title: 'LG 55-Inch 4K UHD Smart NanoCell Television', 
-    price: 540000, oldPrice: 620000,
-    description: 'ThinQ AI WebOS architecture, HDR10 active imaging depth', 
-    imageUrl: 'https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80', 
-    category: 'electronics', subCategory: 'Television',
-    brand: 'LG', rating: 5, reviewsCount: 230, isOfficialStore: true,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '10', 
-    title: 'Xiaomi Smart Zigbee 3.0 Wireless Automation Gateway Hub', 
-    price: 34500, oldPrice: 45000,
-    description: 'Controls up to 128 smart home appliances with stable mesh topology', 
-    imageUrl: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80', 
-    category: 'electronics', subCategory: 'Smart Home Gateways',
-    brand: 'XIAOMI', rating: 4, reviewsCount: 56,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '11', 
-    title: 'JBL Flip 6 Waterproof Portable Bluetooth Speaker', 
-    price: 85000, oldPrice: 105000,
-    description: '2-way speaker system, IP67 waterproof and dustproof, 12 hours playtime', 
-    imageUrl: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80', 
-    category: 'electronics', subCategory: 'Audio Gear',
-    brand: 'JBL', rating: 5, reviewsCount: 340, isOfficialStore: true,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '12', 
-    title: 'Hisense 43-Inch FHD Smart TV with Bezelless Design', 
-    price: 265000, oldPrice: 295000,
-    description: 'Natural Color Enhancer, VIDAA Smart OS, DTS Studio Sound', 
-    imageUrl: 'https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=600&q=80', 
-    category: 'electronics', subCategory: 'Television',
-    brand: 'HISENSE', rating: 4, reviewsCount: 189, isOfficialStore: true,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '13', 
-    title: 'Amazon Fire TV Stick 4K Max Streaming Device', 
-    price: 52000, oldPrice: 65000,
-    description: 'Wi-Fi 6E support, Cinematic 4K streaming with Dolby Vision', 
-    imageUrl: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80', 
-    category: 'electronics', subCategory: 'Audio Gear', 
-    brand: 'AMAZON', rating: 5, reviewsCount: 412,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '14', 
-    title: 'Zealot S32 Portable Outdoor Wireless Speaker', 
-    price: 14500, oldPrice: 19000,
-    description: '3D Bass Stereo Surround, Subwoofer with Micro SD slot & USB inputs', 
-    imageUrl: 'https://images.unsplash.com/photo-1589256469067-ea99122bbec4?auto=format&fit=crop&w=600&q=80', 
-    category: 'electronics', subCategory: 'Audio Gear',
-    brand: 'ZEALOT', rating: 4, reviewsCount: 2050,
-    merchantId: 'aeon-appliances-nigeria'
-  },
+  // ================= PHONES & TABLETS =================
+  { id: '1', title: 'Samsung Galaxy S24 Ultra Phone (256GB, Titanium Gray)', price: 1250000, oldPrice: 1500000, description: '256GB, Titanium Gray, AI Features, 5G Network', imageUrl: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=600&q=80', category: 'phones-tablets', subCategory: 'Mobile Phones', brand: 'SAMSUNG', rating: 5, reviewsCount: 316, isOfficialStore: true, merchantId: 'slot-matrix-phones' },
+  { id: '2', title: 'Apple iPad Pro 11-Inch M4 Wi-Fi (256GB, Space Black)', price: 1420000, oldPrice: 1550000, description: 'Ultra Retina XDR display, ProMotion technology, Apple M4 Chip', imageUrl: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80', category: 'phones-tablets', subCategory: 'Tablets', brand: 'APPLE', rating: 5, reviewsCount: 48, isOfficialStore: true, merchantId: 'slot-matrix-phones' },
+  { id: '3', title: 'Oraimo Traveler 4 20000mAh Power Bank Fast Charging', price: 24500, oldPrice: 32000, description: '20A multi-output speed charging, hyper-durable slim profile pack', imageUrl: 'https://images.unsplash.com/photo-1609592424261-2830459a7144?auto=format&fit=crop&w=600&q=80', category: 'phones-tablets', subCategory: 'Power Banks', brand: 'ORAIMO', rating: 4, reviewsCount: 1240, isOfficialStore: true, merchantId: 'slot-matrix-phones' },
+  { id: '4', title: 'Magnetic Matte Transparent MagSafe Case for iPhone 15 Pro Max', price: 8500, oldPrice: 12000, description: 'Shockproof bumper frame casing with clear anti-yellow backplate', imageUrl: 'https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=600&q=80', category: 'phones-tablets', subCategory: 'Accessories', brand: 'Spigen', rating: 4, reviewsCount: 185, merchantId: 'slot-matrix-phones' },
+  { id: '5', title: 'Infinix Hot 40 Pro (256GB+8GB RAM, Horizon Gold)', price: 215000, oldPrice: 245000, description: '108MP Camera, Helio G99 Processor, 5000mAh Battery', imageUrl: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80', category: 'phones-tablets', subCategory: 'Mobile Phones', brand: 'INFINIX', rating: 4, reviewsCount: 94, isOfficialStore: true, merchantId: 'slot-matrix-phones' },
+  { id: '6', title: 'Tecno Spark 20 Pro+ (256GB, Radiant Axinite)', price: 230000, oldPrice: 260000, description: '120Hz Curved AMOLED Display, 108MP Ultra Sensing Camera', imageUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80', category: 'phones-tablets', subCategory: 'Mobile Phones', brand: 'TECNO', rating: 4, reviewsCount: 112, isOfficialStore: true, merchantId: 'slot-matrix-phones' },
+  { id: '7', title: 'Anker PowerCore 10000mAh Ultra-Compact Battery Pack', price: 18500, oldPrice: 22000, description: 'High-speed charging PowerIQ technology for phones and tablets', imageUrl: 'https://images.unsplash.com/photo-1622445262465-2481c4574875?auto=format&fit=crop&w=600&q=80', category: 'phones-tablets', subCategory: 'Power Banks', brand: 'ANKER', rating: 5, reviewsCount: 421, merchantId: 'slot-matrix-phones' },
 
-  // ================= APPLIANCES (15 - 21) =================
-  { 
-    id: '15', 
-    title: 'Philips Air Fryer XXL Digital Touch Interface 7.5L', 
-    price: 110000, oldPrice: 145000,
-    description: '7.5L Capacity, Digital Interface, Smart Sensing Tech', 
-    imageUrl: 'https://images.unsplash.com/photo-1695654401103-63fcb00790e9?auto=format&fit=crop&w=600&q=80', 
-    category: 'appliances', subCategory: 'Air Fryers',
-    brand: 'PHILIPS', rating: 5, reviewsCount: 154, isOfficialStore: true,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '16', 
-    title: 'Haier Thermocool 250L Double Door Refrigerator', 
-    price: 435000, oldPrice: 490000,
-    description: 'Turbo cooling function, low voltage stabilization protection layout', 
-    imageUrl: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80', 
-    category: 'appliances', subCategory: 'Refrigerators',
-    brand: 'THERMOCOOL', rating: 4, reviewsCount: 92, isOfficialStore: true,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '17', 
-    title: 'Nexus 20L Digital Microwave Oven with Grill', 
-    price: 68000, oldPrice: 78000,
-    description: '5 power levels, auto-defrost configuration, pull-handle frame', 
-    imageUrl: 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=600&q=80', 
-    category: 'appliances', subCategory: 'Microwaves',
-    brand: 'NEXUS', rating: 4, reviewsCount: 114,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '18', 
-    title: 'Binatone 16-Inch Standing Fan with 2-Hour Timer', 
-    price: 38000, oldPrice: 45000,
-    description: 'High-efficiency 5-fin blades, 3-speed selector push buttons', 
-    imageUrl: 'https://images.unsplash.com/photo-1618945999052-19bc052b6510?auto=format&fit=crop&w=600&q=80', 
-    category: 'appliances', subCategory: 'Blenders', 
-    brand: 'BINATONE', rating: 4, reviewsCount: 523, isOfficialStore: true,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '19', 
-    title: 'Scanfrost 4-Burner Eco Gas Cooker with Oven', 
-    price: 195000, oldPrice: 220000,
-    description: 'Stainless steel top, double glass oven door grid layout panel', 
-    imageUrl: 'https://images.unsplash.com/photo-1522012147041-30a115908b31?auto=format&fit=crop&w=600&q=80', 
-    category: 'appliances', subCategory: 'Air Fryers', 
-    brand: 'SCANFROST', rating: 4, reviewsCount: 61,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '20', 
-    title: 'Panasonic Heavy Duty Dry Iron (1000W, Classic Style)', 
-    price: 24000, oldPrice: 29000,
-    description: 'Non-stick coating soleplate, safety thermal fuse cutoff engine', 
-    imageUrl: 'https://images.unsplash.com/photo-1622445262465-2481c4574875?auto=format&fit=crop&w=600&q=80', 
-    category: 'appliances', subCategory: 'Microwaves', 
-    brand: 'PANASONIC', rating: 5, reviewsCount: 340,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '21', 
-    title: 'Qasa 12V 15A Smart Battery Fast Charger & Maintainer', 
-    price: 32500, oldPrice: 40000,
-    description: 'Pulse repair cluster activation architecture for inverter power deep cycle setups', 
-    imageUrl: 'https://images.unsplash.com/photo-1609592424261-2830459a7144?auto=format&fit=crop&w=600&q=80', 
-    category: 'appliances', subCategory: 'Blenders', 
-    brand: 'QASA', rating: 4, reviewsCount: 78,
-    merchantId: 'aeon-appliances-nigeria'
-  },
+  // ================= ELECTRONICS =================
+  { id: '8', title: 'Sony WH-1000XM5 Premium Noise Cancelling Wireless Headphones', price: 280000, description: 'Industry-leading Active Noise Cancelling, Premium 30hr Battery Life', imageUrl: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80', category: 'electronics', subCategory: 'Audio Gear', brand: 'SONY', rating: 5, reviewsCount: 712, isOfficialStore: true, merchantId: 'aeon-appliances-nigeria' },
+  { id: '9', title: 'LG 55-Inch 4K UHD Smart NanoCell Television', price: 540000, oldPrice: 620000, description: 'ThinQ AI WebOS architecture, HDR10 active imaging depth', imageUrl: 'https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80', category: 'electronics', subCategory: 'Television', brand: 'LG', rating: 5, reviewsCount: 230, isOfficialStore: true, merchantId: 'aeon-appliances-nigeria' },
+  { id: '10', title: 'Xiaomi Smart Zigbee 3.0 Wireless Automation Gateway Hub', price: 34500, oldPrice: 45000, description: 'Controls up to 128 smart home appliances with stable mesh topology', imageUrl: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80', category: 'electronics', subCategory: 'Smart Home Gateways', brand: 'XIAOMI', rating: 4, reviewsCount: 56, merchantId: 'aeon-appliances-nigeria' },
+  { id: '11', title: 'JBL Flip 6 Waterproof Portable Bluetooth Speaker', price: 85000, oldPrice: 105000, description: '2-way speaker system, IP67 waterproof and dustproof, 12 hours playtime', imageUrl: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80', category: 'electronics', subCategory: 'Audio Gear', brand: 'JBL', rating: 5, reviewsCount: 340, isOfficialStore: true, merchantId: 'aeon-appliances-nigeria' },
+  { id: '12', title: 'Hisense 43-Inch FHD Smart TV with Bezelless Design', price: 265000, oldPrice: 295000, description: 'Natural Color Enhancer, VIDAA Smart OS, DTS Studio Sound', imageUrl: 'https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=600&q=80', category: 'electronics', subCategory: 'Television', brand: 'HISENSE', rating: 4, reviewsCount: 189, isOfficialStore: true, merchantId: 'aeon-appliances-nigeria' },
+  { id: '13', title: 'Amazon Fire TV Stick 4K Max Streaming Device', price: 52000, oldPrice: 65000, description: 'Wi-Fi 6E support, Cinematic 4K streaming with Dolby Vision', imageUrl: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80', category: 'electronics', subCategory: 'Audio Gear', brand: 'AMAZON', rating: 5, reviewsCount: 412, merchantId: 'aeon-appliances-nigeria' },
+  { id: '14', title: 'Zealot S32 Portable Outdoor Wireless Speaker', price: 14500, oldPrice: 19000, description: '3D Bass Stereo Surround, Subwoofer with Micro SD slot & USB inputs', imageUrl: 'https://images.unsplash.com/photo-1589256469067-ea99122bbec4?auto=format&fit=crop&w=600&q=80', category: 'electronics', subCategory: 'Audio Gear', brand: 'ZEALOT', rating: 4, reviewsCount: 2050, merchantId: 'aeon-appliances-nigeria' },
 
-  // ================= FASHION (22 - 28) =================
-  { 
-    id: '22', 
-    title: 'Ankara Print Luxury Flowing Summer Tailored Dress', 
-    price: 12500, oldPrice: 25000,
-    description: 'Premium handcrafted colorful textiles tailored to perfection', 
-    imageUrl: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80', 
-    category: 'fashion', subCategory: 'Womens Fashion',
-    brand: 'Ankara Hub', rating: 4, reviewsCount: 88
-  },
-  { 
-    id: '23', 
-    title: 'Men Casual Slim-Fit Structured Button Up Shirt', 
-    price: 14500, oldPrice: 22000,
-    description: 'Breathable combed cotton layout suitable for business casual settings', 
-    imageUrl: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80', 
-    category: 'fashion', subCategory: 'Mens Fashion',
-    brand: 'Defacto', rating: 4, reviewsCount: 195
-  },
-  { 
-    id: '24', 
-    title: 'Minimalist Waterproof Quartz Leather Strap Men Watch', 
-    price: 45000, oldPrice: 60000,
-    description: 'Scratch-resistant sapphire glass frame with calendar display date window', 
-    imageUrl: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80', 
-    category: 'fashion', subCategory: 'Watches',
-    brand: 'CURREN', rating: 4, reviewsCount: 524
-  },
-  { 
-    id: '25', 
-    title: 'Premium Cashmere Senator Soft Plain Fabric Material (4 Yards)', 
-    price: 28000, oldPrice: 35000,
-    description: 'Ultra-smooth high grade wool texture for corporate tailoring finishes', 
-    imageUrl: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?auto=format&fit=crop&w=600&q=80', 
-    category: 'fashion', subCategory: 'Fabrics',
-    brand: 'Visco', rating: 5, reviewsCount: 67
-  },
-  { 
-    id: '26', 
-    title: 'Unisex Polarized Vintage Clubmaster Sunglasses', 
-    price: 6500, oldPrice: 10000,
-    description: 'UV400 protection filter block, reinforced breakdown alloy hinge links', 
-    imageUrl: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80', 
-    category: 'fashion', subCategory: 'Mens Fashion', 
-    brand: 'FEIDU', rating: 4, reviewsCount: 142
-  },
-  { 
-    id: '27', 
-    title: 'Casual High-Top Rugged Canvas Sneakers', 
-    price: 18500, oldPrice: 26000,
-    description: 'Vulcanized anti-slip rubber traction sole platform build', 
-    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80', 
-    category: 'fashion', subCategory: 'Shoes',
-    brand: 'Converse', rating: 4, reviewsCount: 310
-  },
-  { 
-    id: '28', 
-    title: 'Luxury Italian Leather Formal Men Bifold Wallet', 
-    price: 12000, oldPrice: 18000,
-    description: 'RFID blocking protection mesh lined interior layer with clear ID windows', 
-    imageUrl: 'https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80', 
-    category: 'fashion', subCategory: 'Mens Fashion', 
-    brand: 'GENUINE LEATHER', rating: 5, reviewsCount: 89
-  },
+  // ================= APPLIANCES =================
+  { id: '15', title: 'Philips Air Fryer XXL Digital Touch Interface 7.5L', price: 110000, oldPrice: 145000, description: '7.5L Capacity, Digital Interface, Smart Sensing Tech', imageUrl: 'https://images.unsplash.com/photo-1695654401103-63fcb00790e9?auto=format&fit=crop&w=600&q=80', category: 'appliances', subCategory: 'Air Fryers', brand: 'PHILIPS', rating: 5, reviewsCount: 154, isOfficialStore: true, merchantId: 'aeon-appliances-nigeria' },
+  { id: '16', title: 'Haier Thermocool 250L Double Door Refrigerator', price: 435000, oldPrice: 490000, description: 'Turbo cooling function, low voltage stabilization protection layout', imageUrl: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80', category: 'appliances', subCategory: 'Refrigerators', brand: 'THERMOCOOL', rating: 4, reviewsCount: 92, isOfficialStore: true, merchantId: 'aeon-appliances-nigeria' },
+  { id: '17', title: 'Nexus 20L Digital Microwave Oven with Grill', price: 68000, oldPrice: 78000, description: '5 power levels, auto-defrost configuration, pull-handle frame', imageUrl: 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=600&q=80', category: 'appliances', subCategory: 'Microwaves', brand: 'NEXUS', rating: 4, reviewsCount: 114, merchantId: 'aeon-appliances-nigeria' },
+  { id: '18', title: 'Binatone 16-Inch Standing Fan with 2-Hour Timer', price: 38000, oldPrice: 45000, description: 'High-efficiency 5-fin blades, 3-speed selector push buttons', imageUrl: 'https://images.unsplash.com/photo-1618945999052-19bc052b6510?auto=format&fit=crop&w=600&q=80', category: 'appliances', subCategory: 'Blenders', brand: 'BINATONE', rating: 4, reviewsCount: 523, isOfficialStore: true, merchantId: 'aeon-appliances-nigeria' },
+  { id: '19', title: 'Scanfrost 4-Burner Eco Gas Cooker with Oven', price: 195000, oldPrice: 220000, description: 'Stainless steel top, double glass oven door grid layout panel', imageUrl: 'https://images.unsplash.com/photo-1522012147041-30a115908b31?auto=format&fit=crop&w=600&q=80', category: 'appliances', subCategory: 'Air Fryers', brand: 'SCANFROST', rating: 4, reviewsCount: 61, merchantId: 'aeon-appliances-nigeria' },
+  { id: '20', title: 'Panasonic Heavy Duty Dry Iron (1000W, Classic Style)', price: 24000, oldPrice: 29000, description: 'Non-stick coating soleplate, safety thermal fuse cutoff engine', imageUrl: 'https://images.unsplash.com/photo-1622445262465-2481c4574875?auto=format&fit=crop&w=600&q=80', category: 'appliances', subCategory: 'Microwaves', brand: 'PANASONIC', rating: 5, reviewsCount: 340, merchantId: 'aeon-appliances-nigeria' },
+  { id: '21', title: 'Qasa 12V 15A Smart Battery Fast Charger & Maintainer', price: 32500, oldPrice: 40000, description: 'Pulse repair cluster activation architecture for inverter power deep cycle setups', imageUrl: 'https://images.unsplash.com/photo-1609592424261-2830459a7144?auto=format&fit=crop&w=600&q=80', category: 'appliances', subCategory: 'Blenders', brand: 'QASA', rating: 4, reviewsCount: 78, merchantId: 'aeon-appliances-nigeria' },
 
-  // ================= HEALTH & BEAUTY (29 - 34) =================
-  { 
-    id: '29', 
-    title: 'Organic Raw Unrefined Grade-A Shea Butter Gold (500g)', 
-    price: 3500, oldPrice: 5000,
-    description: '500g Tub, Raw, Unrefined Pure Grade-A Shea Gold', 
-    imageUrl: 'https://images.unsplash.com/photo-1608248597481-496100c8c836?auto=format&fit=crop&w=600&q=80', 
-    category: 'health-beauty', subCategory: 'Skin Care',
-    brand: 'Shea Gold', rating: 5, reviewsCount: 1718
-  },
-  { 
-    id: '30', 
-    title: 'Bleu De Chanel Eau De Parfum Luxury Spray 100ml', 
-    price: 195000, oldPrice: 220000,
-    description: 'Timeless aromatic woody trail notes for intense sophistication profiles', 
-    imageUrl: 'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80', 
-    category: 'health-beauty', subCategory: 'Fragrances',
-    brand: 'CHANEL', rating: 5, reviewsCount: 142
-  },
-  { 
-    id: '31', 
-    title: 'Matte Liquid Longwear Foundation Waterproof Formula', 
-    price: 16000, oldPrice: 21000,
-    description: 'Full coverage 24-hour oil controller suitable for warm tropical tones', 
-    imageUrl: 'https://images.unsplash.com/photo-1631730359577-38e4755d772b?auto=format&fit=crop&w=600&q=80', 
-    category: 'health-beauty', subCategory: 'Makeup',
-    brand: 'Maybelline', rating: 4, reviewsCount: 310
-  },
-  { 
-    id: '32', 
-    title: 'CeraVe Foaming Facial Cleanser for Normal to Oily Skin (473ml)', 
-    price: 24500, oldPrice: 29000,
-    description: 'With 3 essential ceramides, niacinamide, and hyaluronic acid barrier protectors', 
-    imageUrl: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80', 
-    category: 'health-beauty', subCategory: 'Skin Care',
-    brand: 'CERAVE', rating: 5, reviewsCount: 412
-  },
-  { 
-    id: '33', 
-    title: 'Cosrx Advanced Snail 96 Mucin Power Essence', 
-    price: 19500, oldPrice: 24000,
-    description: '96.3% Snail Secretion Filtrate for deep cellular elasticity and hyper-hydration', 
-    imageUrl: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=600&q=80', 
-    category: 'health-beauty', subCategory: 'Skin Care',
-    brand: 'COSRX', rating: 5, reviewsCount: 850
-  },
-  { 
-    id: '34', 
-    title: 'Nivea Perfect & Radiant Even Tone Day Cream SPF 15', 
-    price: 6800, oldPrice: 8500,
-    description: 'Enriched with Eventone Pure Active and Pearl Extract modifiers', 
-    imageUrl: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80', 
-    category: 'health-beauty', subCategory: 'Skin Care',
-    brand: 'NIVEA', rating: 4, reviewsCount: 1104, isOfficialStore: true
-  },
+  // ================= FASHION =================
+  { id: '22', title: 'Ankara Print Luxury Flowing Summer Tailored Dress', price: 12500, oldPrice: 25000, description: 'Premium handcrafted colorful textiles tailored to perfection', imageUrl: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80', category: 'fashion', subCategory: 'Womens Fashion', brand: 'Ankara Hub', rating: 4, reviewsCount: 88 },
+  { id: '23', title: 'Men Casual Slim-Fit Structured Button Up Shirt', price: 14500, oldPrice: 22000, description: 'Breathable combed cotton layout suitable for business casual settings', imageUrl: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80', category: 'fashion', subCategory: 'Mens Fashion', brand: 'Defacto', rating: 4, reviewsCount: 195 },
+  { id: '24', title: 'Minimalist Waterproof Quartz Leather Strap Men Watch', price: 45000, oldPrice: 60000, description: 'Scratch-resistant sapphire glass frame with calendar display date window', imageUrl: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80', category: 'fashion', subCategory: 'Watches', brand: 'CURREN', rating: 4, reviewsCount: 524 },
+  { id: '25', title: 'Premium Cashmere Senator Soft Plain Fabric Material (4 Yards)', price: 28000, oldPrice: 35000, description: 'Ultra-smooth high grade wool texture for corporate tailoring finishes', imageUrl: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?auto=format&fit=crop&w=600&q=80', category: 'fashion', subCategory: 'Fabrics', brand: 'Visco', rating: 5, reviewsCount: 67 },
+  { id: '26', title: 'Unisex Polarized Vintage Clubmaster Sunglasses', price: 6500, oldPrice: 10000, description: 'UV400 protection filter block, reinforced breakdown alloy hinge links', imageUrl: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80', category: 'fashion', subCategory: 'Mens Fashion', brand: 'FEIDU', rating: 4, reviewsCount: 142 },
+  { id: '27', title: 'Casual High-Top Rugged Canvas Sneakers', price: 18500, oldPrice: 26000, description: 'Vulcanized anti-slip rubber traction sole platform build', imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80', category: 'fashion', subCategory: 'Shoes', brand: 'Converse', rating: 4, reviewsCount: 310 },
+  { id: '28', title: 'Luxury Italian Leather Formal Men Bifold Wallet', price: 12000, oldPrice: 18000, description: 'RFID blocking protection mesh lined interior layer with clear ID windows', imageUrl: 'https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80', category: 'fashion', subCategory: 'Mens Fashion', brand: 'GENUINE LEATHER', rating: 5, reviewsCount: 89 },
 
-  // ================= COMPUTING (35 - 40) =================
-  { 
-    id: '35', 
-    title: 'MacBook Pro 14-Inch M3 Chip / 16GB Unified Memory', 
-    price: 2450000, oldPrice: 2700000,
-    description: 'Liquid Retina XDR Display, Space Grey Edition', 
-    imageUrl: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80', 
-    category: 'computing', subCategory: 'Laptops',
-    brand: 'APPLE', rating: 5, reviewsCount: 94, isOfficialStore: true,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '36', 
-    title: 'HP LaserJet Pro MFP Wireless Monochrome Laser Printer', 
-    price: 215000, oldPrice: 240000,
-    description: 'High speed double-sided document duplication module array layout', 
-    imageUrl: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=600&q=80', 
-    category: 'computing', subCategory: 'Printers',
-    brand: 'HP', rating: 4, reviewsCount: 74, isOfficialStore: true,
-    merchantId: 'aeon-appliances-nigeria'
-  },
-  { 
-    id: '37', 
-    title: 'Samsung T7 Shield 1TB Portable External SSD Drive', 
-    price: 115000, oldPrice: 135000,
-    description: 'USB 3.2 Gen2 heavy-duty rubberized rugged data preservation unit', 
-    imageUrl: 'https://images.unsplash.com/photo-1597872200969-2b65dff802a8?auto=format&fit=crop&w=600&q=80', 
-    category: 'computing', subCategory: 'Data Storage',
-    brand: 'SAMSUNG', rating: 5, reviewsCount: 188, isOfficialStore: true,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '38', 
-    title: 'Lenovo IdeaPad Slim 3 Intel Core i3 (8GB RAM, 512GB SSD)', 
-    price: 465000, oldPrice: 510000,
-    description: '15.6-Inch Display, Windows 11 Home, Military Grade Durability Frame', 
-    imageUrl: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=600&q=80', 
-    category: 'computing', subCategory: 'Laptops',
-    brand: 'LENOVO', rating: 4, reviewsCount: 52, isOfficialStore: true,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '39', 
-    title: 'Logitech MK270 Reliable Wireless Keyboard and Mouse Combo', 
-    price: 32000, oldPrice: 38000,
-    description: 'Long-range 2.4 GHz wireless link nodes, extended internal battery engine lifecycle', 
-    imageUrl: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80', 
-    category: 'computing', subCategory: 'Accessories', 
-    brand: 'LOGITECH', rating: 5, reviewsCount: 312,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '40', 
-    title: 'Seagate Expansion 2TB External Hard Drive HDD USB 3.0', 
-    price: 78000, oldPrice: 88000,
-    description: 'Plug-and-play desktop drag-and-drop structural formatting logic tracking', 
-    imageUrl: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80', 
-    category: 'computing', subCategory: 'Data Storage',
-    brand: 'SEAGATE', rating: 4, reviewsCount: 640,
-    merchantId: 'slot-matrix-phones'
-  },
+  // ================= HEALTH & BEAUTY =================
+  { id: '29', title: 'Organic Raw Unrefined Grade-A Shea Butter Gold (500g)', price: 3500, oldPrice: 5000, description: '500g Tub, Raw, Unrefined Pure Grade-A Shea Gold', imageUrl: 'https://images.unsplash.com/photo-1608248597481-496100c8c836?auto=format&fit=crop&w=600&q=80', category: 'health-beauty', subCategory: 'Skin Care', brand: 'Shea Gold', rating: 5, reviewsCount: 1718 },
+  { id: '30', title: 'Bleu De Chanel Eau De Parfum Luxury Spray 100ml', price: 195000, oldPrice: 220000, description: 'Timeless aromatic woody trail notes for intense sophistication profiles', imageUrl: 'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80', category: 'health-beauty', subCategory: 'Fragrances', brand: 'CHANEL', rating: 5, reviewsCount: 142 },
+  { id: '31', title: 'Matte Liquid Longwear Foundation Waterproof Formula', price: 16000, oldPrice: 21000, description: 'Full coverage 24-hour oil controller suitable for warm tropical tones', imageUrl: 'https://images.unsplash.com/photo-1631730359577-38e4755d772b?auto=format&fit=crop&w=600&q=80', category: 'health-beauty', subCategory: 'Makeup', brand: 'Maybelline', rating: 4, reviewsCount: 310 },
+  { id: '32', title: 'CeraVe Foaming Facial Cleanser for Normal to Oily Skin (473ml)', price: 24500, oldPrice: 29000, description: 'With 3 essential ceramides, niacinamide, and hyaluronic acid barrier protectors', imageUrl: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80', category: 'health-beauty', subCategory: 'Skin Care', brand: 'CERAVE', rating: 5, reviewsCount: 412 },
+  { id: '33', title: 'Cosrx Advanced Snail 96 Mucin Power Essence', price: 19500, oldPrice: 24000, description: '96.3% Snail Secretion Filtrate for deep cellular elasticity and hyper-hydration', imageUrl: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=600&q=80', category: 'health-beauty', subCategory: 'Skin Care', brand: 'COSRX', rating: 5, reviewsCount: 850 },
+  { id: '34', title: 'Nivea Perfect & Radiant Even Tone Day Cream SPF 15', price: 6800, oldPrice: 8500, description: 'Enriched with Eventone Pure Active and Pearl Extract modifiers', imageUrl: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80', category: 'health-beauty', subCategory: 'Skin Care', brand: 'NIVEA', rating: 4, reviewsCount: 1104, isOfficialStore: true },
 
-  // ================= GAMING & TOYS (41 - 45) =================
-  { 
-    id: '41', 
-    title: 'PlayStation 5 Console Slim Edition (1TB Storage)', 
-    price: 680000, oldPrice: 750000,
-    description: 'Includes dual wireless controllers and high-speed HDMI mapping capabilities', 
-    imageUrl: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=80', 
-    category: 'gaming', subCategory: 'PlayStation',
-    brand: 'SONY', rating: 5, reviewsCount: 420,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '42', 
-    title: 'Xbox Series X Console Core 1TB Wireless Bundle', 
-    price: 640000, oldPrice: 690000,
-    description: 'True 4K processing output velocity architecture graphics core pipeline', 
-    imageUrl: 'https://images.unsplash.com/photo-1621259182978-f09e5e2b07ae?auto=format&fit=crop&w=600&q=80', 
-    category: 'gaming', subCategory: 'Xbox',
-    brand: 'MICROSOFT', rating: 4, reviewsCount: 112,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '43', 
-    title: 'DualSense Wireless Controller Midnight Black Edition', 
-    price: 62000, oldPrice: 75000,
-    description: 'Haptic feedback dynamic triggers with built-in microphone alignment', 
-    imageUrl: 'https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=600&q=80', 
-    category: 'gaming', subCategory: 'Gaming Accessories',
-    brand: 'SONY', rating: 5, reviewsCount: 295,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '44', 
-    title: 'Nintendo Switch OLED Console Model (White Joy-Con)', 
-    price: 395000, oldPrice: 440000,
-    description: '7-inch vibrant OLED screen, wide adjustable stand layout framework', 
-    imageUrl: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80', 
-    category: 'gaming', subCategory: 'Nintendo',
-    brand: 'NINTENDO', rating: 5, reviewsCount: 84,
-    merchantId: 'slot-matrix-phones'
-  },
-  { 
-    id: '45', 
-    title: 'Razer DeathAdder Essential Wired Gaming Mouse', 
-    price: 24500, oldPrice: 32000,
-    description: '6,400 DPI optical hardware scanner sensor engine, 5 programmable responsive macro clips', 
-    imageUrl: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80', 
-    category: 'gaming', subCategory: 'Gaming Accessories',
-    brand: 'RAZER', rating: 4, reviewsCount: 194,
-    merchantId: 'slot-matrix-phones'
-  },
+  // ================= COMPUTING =================
+  { id: '35', title: 'MacBook Pro 14-Inch M3 Chip / 16GB Unified Memory', price: 2450000, oldPrice: 2700000, description: 'Liquid Retina XDR Display, Space Grey Edition', imageUrl: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80', category: 'computing', subCategory: 'Laptops', brand: 'APPLE', rating: 5, reviewsCount: 94, isOfficialStore: true, merchantId: 'slot-matrix-phones' },
+  { id: '36', title: 'HP LaserJet Pro MFP Wireless Monochrome Laser Printer', price: 215000, oldPrice: 240000, description: 'High speed double-sided document duplication module array layout', imageUrl: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=600&q=80', category: 'computing', subCategory: 'Printers', brand: 'HP', rating: 4, reviewsCount: 74, isOfficialStore: true, merchantId: 'aeon-appliances-nigeria' },
+  { id: '37', title: 'Samsung T7 Shield 1TB Portable External SSD Drive', price: 115000, oldPrice: 135000, description: 'USB 3.2 Gen2 heavy-duty rubberized rugged data preservation unit', imageUrl: 'https://images.unsplash.com/photo-1597872200969-2b65dff802a8?auto=format&fit=crop&w=600&q=80', category: 'computing', subCategory: 'Data Storage', brand: 'SAMSUNG', rating: 5, reviewsCount: 188, isOfficialStore: true, merchantId: 'slot-matrix-phones' },
+  { id: '38', title: 'Lenovo IdeaPad Slim 3 Intel Core i3 (8GB RAM, 512GB SSD)', price: 465000, oldPrice: 510000, description: '15.6-Inch Display, Windows 11 Home, Military Grade Durability Frame', imageUrl: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=600&q=80', category: 'computing', subCategory: 'Laptops', brand: 'LENOVO', rating: 4, reviewsCount: 52, isOfficialStore: true, merchantId: 'slot-matrix-phones' },
+  { id: '39', title: 'Logitech MK270 Reliable Wireless Keyboard and Mouse Combo', price: 32000, oldPrice: 38000, description: 'Long-range 2.4 GHz wireless link nodes, extended internal battery engine lifecycle', imageUrl: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80', category: 'computing', subCategory: 'Accessories', brand: 'LOGITECH', rating: 5, reviewsCount: 312, merchantId: 'slot-matrix-phones' },
+  { id: '40', title: 'Seagate Expansion 2TB External Hard Drive HDD USB 3.0', price: 78000, oldPrice: 88000, description: 'Plug-and-play desktop drag-and-drop structural formatting logic tracking', imageUrl: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80', category: 'computing', subCategory: 'Data Storage', brand: 'SEAGATE', rating: 4, reviewsCount: 640, merchantId: 'slot-matrix-phones' },
 
-  // ================= SUPERMARKET & HOME (46 - 50) =================
-  { 
-    id: '46', 
-    title: 'Irish Cream Premium Whiskey Blend (1L Bottle)', 
-    price: 18500, 
-    description: 'Smooth, double-distilled classic cream liqueur setup', 
-    imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80', 
-    category: 'supermarket', subCategory: 'Beverages',
-    brand: 'Baileys', rating: 4, reviewsCount: 203
-  },
-  { 
-    id: '47', 
-    title: 'Golden Penny Pure Soya Oil Cooking Canister (5 Liters)', 
-    price: 14500, oldPrice: 16000,
-    description: 'Cholesterol-free multi-purpose refined seed pressing extract fluid', 
-    imageUrl: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80', 
-    category: 'supermarket', subCategory: 'Provisions',
-    brand: 'Golden Penny', rating: 5, reviewsCount: 844
-  },
-  { 
-    id: '48', 
-    title: 'Kellogg Corn Flakes Original Family Breakfast Pack 500g', 
-    price: 4200, oldPrice: 5000,
-    description: 'Crisp toasted golden flakes layout package enriched with essential nutrients', 
-    imageUrl: 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=600&q=80', 
-    category: 'supermarket', subCategory: 'Cereals',
-    brand: 'KELLOGG', rating: 5, reviewsCount: 1105
-  },
-  { 
-    id: '49', 
-    title: 'Milo Chocolate Malt Beverage Powder Refill Pack (800g)', 
-    price: 6200, oldPrice: 7200,
-    description: 'Packed with Activ-Go nutrients, essential vitamins, and mineral matrices', 
-    imageUrl: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80', 
-    category: 'supermarket', subCategory: 'Provisions',
-    brand: 'NESTLE', rating: 5, reviewsCount: 2405, isOfficialStore: true
-  },
-  { 
-    id: '50', 
-    title: 'Adidas Men Running Pureboost Lightweight Sneakers', 
-    price: 78000, oldPrice: 110000,
-    description: 'Responsive stride impact returns constructed with high performance knit textiles', 
-    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80', 
-    category: 'fashion', subCategory: 'Shoes', 
-    brand: 'ADIDAS', rating: 5, reviewsCount: 512, isOfficialStore: true
-  },
+  // ================= GAMING & TOYS =================
+  { id: '41', title: 'PlayStation 5 Console Slim Edition (1TB Storage)', price: 680000, oldPrice: 750000, description: 'Includes dual wireless controllers and high-speed HDMI mapping capabilities', imageUrl: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=80', category: 'gaming', subCategory: 'PlayStation', brand: 'SONY', rating: 5, reviewsCount: 420, merchantId: 'slot-matrix-phones' },
+  { id: '42', title: 'Xbox Series X Console Core 1TB Wireless Bundle', price: 640000, oldPrice: 690000, description: 'True 4K processing output velocity architecture graphics core pipeline', imageUrl: 'https://images.unsplash.com/photo-1621259182978-f09e5e2b07ae?auto=format&fit=crop&w=600&q=80', category: 'gaming', subCategory: 'Xbox', brand: 'MICROSOFT', rating: 4, reviewsCount: 112, merchantId: 'slot-matrix-phones' },
+  { id: '43', title: 'DualSense Wireless Controller Midnight Black Edition', price: 62000, oldPrice: 75000, description: 'Haptic feedback dynamic triggers with built-in microphone alignment', imageUrl: 'https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=600&q=80', category: 'gaming', subCategory: 'Gaming Accessories', brand: 'SONY', rating: 5, reviewsCount: 295, merchantId: 'slot-matrix-phones' },
+  { id: '44', title: 'Nintendo Switch OLED Console Model (White Joy-Con)', price: 395000, oldPrice: 440000, description: '7-inch vibrant OLED screen, wide adjustable stand layout framework', imageUrl: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80', category: 'gaming', subCategory: 'Nintendo', brand: 'NINTENDO', rating: 5, reviewsCount: 84, merchantId: 'slot-matrix-phones' },
+  { id: '45', title: 'Razer DeathAdder Essential Wired Gaming Mouse', price: 24500, oldPrice: 32000, description: '6,400 DPI optical hardware scanner sensor engine, 5 programmable responsive macro clips', imageUrl: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80', category: 'gaming', subCategory: 'Gaming Accessories', brand: 'RAZER', rating: 4, reviewsCount: 194, merchantId: 'slot-matrix-phones' },
+
+  // ================= SUPERMARKET & HOME =================
+  { id: '46', title: 'Irish Cream Premium Whiskey Blend (1L Bottle)', price: 18500, description: 'Smooth, double-distilled classic cream liqueur setup', imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80', category: 'supermarket', subCategory: 'Beverages', brand: 'Baileys', rating: 4, reviewsCount: 203 },
+  { id: '47', title: 'Golden Penny Pure Soya Oil Cooking Canister (5 Liters)', price: 14500, oldPrice: 16000, description: 'Cholesterol-free multi-purpose refined seed pressing extract fluid', imageUrl: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80', category: 'supermarket', subCategory: 'Provisions', brand: 'Golden Penny', rating: 5, reviewsCount: 844 },
+  { id: '48', title: 'Kellogg Corn Flakes Original Family Breakfast Pack 500g', price: 4200, oldPrice: 5000, description: 'Crisp toasted golden flakes layout package enriched with essential nutrients', imageUrl: 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=600&q=80', category: 'supermarket', subCategory: 'Cereals', brand: 'KELLOGG', rating: 5, reviewsCount: 1105 },
+  { id: '49', title: 'Milo Chocolate Malt Beverage Powder Refill Pack (800g)', price: 6200, oldPrice: 7200, description: 'Packed with Activ-Go nutrients, essential vitamins, and mineral matrices', imageUrl: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80', category: 'supermarket', subCategory: 'Provisions', brand: 'NESTLE', rating: 5, reviewsCount: 2405, isOfficialStore: true },
+  { id: '50', title: 'Adidas Men Running Pureboost Lightweight Sneakers', price: 78000, oldPrice: 110000, description: 'Responsive stride impact returns constructed with high performance knit textiles', imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80', category: 'fashion', subCategory: 'Shoes', brand: 'ADIDAS', rating: 5, reviewsCount: 512, isOfficialStore: true },
 
 
-  // AGRIC
+
+    // AGRIC
   // ==========================================
   // MASTER CATEGORY: agric-farm-produce
   // ==========================================
 
 
-  // --- Sub-Category: Grains & Flours ---
-  { 
-    id: 'ng-agric-001', 
-    title: 'Wholesale Brown Beans (Potiskum Variant) - 100kg Bag', 
-    price: 180000, oldPrice: 195000,
-    description: 'Premium dry sweet brown beans sourced directly from Yobe markets. Dehulled, clean, and completely stone-free.', 
-    imageUrl: '/farm/brown-beans.jpeg', // High-density real photography of raw dry field beans tightly packed
-    category: 'agric-farm-produce', subCategory: 'Grains & Flours',
-    brand: 'DAN-TIRO AGRO', rating: 5, reviewsCount: 142, isOfficialStore: false,
-    merchantId: 'dawanau-bulk-hub'
-  },
+  // ================= AGRIC & FARM PRODUCE (51 - 70) =================
+  { id: 'ng-agric-001', title: 'Wholesale Brown Beans (Potiskum Variant) - 100kg Bag', price: 180000, oldPrice: 195000, description: 'Premium dry sweet brown beans sourced directly from Yobe markets. Dehulled, clean, and completely stone-free.', imageUrl: '/farm/brown-beans.jpeg', category: 'agric-farm-produce', subCategory: 'Grains & Flours', brand: 'DAN-TIRO AGRO', rating: 5, reviewsCount: 142, isOfficialStore: false, merchantId: 'dawanau-bulk-hub' },
+  { id: 'ng-agric-002', title: 'Yellow Garri (Ondo Premium Koko) - 50kg Bag', price: 54000, oldPrice: 60000, description: 'Finely fried with pure unadulterated palm oil. Crisp texture, minimal moisture content, and perfectly sour.', imageUrl: '/farm/yellow-garri.jpg', category: 'agric-farm-produce', subCategory: 'Grains & Flours', brand: 'WESTERN STAPLES', rating: 4, reviewsCount: 63, isOfficialStore: false, merchantId: 'mile12-foodstuff-distributors' },
+  { id: 'ng-agric-003', title: 'Abakaliki Parboiled Rice (Long Grain Standard) - 50kg Bag', price: 82000, oldPrice: 89000, description: 'Locally grown and mechanically de-stoned long-grain rice from Ebonyi State. High swelling index when cooked.', imageUrl: '/farm/abakaliki-rice.jpg', category: 'agric-farm-produce', subCategory: 'Grains & Flours', brand: 'EBONYI PRIDE', rating: 5, reviewsCount: 194, isOfficialStore: true, merchantId: 'eastern-grain-matrix' },
+  { id: 'ng-agric-004', title: 'Premium Benue Water Yam (Gboko Grade) - Stack of 5 Large Tubers', price: 25000, oldPrice: 30000, description: 'Freshly harvested heavy water yams. Ideal for traditional recipes like water yam pottage (Ikokore) or local starch processing.', imageUrl: '/farm/benue-yam.jpg', category: 'agric-farm-produce', subCategory: 'Tubers & Roots', brand: 'BENUE VALLEY HARVEST', rating: 5, reviewsCount: 34, isOfficialStore: false, merchantId: 'farmgate-aggregators-ng' },
+  { id: 'ng-agric-005', title: 'High-Quality Dry Cassava Tuber Chips (White Garri Grade) - 50kg Bag', price: 32000, oldPrice: 38000, description: 'Sun-dried premium cassava chips (Kpokpo garri/Lafun processing raw stock) with minimal starch degradation.', imageUrl: '/farm/cassava-tubed.webp', category: 'agric-farm-produce', subCategory: 'Tubers & Roots', brand: 'NIGERIA CASSAVA CORP', rating: 4, reviewsCount: 18, isOfficialStore: false, merchantId: 'ibadan-agric-hub' },
+  { id: 'ng-agric-006', title: 'Unadulterated Nsukka Palm Oil (Low FFA) - 25 Litre Jerrycan', price: 38500, oldPrice: 44000, description: 'Pure, thick, natively processed palm oil from Enugu state. Zero chemical thickeners or artificial colors added.', imageUrl: '/farm/palm-oil.png', category: 'agric-farm-produce', subCategory: 'Oils & Local Spices', brand: 'PALM VALLEY', rating: 5, reviewsCount: 215, isOfficialStore: true, merchantId: 'mile12-foodstuff-distributors' },
+  { id: 'ng-agric-007', title: 'Fermented Locust Beans (Iru Pete / Wara) - 5kg Bulk Pack', price: 15000, oldPrice: 18000, description: 'Traditional pungent soup flavoring condiment. Thoroughly fermented and clean-packed under sanitary regulations.', imageUrl: '/farm/locust-beans.jpg', category: 'agric-farm-produce', subCategory: 'Oils & Local Spices', brand: 'NATIVE SPICE', rating: 5, reviewsCount: 88, isOfficialStore: false, merchantId: 'ibadan-agric-hub' },
+  { id: 'ng-agric-008', title: 'Live Point-of-Lay Isa Brown Pullets - 10 Bird Batch', price: 85000, oldPrice: 95000, description: 'Healthy, fully vaccinated 18-week-old commercial layers ready to drop high-yield farm eggs immediately.', imageUrl: '/farm/brown-pullets.webp', category: 'agric-farm-produce', subCategory: 'Livestock & Poultry', brand: 'CHI FARMS', rating: 5, reviewsCount: 412, isOfficialStore: true, merchantId: 'chi-poultry-depot' },
+  { id: 'ng-agric-009', title: 'Smoked Dry African Catfish (Mish-Mash Standard) - 5kg Box', price: 38000, oldPrice: 45000, description: 'Oven-dried with natural wood smoke. Brined with zero insect infestation risk and a stable 6-month shelf life.', imageUrl: '/farm/smoked-fish.webp', category: 'agric-farm-produce', subCategory: 'Livestock & Poultry', brand: 'LAGOS SMOKED FISH CO', rating: 4, reviewsCount: 57, isOfficialStore: true, merchantId: 'lagos-aqua-logistics' },
+  { id: 'ng-agric-010', title: 'Fresh Red Bell Peppers (Tatashe - Zaria Variant) - Large Raffia Basket', price: 48000, oldPrice: 55000, description: 'Thick-walled, crisp red tatashe peppers sorted and crated carefully to avoid transit bruising.', imageUrl: '/farm/red-pepper.jpg', category: 'agric-farm-produce', subCategory: 'Fresh Fruits & Veggies', brand: 'NORTH-AGRO FRESH', rating: 4, reviewsCount: 92, isOfficialStore: false, merchantId: 'farmgate-aggregators-ng' },
+  { id: 'ng-agric-011', title: 'Raw Edible Cashew Nuts (Ogbomoso Export Grade) - 50kg Bag', price: 110000, oldPrice: 130000, description: 'High-yield raw cashew nuts with an out-turn parameter of 48-52 lbs. Cleaned and sun-dried.', imageUrl: '/farm/cashew-nuts.webp', category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk', brand: 'OGBOMOSO CASHEW EXPORTS', rating: 5, reviewsCount: 26, isOfficialStore: true, merchantId: 'sw-cashcrop-brokers' },
+  { id: 'ng-agric-012', title: 'Dried Split Ginger (Kachia Grade-A Standard) - 50kg Bag', price: 140000, oldPrice: 165000, description: 'Premium sun-dried split ginger flakes from Kaduna State. High volatile oil content levels ready for extraction.', imageUrl: '/farm/fresh-ginger.jpg', category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk', brand: 'KADUNA SPICE AGRO', rating: 5, reviewsCount: 44, isOfficialStore: false, merchantId: 'dawanau-bulk-hub' },
+  { id: 'ng-agric-013', title: 'Premier Seed Hybrid White Maize (Oba Super 2) - 2kg Pack', price: 13500, oldPrice: 16000, description: 'Top-tier Nigerian certified white maize hybrid. High drought tolerance, excellent cob filling, Striga weed resistance.', imageUrl: '/farm/maize-seed.webp', category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk', brand: 'PREMIER SEEDS', rating: 5, reviewsCount: 320, isOfficialStore: true, merchantId: 'agro-allied-input-hub' },
+  { id: 'ng-agric-014', title: 'Certified Rice Seed (FARO 44 Lowland Inbred) - 50kg Bag', price: 65000, oldPrice: 75000, description: 'High-purity foundational FARO 44 rice seed stock. Excellent milling recovery features tailored for Nigerian swampland terrains.', imageUrl: '/farm/rice-seed.jpg', category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk', brand: 'NATIONAL SEED COUNCIL', rating: 5, reviewsCount: 74, isOfficialStore: true, merchantId: 'agro-allied-input-hub' },
+  { id: 'ng-agric-015', title: 'DuraClean Paraquat Selective Contact Herbicide - 1 Litre', price: 9500, oldPrice: 12000, description: 'Fast-acting liquid selective knock-down herbicide targeting unwanted annual grasses on local open ridge systems.', imageUrl: '/farm/paraquat-Herbicide.webp', category: 'agric-farm-produce', subCategory: 'Agro-Chemicals', brand: 'SINO-AGRO RELEASES', rating: 4, reviewsCount: 145, isOfficialStore: false, merchantId: 'agro-allied-input-hub' },
+  { id: 'ng-agric-016', title: 'Indorama Granular Urea Fertilizer (46% Nitrogen Premium) - 50kg', price: 44000, oldPrice: 49500, description: 'Pure white free-flowing spherical structural urea from Eleme petrochemical complexes. Maximizes leaf greening.', imageUrl: '/farm/urea-fertilizer.jpg', category: 'agric-farm-produce', subCategory: 'Fertilizers & Soil', brand: 'INDORAMA UREA', rating: 5, reviewsCount: 890, isOfficialStore: true, merchantId: 'eleme-fertilizer-brokers' },
+  { id: 'ng-agric-017', title: 'Notore Premium NPK 20-10-10 Root Booster Fertilizer - 50kg', price: 46500, oldPrice: 52000, description: 'Specially optimized mineral ratio for early-stage vegetative root growth across Nigerian savannah topsoil properties.', imageUrl: '/farm/notore-fertilizer.jpg', category: 'agric-farm-produce', subCategory: 'Fertilizers & Soil', brand: 'NOTORE', rating: 5, reviewsCount: 612, isOfficialStore: true, merchantId: 'eleme-fertilizer-brokers' },
+  { id: 'ng-agric-018', title: 'Vital Feed High-Protein Fish Floating Pellets (2mm) - 15kg Bag', price: 24500, oldPrice: 28000, description: 'Premium aquaculture nutrition with balanced crude protein levels to optimize fingerling conversion scaling matrices.', imageUrl: '/farm/floating-fish-pellets.webp', category: 'agric-farm-produce', subCategory: 'Animal Feed & Care', brand: 'VITAL FEEDS', rating: 4, reviewsCount: 304, isOfficialStore: true, merchantId: 'chi-poultry-depot' },
+  { id: 'ng-agric-019', title: 'TopFeeds Layer Mash Peak Production Feed - 25kg Bag', price: 18500, oldPrice: 21000, description: 'Fortified with extra dietary calcium compounds to ensure exceptionally thick, brown eggshell development.', imageUrl: '/farm/hen-mash-feed.webp', category: 'agric-farm-produce', subCategory: 'Animal Feed & Care', brand: 'TOPFEEDS', rating: 4, reviewsCount: 189, isOfficialStore: true, merchantId: 'agro-allied-input-hub' },
+  { id: 'ng-agric-020', title: 'Heavy Duty Manual Single-Row Crop Planter / Seed Seeder', price: 68000, oldPrice: 78000, description: 'Walk-behind precision planter with swap-out seed wheels for maize, cowpea, and groundnut operations.', imageUrl: '/farm/maize-seeder-corn.webp', category: 'agric-farm-produce', subCategory: 'Farm Tools & Machinery', brand: 'AGRO-MECH TECH', rating: 5, reviewsCount: 42, isOfficialStore: false, merchantId: 'agro-allied-input-hub' },
 
-  { 
-    id: 'ng-agric-002', 
-    title: 'Yellow Garri (Ondo Premium Koko) - 50kg Bag', 
-    price: 54000, oldPrice: 60000,
-    description: 'Finely fried with pure unadulterated palm oil. Crisp texture, minimal moisture content, and perfectly sour.', 
-    imageUrl: '/farm/yellow-garri.jpg', // Real texture of roasted granular cassava root meal
-    category: 'agric-farm-produce', subCategory: 'Grains & Flours',
-    brand: 'WESTERN STAPLES', rating: 4, reviewsCount: 63, isOfficialStore: false,
-    merchantId: 'mile12-foodstuff-distributors'
-  },
-  { 
-    id: 'ng-agric-003', 
-    title: 'Abakaliki Parboiled Rice (Long Grain Standard) - 50kg Bag', 
-    price: 82000, oldPrice: 89000,
-    description: 'Locally grown and mechanically de-stoned long-grain rice from Ebonyi State. High swelling index when cooked.', 
-    imageUrl: '/farm/abakaliki-rice.jpg', // Ground truth macro shot of raw unprocessed rice grains
-    category: 'agric-farm-produce', subCategory: 'Grains & Flours',
-    brand: 'EBONYI PRIDE', rating: 5, reviewsCount: 194, isOfficialStore: true,
-    merchantId: 'eastern-grain-matrix'
-  },
-
-  // --- Sub-Category: Tubers & Roots ---
-  { 
-    id: 'ng-agric-004', 
-    title: 'Premium Benue Water Yam (Gboko Grade) - Stack of 5 Large Tubers', 
-    price: 25000, oldPrice: 30000,
-    description: 'Freshly harvested heavy water yams. Ideal for traditional recipes like water yam pottage (Ikokore) or local starch processing.', 
-    imageUrl: '/farm/benue-yam.jpg', // Real pile of raw root tubers directly from tropical farmland harvest
-    category: 'agric-farm-produce', subCategory: 'Tubers & Roots',
-    brand: 'BENUE VALLEY HARVEST', rating: 5, reviewsCount: 34, isOfficialStore: false,
-    merchantId: 'farmgate-aggregators-ng'
-  },
-  { 
-    id: 'ng-agric-005', 
-    title: 'High-Quality Dry Cassava Tuber Chips (White Garri Grade) - 50kg Bag', 
-    price: 32000, oldPrice: 38000,
-    description: 'Sun-dried premium cassava chips (Kpokpo garri/Lafun processing raw stock) with minimal starch degradation.', 
-    imageUrl: '/farm/cassava-tubed.webp', // Authentic Manihot esculenta roots fresh from sub-Saharan farm soil
-    category: 'agric-farm-produce', subCategory: 'Tubers & Roots',
-    brand: 'NIGERIA CASSAVA CORP', rating: 4, reviewsCount: 18, isOfficialStore: false,
-    merchantId: 'ibadan-agric-hub'
-  },
-
-  // --- Sub-Category: Oils & Local Spices ---
-   { 
-    id: 'ng-agric-0066', 
-    title: 'Unadulterated Palm Oil Kernel seed', 
-    price: 38500, oldPrice: 44000,
-    description: 'Pure, thick, natively processed palm oil from Enugu state. Zero chemical thickeners or artificial colors added.', 
-    imageUrl: '/farm/palm-seed.jpg', // High-contrast, hyper-saturated real red palm oil fruit (Elaeis guineensis) bunches
-    category: 'agric-farm-produce', subCategory: 'Oils & Local Spices',
-    brand: 'PALM VALLEY', rating: 5, reviewsCount: 215, isOfficialStore: true,
-    merchantId: 'mile12-foodstuff-distributors'
-  },
-  { 
-    id: 'ng-agric-006', 
-    title: 'Unadulterated Nsukka Palm Oil (Low FFA) - 25 Litre Jerrycan', 
-    price: 38500, oldPrice: 44000,
-    description: 'Pure, thick, natively processed palm oil from Enugu state. Zero chemical thickeners or artificial colors added.', 
-    imageUrl: '/farm/palm-oil.png', // High-contrast, hyper-saturated real red palm oil fruit (Elaeis guineensis) bunches
-    category: 'agric-farm-produce', subCategory: 'Oils & Local Spices',
-    brand: 'PALM VALLEY', rating: 5, reviewsCount: 215, isOfficialStore: true,
-    merchantId: 'mile12-foodstuff-distributors'
-  },
-  { 
-    id: 'ng-agric-007', 
-    title: 'Fermented Locust Beans (Iru Pete / Wara) - 5kg Bulk Pack', 
-    price: 15000, oldPrice: 18000,
-    description: 'Traditional pungent soup flavoring condiment. Thoroughly fermented and clean-packed under sanitary regulations.', 
-    imageUrl: '/farm/locust-beans.jpg', // Piled organic local African seed spices showing raw surface texture
-    category: 'agric-farm-produce', subCategory: 'Oils & Local Spices',
-    brand: 'NATIVE SPICE', rating: 5, reviewsCount: 88, isOfficialStore: false,
-    merchantId: 'ibadan-agric-hub'
-  },
-
-  // --- Sub-Category: Livestock & Poultry ---
-  { 
-    id: 'ng-agric-008', 
-    title: 'Live Point-of-Lay Isa Brown Pullets - 10 Bird Batch', 
-    price: 85000, oldPrice: 95000,
-    description: 'Healthy, fully vaccinated 18-week-old commercial layers ready to drop high-yield farm eggs immediately.', 
-    imageUrl: '/farm/brown-pullets.webp', // Authentic dense frame of poultry farming livestock
-    category: 'agric-farm-produce', subCategory: 'Livestock & Poultry',
-    brand: 'CHI FARMS', rating: 5, reviewsCount: 412, isOfficialStore: true,
-    merchantId: 'chi-poultry-depot'
-  },
-  { 
-    id: 'ng-agric-009', 
-    title: 'Smoked Dry African Catfish (Mish-Mash Standard) - 5kg Box', 
-    price: 38000, oldPrice: 45000,
-    description: 'Oven-dried with natural wood smoke. Brined with zero insect infestation risk and a stable 6-month shelf life.', 
-    imageUrl: '/farm/smoked-fish.webp', // Real wood-fired grid array of traditionally dried fish stocks
-    category: 'agric-farm-produce', subCategory: 'Livestock & Poultry',
-    brand: 'LAGOS SMOKED FISH CO', rating: 4, reviewsCount: 57, isOfficialStore: true,
-    merchantId: 'lagos-aqua-logistics'
-  },
-
-  // --- Sub-Category: Fresh Fruits & Veggies ---
-  { 
-    id: 'ng-agric-010', 
-    title: 'Fresh Red Bell Peppers (Tatashe - Zaria Variant) - Large Raffia Basket', 
-    price: 48000, oldPrice: 55000,
-    description: 'Thick-walled, crisp red tatashe peppers sorted and crated carefully to avoid transit bruising.', 
-    imageUrl: '/farm/red-pepper.jpg', // Deep red high-saturation West African style market peppers packed together
-    category: 'agric-farm-produce', subCategory: 'Fresh Fruits & Veggies',
-    brand: 'NORTH-AGRO FRESH', rating: 4, reviewsCount: 92, isOfficialStore: false,
-    merchantId: 'farmgate-aggregators-ng'
-  },
-
-  // --- Sub-Category: Cash Crops Bulk ---
-  { 
-    id: 'ng-agric-011', 
-    title: 'Raw Edible Cashew Nuts (Ogbomoso Export Grade) - 50kg Bag', 
-    price: 110000, oldPrice: 130000,
-    description: 'High-yield raw cashew nuts with an out-turn parameter of 48-52 lbs. Cleaned and sun-dried.', 
-    imageUrl: '/farm/cashew-nuts.webp', // Dense macro presentation of organic cash crop raw kernels
-    category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk',
-    brand: 'OGBOMOSO CASHEW EXPORTS', rating: 5, reviewsCount: 26, isOfficialStore: true,
-    merchantId: 'sw-cashcrop-brokers'
-  },
-  { 
-    id: 'ng-agric-012', 
-    title: 'Dried Split Ginger (Kachia Grade-A Standard) - 50kg Bag', 
-    price: 140000, oldPrice: 165000,
-    description: 'Premium sun-dried split ginger flakes from Kaduna State. High volatile oil content levels ready for extraction.', 
-    imageUrl: '/farm/fresh-ginger.jpg', // Bright, crisp, high-contrast array of sun-drying root spices
-    category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk',
-    brand: 'KADUNA SPICE AGRO', rating: 5, reviewsCount: 44, isOfficialStore: false,
-    merchantId: 'dawanau-bulk-hub'
-  },
-
-
-  { 
-    id: 'ng-agric-013', 
-    title: 'Premier Seed Hybrid White Maize (Oba Super 2) - 2kg Pack', 
-    price: 13500, oldPrice: 16000,
-    description: 'Top-tier Nigerian certified white maize hybrid. High drought tolerance, excellent cob filling, Striga weed resistance.', 
-    imageUrl: '/farm/maize-seed.webp', // Real agronomy photo of farmers hands inspecting real hybrid maize on the field
-    category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk',
-    brand: 'PREMIER SEEDS', rating: 5, reviewsCount: 320, isOfficialStore: true,
-    merchantId: 'agro-allied-input-hub'
-  },
-  { 
-    id: 'ng-agric-014', 
-    title: 'Certified Rice Seed (FARO 44 Lowland Inbred) - 50kg Bag', 
-    price: 65000, oldPrice: 75000,
-    description: 'High-purity foundational FARO 44 rice seed stock. Excellent milling recovery features tailored for Nigerian swampland terrains.', 
-    imageUrl: '/farm/rice-seed.jpg', // Saturated, sun-drenched grain nursery beds in a real field
-    category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk',
-    brand: 'NATIONAL SEED COUNCIL', rating: 5, reviewsCount: 74, isOfficialStore: true,
-    merchantId: 'agro-allied-input-hub'
-  },
-
-  // --- Sub-Category: Agro-Chemicals ---
-  { 
-    id: 'ng-agric-015', 
-    title: 'DuraClean Paraquat Selective Contact Herbicide - 1 Litre', 
-    price: 9500, oldPrice: 12000,
-    description: 'Fast-acting liquid selective knock-down herbicide targeting unwanted annual grasses on local open ridge systems.', 
-    imageUrl: '/farm/paraquat-Herbicide.webp', // Real botanical farm cultivation and chemical foliage defense context
-    category: 'agric-farm-produce', subCategory: 'Agro-Chemicals',
-    brand: 'SINO-AGRO RELEASES', rating: 4, reviewsCount: 145, isOfficialStore: false,
-    merchantId: 'agro-allied-input-hub'
-  },
-
-  // --- Sub-Category: Fertilizers & Soil ---
-  { 
-    id: 'ng-agric-016', 
-    title: 'Indorama Granular Urea Fertilizer (46% Nitrogen Premium) - 50kg', 
-    price: 44000, oldPrice: 49500,
-    description: 'Pure white free-flowing spherical structural urea from Eleme petrochemical complexes. Maximizes leaf greening.', 
-    imageUrl: '/farm/urea-fertilizer.jpg', // Direct real macro photograph of granular agronomy mineral fertilizer pellets
-    category: 'agric-farm-produce', subCategory: 'Fertilizers & Soil',
-    brand: 'INDORAMA UREA', rating: 5, reviewsCount: 890, isOfficialStore: true,
-    merchantId: 'eleme-fertilizer-brokers'
-  },
-  { 
-    id: 'ng-agric-017', 
-    title: 'Notore Premium NPK 20-10-10 Root Booster Fertilizer - 50kg', 
-    price: 46500, oldPrice: 52000,
-    description: 'Specially optimized mineral ratio for early-stage vegetative root growth across Nigerian savannah topsoil properties.', 
-    imageUrl: '/farm/notore-fertilizer.jpg', // Real-world dark organic topsoil mixed with granular compound fertilizers
-    category: 'agric-farm-produce', subCategory: 'Fertilizers & Soil',
-    brand: 'NOTORE', rating: 5, reviewsCount: 612, isOfficialStore: true,
-    merchantId: 'eleme-fertilizer-brokers'
-  },
-
-  // --- Sub-Category: Animal Feed & Care ---
-  { 
-    id: 'ng-agric-018', 
-    title: 'Vital Feed High-Protein Fish Floating Pellets (2mm) - 15kg Bag', 
-    price: 24500, oldPrice: 28000,
-    description: 'Premium aquaculture nutrition with balanced crude protein levels to optimize fingerling conversion scaling matrices.', 
-    imageUrl: '/farm/floating-fish-pellets.webp', // Real commercial pond aquaculture water backdrop
-    category: 'agric-farm-produce', subCategory: 'Animal Feed & Care',
-    brand: 'VITAL FEEDS', rating: 4, reviewsCount: 304, isOfficialStore: true,
-    merchantId: 'chi-poultry-depot'
-  },
-  { 
-    id: 'ng-agric-019', 
-    title: 'TopFeeds Layer Mash Peak Production Feed - 25kg Bag', 
-    price: 18500, oldPrice: 21000,
-    description: 'Fortified with extra dietary calcium compounds to ensure exceptionally thick, brown eggshell development.', 
-    imageUrl: '/farm/hen-mash-feed.webp', // Dense, textured milling profile of real blended poultry organic grains
-    category: 'agric-farm-produce', subCategory: 'Animal Feed & Care',
-    brand: 'TOPFEEDS', rating: 4, reviewsCount: 189, isOfficialStore: true,
-    merchantId: 'agro-allied-input-hub'
-  },
-
-  // --- Sub-Category: Farm Tools & Machinery ---
-  { 
-    id: 'ng-agric-020', 
-    title: 'Heavy Duty Manual Single-Row Crop Planter / Seed Seeder', 
-    price: 68000, oldPrice: 78000,
-    description: 'Walk-behind precision planter with swap-out seed wheels for maize, cowpea, and groundnut operations.', 
-    imageUrl: '/farm/maize-seeder-corn.webp', // Authentic vibrant daylight photo of a cultivation tool on an active open field
-    category: 'agric-farm-produce', subCategory: 'Farm Tools & Machinery',
-    brand: 'AGRO-MECH TECH', rating: 5, reviewsCount: 42, isOfficialStore: false,
-    merchantId: 'agro-allied-input-hub'
-  }
 
 ];

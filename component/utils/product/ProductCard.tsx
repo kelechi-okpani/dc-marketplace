@@ -1,11 +1,8 @@
 'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import { ShoppingCart, Eye, Heart, Star, CheckCircle2 } from 'lucide-react';
 import { Product } from '../data/mockProducts';
-
-// Global State Integration Hooks & Actions
 import { useAppDispatch, useAppSelector } from '@/store/store';
 import { addToCart } from '@/store/slices/cartSlice';
 import { toggleWishlist } from '@/store/slices/wishlistSlice';

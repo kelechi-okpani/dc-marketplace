@@ -7,6 +7,9 @@ import { ShoppingCart, Bell, MessageSquare, Search, Menu, X, User, Settings, Log
 import { useRouter } from 'next/navigation';
 import { useAppSelector } from '@/store/store';
 import { selectCartItemsCount, selectWishlistItemsCount } from '@/store/selectors';
+import { useSearchParams } from 'next/navigation';
+
+
 
 interface NavRoute {
   label: string;
@@ -20,6 +23,8 @@ const routes: NavRoute[] = [
   { label: 'Services', href: '/services' },
   { label: 'Escrow Hub', href: '/escrow' },
 ];
+
+
 
 export default function MainNavbar() {
   const pathname = usePathname();
@@ -55,16 +60,17 @@ export default function MainNavbar() {
 
 
 const router = useRouter();
-const handleSearchSubmit = (
-  e: React.FormEvent
-) => {
+const handleSearchSubmit = (e: React.FormEvent) => {
   e.preventDefault();
 
-  if (!searchQuery.trim()) return;
+  const trimmedQuery = searchQuery.trim();
+  if (!trimmedQuery) return;
 
-  router.push(
-    `/search?q=${encodeURIComponent(searchQuery)}`
-  );
+  // Use replace or push to navigate
+  router.push(`/search?q=${encodeURIComponent(trimmedQuery)}`);
+  
+  // Optional: If you want the mobile search to collapse or clear after submit:
+  // setSearchQuery(''); 
 };
 
   return (
