@@ -1,24 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 140" width="100%" height="100%" fill="none">
-  <!-- Transparent Canvas Wrapper with safe horizontal clearance boundaries -->
-  <rect width="720" height="140" fill="transparent"/>
-
-  <!-- Left Side Badge: Balanced, compact scale to match lower height profile -->
-  <g transform="translate(15, 10) scale(0.75)">
-    <!-- Intersecting "D" Link Structure -->
-    <path d="M50 40 H110 C150 40 170 65 170 100 C170 135 150 160 110 160 H50 V40 Z" fill="#1E40AF" opacity="0.85"/>
-    <!-- Intersecting Escrow "C" Ring Structure -->
-    <path d="M130 60 C100 60 85 80 85 100 C85 120 100 140 130 140 H160 V165 H130 C75 165 45 135 45 100 C45 65 75 35 130 35 H160 V60 H130 Z" fill="#059669"/>
-    <!-- Central Protection Sign-off Mark -->
-    <path d="M105 100 L120 115 L145 85" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<svg viewBox="0 0 500 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Icon Group -->
+  <g id="logo-icon">
+    <!-- Background rounded square - safe neutral dark slate base -->
+    <rect x="20" y="20" width="80" height="80" rx="12" fill="#0f172a" />
+    
+    <!-- Circular badge background - shifted from blue to solid green -->
+    <circle cx="70" cy="60" r="30" fill="#16a34a" />
+    
+    <!-- White checkmark inside the circular badge -->
+    <path d="M62 60L68 66L78 54" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- The prominent 'C' sweep wrapper - matched to your layout accent green -->
+    <path d="M80 30C50 30 35 43 35 60C35 77 50 90 80 90" stroke="#15803d" stroke-width="14" stroke-linecap="round" />
   </g>
 
-  <!-- Right Side Typography Engine: Shifts right and scales safely inside grid limits -->
-  <g font-family="system-ui, -apple-system, sans-serif">
-    <!-- Primary Headings (Shifted right to x=185 to completely clear the emblem) -->
-    <text x="185" y="72" font-size="46" font-weight="900" fill="#0F172A" letter-spacing="1">DC</text>
-    <text x="265" y="72" font-size="46" font-weight="400" fill="#1E40AF" letter-spacing="0.5">MARKETPLACE</text>
-    
-    <!-- Sub-text Ecosystem Tracker -->
-    <text x="188" y="106" font-size="11.5" font-weight="700" fill="#64748B" letter-spacing="5">PRODUCTS • SERVICES • ESCROW</text>
+  <!-- Typography Layout Group -->
+  <g id="logo-text">
+    <!-- "DC" Bold Monolith Text -->
+    <text x="130" y="70" fill="#0f172a" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="900" letter-spacing="-1">DC</text>
+
+    <!-- "MARKETPLACE" Text - Swapped from blue to your brand green -->
+    <text x="195" y="70" fill="#16a34a" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="400" letter-spacing="1">MARKETPLACE</text>
+
+    <!-- Subtitle tag description text: PRODUCTS • SERVICES • ESCROW -->
+    <text x="132" y="98" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="5">PRODUCTS • SERVICES • ESCROW</text>
   </g>
 </svg>

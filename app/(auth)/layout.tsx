@@ -1,6 +1,7 @@
 import React from 'react';
 import { Inter } from 'next/font/google';
 import AuthNav from '@/component/Layout/AuthLayout/AuthNav';
+import AuthFooter from '@/component/Layout/AuthLayout/AuthFooter';
 
 // Optimize typography loading for sleek, high-fidelity UI layout
 const inter = Inter({
@@ -27,6 +28,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
         <div className="relative z-10 w-full min-h-screen flex flex-col">
           <AuthNav/>
           {children}
+          <AuthFooter/> 
         </div>
         
       </div>

@@ -17,20 +17,21 @@ export default function RoleSelectionPortal() {
       icon: ShoppingCart,
       path: '/signup/buyer'
     },
-    {
-      id: 'seller' as RoleId,
-      title: 'Seller',
-      description: 'Manage products, process orders, and track sales.',
-      icon: Store,
-      path: '/signup/seller'
-    },
-    {
+      {
       id: 'artisan' as RoleId,
       title: 'Artisan',
       description: 'Showcase unique crafts and receive gig assignments.',
       icon: Wrench,
       path: '/signup/artisan'
     },
+    {
+      id: 'seller' as RoleId,
+      title: 'Seller Merchant',
+      description: 'Manage products, process orders, and track sales.',
+      icon: Store,
+      path: '/signup/seller'
+    },
+  
     {
       id: 'admin' as RoleId,
       title: 'Super Admin',
@@ -101,11 +102,6 @@ export default function RoleSelectionPortal() {
           </Link>
         </div>
       </main>
-
-      {/* Micro-Footer block */}
-      <footer className="w-full text-center py-4 text-[11px] text-slate-400 font-medium border-t border-slate-100">
-        © 2026 Dominion Hybrid Systems. Secure Gateway Infrastructure.
-      </footer>
     </div>
   );
 }

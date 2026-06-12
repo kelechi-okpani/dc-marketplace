@@ -34,7 +34,7 @@ export default function AuthNav() {
           <span>Help</span>
         </button>
         <Link 
-          href="/auth/login" 
+          href="/auth/signin" 
           className="border border-slate-200 bg-slate-50 hover:bg-slate-100 px-4 py-1.5 rounded-lg text-slate-700 transition-all text-xs font-bold"
         >
           Sign In
