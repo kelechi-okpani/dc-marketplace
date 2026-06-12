@@ -17,6 +17,7 @@ interface NavRoute {
 const routes: NavRoute[] = [
   { label: 'Marketplace', href: '/' },
   { label: 'Products', href: '/products' },
+  { label: 'Agro Products', href: '/agric' },
   { label: 'Services', href: '/services' },
   { label: 'Escrow Hub', href: '/escrow' },
 ];

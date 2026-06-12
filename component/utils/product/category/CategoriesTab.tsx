@@ -16,10 +16,12 @@ interface CategoryItem {
 
 const CATEGORY_IMAGE_REGISTRY: Record<string, string> = {
   'official-store': '/categories/office.jpg',
+  'agric-farm-produce': '/categories/farm.jpg',
   'appliances': '/categories/appliances.jpg',
   'phones-tablets': '/categories/phones.jpg',
   'health-beauty': '/categories/beauty.jpg',
   'home-office': '/categories/home.webp',
+  // 'agro-Seeds': '/categories/seeds.jpg',
   'electronics': '/categories/electronics.jpg',
   'fashion': '/categories/fashion.jpg',
   'supermarket': '/categories/supermarket.png',

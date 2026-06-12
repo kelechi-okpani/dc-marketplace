@@ -74,11 +74,33 @@ export const MOCK_STORES_DATABASE: Record<string, { merchant: MerchantProfile; c
 // ==================== CATEGORY LAYOUT MASTER REFERENCE ====================
 
 export const mainCategories = [
+     // 🌾 Master Category 1: Consumable Farm Food Stocks & Wholesale Foodstuff
+  { 
+    id: 'agric-farm-produce', 
+    label: 'Agric & Farm Produce', 
+    subCats: [
+      'Grains & Flours',       
+      'Tubers & Roots',        
+      'Oils & Local Spices',   
+      'Livestock & Poultry',   
+      'Fresh Fruits & Veggies',
+      'Cash Crops Bulk',
+      
+           'Cash Crops Bulk',     
+      'Agro-Chemicals',        
+      'Fertilizers & Soil',    
+      'Animal Feed & Care',   
+      'Farm Tools & Machinery' 
+    ] 
+  },
+
   { id: 'official-store', label: 'Official Store', subCats: ['All Brands', 'Samsung Exclusive', 'Adidas official', 'Intel Zone'] },
   { id: 'appliances', label: 'Appliances', subCats: ['Air Fryers', 'Refrigerators', 'Microwaves', 'Blenders'] },
   { id: 'phones-tablets', label: 'Phones & Tablets', subCats: ['Mobile Phones', 'Tablets', 'Accessories', 'Power Banks'] },
   { id: 'health-beauty', label: 'Health & Beauty', subCats: ['Skin Care', 'Fragrances', 'Hair Care', 'Makeup'] },
   { id: 'home-office', label: 'Home & Office', subCats: ['Office Furniture', 'Lighting', 'Bedding', 'Stationery'] },
+  // 🌱 Master Category 2: Agro-Inputs, Farm Tools & Propagation Stocks
+
   { id: 'electronics', label: 'Electronics', subCats: ['Television', 'Audio Gear', 'Cameras', 'Smart Home Gateways'] },
   { id: 'fashion', label: 'Fashion', subCats: ['Mens Fashion', 'Womens Fashion', 'Fabrics', 'Watches', 'Shoes'] },
   { id: 'supermarket', label: 'Supermarket', subCats: ['Provisions', 'Beverages', 'Snacks', 'Cereals'] },
@@ -642,5 +664,246 @@ export const mockProducts: Product[] = [
     imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80', 
     category: 'fashion', subCategory: 'Shoes', 
     brand: 'ADIDAS', rating: 5, reviewsCount: 512, isOfficialStore: true
+  },
+
+
+  // AGRIC
+  // ==========================================
+  // MASTER CATEGORY: agric-farm-produce
+  // ==========================================
+
+
+  // --- Sub-Category: Grains & Flours ---
+  { 
+    id: 'ng-agric-001', 
+    title: 'Wholesale Brown Beans (Potiskum Variant) - 100kg Bag', 
+    price: 180000, oldPrice: 195000,
+    description: 'Premium dry sweet brown beans sourced directly from Yobe markets. Dehulled, clean, and completely stone-free.', 
+    imageUrl: '/farm/brown-beans.jpeg', // High-density real photography of raw dry field beans tightly packed
+    category: 'agric-farm-produce', subCategory: 'Grains & Flours',
+    brand: 'DAN-TIRO AGRO', rating: 5, reviewsCount: 142, isOfficialStore: false,
+    merchantId: 'dawanau-bulk-hub'
+  },
+
+  { 
+    id: 'ng-agric-002', 
+    title: 'Yellow Garri (Ondo Premium Koko) - 50kg Bag', 
+    price: 54000, oldPrice: 60000,
+    description: 'Finely fried with pure unadulterated palm oil. Crisp texture, minimal moisture content, and perfectly sour.', 
+    imageUrl: '/farm/yellow-garri.jpg', // Real texture of roasted granular cassava root meal
+    category: 'agric-farm-produce', subCategory: 'Grains & Flours',
+    brand: 'WESTERN STAPLES', rating: 4, reviewsCount: 63, isOfficialStore: false,
+    merchantId: 'mile12-foodstuff-distributors'
+  },
+  { 
+    id: 'ng-agric-003', 
+    title: 'Abakaliki Parboiled Rice (Long Grain Standard) - 50kg Bag', 
+    price: 82000, oldPrice: 89000,
+    description: 'Locally grown and mechanically de-stoned long-grain rice from Ebonyi State. High swelling index when cooked.', 
+    imageUrl: '/farm/abakaliki-rice.jpg', // Ground truth macro shot of raw unprocessed rice grains
+    category: 'agric-farm-produce', subCategory: 'Grains & Flours',
+    brand: 'EBONYI PRIDE', rating: 5, reviewsCount: 194, isOfficialStore: true,
+    merchantId: 'eastern-grain-matrix'
+  },
+
+  // --- Sub-Category: Tubers & Roots ---
+  { 
+    id: 'ng-agric-004', 
+    title: 'Premium Benue Water Yam (Gboko Grade) - Stack of 5 Large Tubers', 
+    price: 25000, oldPrice: 30000,
+    description: 'Freshly harvested heavy water yams. Ideal for traditional recipes like water yam pottage (Ikokore) or local starch processing.', 
+    imageUrl: '/farm/benue-yam.jpg', // Real pile of raw root tubers directly from tropical farmland harvest
+    category: 'agric-farm-produce', subCategory: 'Tubers & Roots',
+    brand: 'BENUE VALLEY HARVEST', rating: 5, reviewsCount: 34, isOfficialStore: false,
+    merchantId: 'farmgate-aggregators-ng'
+  },
+  { 
+    id: 'ng-agric-005', 
+    title: 'High-Quality Dry Cassava Tuber Chips (White Garri Grade) - 50kg Bag', 
+    price: 32000, oldPrice: 38000,
+    description: 'Sun-dried premium cassava chips (Kpokpo garri/Lafun processing raw stock) with minimal starch degradation.', 
+    imageUrl: '/farm/cassava-tubed.webp', // Authentic Manihot esculenta roots fresh from sub-Saharan farm soil
+    category: 'agric-farm-produce', subCategory: 'Tubers & Roots',
+    brand: 'NIGERIA CASSAVA CORP', rating: 4, reviewsCount: 18, isOfficialStore: false,
+    merchantId: 'ibadan-agric-hub'
+  },
+
+  // --- Sub-Category: Oils & Local Spices ---
+   { 
+    id: 'ng-agric-0066', 
+    title: 'Unadulterated Palm Oil Kernel seed', 
+    price: 38500, oldPrice: 44000,
+    description: 'Pure, thick, natively processed palm oil from Enugu state. Zero chemical thickeners or artificial colors added.', 
+    imageUrl: '/farm/palm-seed.jpg', // High-contrast, hyper-saturated real red palm oil fruit (Elaeis guineensis) bunches
+    category: 'agric-farm-produce', subCategory: 'Oils & Local Spices',
+    brand: 'PALM VALLEY', rating: 5, reviewsCount: 215, isOfficialStore: true,
+    merchantId: 'mile12-foodstuff-distributors'
+  },
+  { 
+    id: 'ng-agric-006', 
+    title: 'Unadulterated Nsukka Palm Oil (Low FFA) - 25 Litre Jerrycan', 
+    price: 38500, oldPrice: 44000,
+    description: 'Pure, thick, natively processed palm oil from Enugu state. Zero chemical thickeners or artificial colors added.', 
+    imageUrl: '/farm/palm-oil.png', // High-contrast, hyper-saturated real red palm oil fruit (Elaeis guineensis) bunches
+    category: 'agric-farm-produce', subCategory: 'Oils & Local Spices',
+    brand: 'PALM VALLEY', rating: 5, reviewsCount: 215, isOfficialStore: true,
+    merchantId: 'mile12-foodstuff-distributors'
+  },
+  { 
+    id: 'ng-agric-007', 
+    title: 'Fermented Locust Beans (Iru Pete / Wara) - 5kg Bulk Pack', 
+    price: 15000, oldPrice: 18000,
+    description: 'Traditional pungent soup flavoring condiment. Thoroughly fermented and clean-packed under sanitary regulations.', 
+    imageUrl: '/farm/locust-beans.jpg', // Piled organic local African seed spices showing raw surface texture
+    category: 'agric-farm-produce', subCategory: 'Oils & Local Spices',
+    brand: 'NATIVE SPICE', rating: 5, reviewsCount: 88, isOfficialStore: false,
+    merchantId: 'ibadan-agric-hub'
+  },
+
+  // --- Sub-Category: Livestock & Poultry ---
+  { 
+    id: 'ng-agric-008', 
+    title: 'Live Point-of-Lay Isa Brown Pullets - 10 Bird Batch', 
+    price: 85000, oldPrice: 95000,
+    description: 'Healthy, fully vaccinated 18-week-old commercial layers ready to drop high-yield farm eggs immediately.', 
+    imageUrl: '/farm/brown-pullets.webp', // Authentic dense frame of poultry farming livestock
+    category: 'agric-farm-produce', subCategory: 'Livestock & Poultry',
+    brand: 'CHI FARMS', rating: 5, reviewsCount: 412, isOfficialStore: true,
+    merchantId: 'chi-poultry-depot'
+  },
+  { 
+    id: 'ng-agric-009', 
+    title: 'Smoked Dry African Catfish (Mish-Mash Standard) - 5kg Box', 
+    price: 38000, oldPrice: 45000,
+    description: 'Oven-dried with natural wood smoke. Brined with zero insect infestation risk and a stable 6-month shelf life.', 
+    imageUrl: '/farm/smoked-fish.webp', // Real wood-fired grid array of traditionally dried fish stocks
+    category: 'agric-farm-produce', subCategory: 'Livestock & Poultry',
+    brand: 'LAGOS SMOKED FISH CO', rating: 4, reviewsCount: 57, isOfficialStore: true,
+    merchantId: 'lagos-aqua-logistics'
+  },
+
+  // --- Sub-Category: Fresh Fruits & Veggies ---
+  { 
+    id: 'ng-agric-010', 
+    title: 'Fresh Red Bell Peppers (Tatashe - Zaria Variant) - Large Raffia Basket', 
+    price: 48000, oldPrice: 55000,
+    description: 'Thick-walled, crisp red tatashe peppers sorted and crated carefully to avoid transit bruising.', 
+    imageUrl: '/farm/red-pepper.jpg', // Deep red high-saturation West African style market peppers packed together
+    category: 'agric-farm-produce', subCategory: 'Fresh Fruits & Veggies',
+    brand: 'NORTH-AGRO FRESH', rating: 4, reviewsCount: 92, isOfficialStore: false,
+    merchantId: 'farmgate-aggregators-ng'
+  },
+
+  // --- Sub-Category: Cash Crops Bulk ---
+  { 
+    id: 'ng-agric-011', 
+    title: 'Raw Edible Cashew Nuts (Ogbomoso Export Grade) - 50kg Bag', 
+    price: 110000, oldPrice: 130000,
+    description: 'High-yield raw cashew nuts with an out-turn parameter of 48-52 lbs. Cleaned and sun-dried.', 
+    imageUrl: '/farm/cashew-nuts.webp', // Dense macro presentation of organic cash crop raw kernels
+    category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk',
+    brand: 'OGBOMOSO CASHEW EXPORTS', rating: 5, reviewsCount: 26, isOfficialStore: true,
+    merchantId: 'sw-cashcrop-brokers'
+  },
+  { 
+    id: 'ng-agric-012', 
+    title: 'Dried Split Ginger (Kachia Grade-A Standard) - 50kg Bag', 
+    price: 140000, oldPrice: 165000,
+    description: 'Premium sun-dried split ginger flakes from Kaduna State. High volatile oil content levels ready for extraction.', 
+    imageUrl: '/farm/fresh-ginger.jpg', // Bright, crisp, high-contrast array of sun-drying root spices
+    category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk',
+    brand: 'KADUNA SPICE AGRO', rating: 5, reviewsCount: 44, isOfficialStore: false,
+    merchantId: 'dawanau-bulk-hub'
+  },
+
+
+  { 
+    id: 'ng-agric-013', 
+    title: 'Premier Seed Hybrid White Maize (Oba Super 2) - 2kg Pack', 
+    price: 13500, oldPrice: 16000,
+    description: 'Top-tier Nigerian certified white maize hybrid. High drought tolerance, excellent cob filling, Striga weed resistance.', 
+    imageUrl: '/farm/maize-seed.webp', // Real agronomy photo of farmers hands inspecting real hybrid maize on the field
+    category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk',
+    brand: 'PREMIER SEEDS', rating: 5, reviewsCount: 320, isOfficialStore: true,
+    merchantId: 'agro-allied-input-hub'
+  },
+  { 
+    id: 'ng-agric-014', 
+    title: 'Certified Rice Seed (FARO 44 Lowland Inbred) - 50kg Bag', 
+    price: 65000, oldPrice: 75000,
+    description: 'High-purity foundational FARO 44 rice seed stock. Excellent milling recovery features tailored for Nigerian swampland terrains.', 
+    imageUrl: '/farm/rice-seed.jpg', // Saturated, sun-drenched grain nursery beds in a real field
+    category: 'agric-farm-produce', subCategory: 'Cash Crops Bulk',
+    brand: 'NATIONAL SEED COUNCIL', rating: 5, reviewsCount: 74, isOfficialStore: true,
+    merchantId: 'agro-allied-input-hub'
+  },
+
+  // --- Sub-Category: Agro-Chemicals ---
+  { 
+    id: 'ng-agric-015', 
+    title: 'DuraClean Paraquat Selective Contact Herbicide - 1 Litre', 
+    price: 9500, oldPrice: 12000,
+    description: 'Fast-acting liquid selective knock-down herbicide targeting unwanted annual grasses on local open ridge systems.', 
+    imageUrl: '/farm/paraquat-Herbicide.webp', // Real botanical farm cultivation and chemical foliage defense context
+    category: 'agric-farm-produce', subCategory: 'Agro-Chemicals',
+    brand: 'SINO-AGRO RELEASES', rating: 4, reviewsCount: 145, isOfficialStore: false,
+    merchantId: 'agro-allied-input-hub'
+  },
+
+  // --- Sub-Category: Fertilizers & Soil ---
+  { 
+    id: 'ng-agric-016', 
+    title: 'Indorama Granular Urea Fertilizer (46% Nitrogen Premium) - 50kg', 
+    price: 44000, oldPrice: 49500,
+    description: 'Pure white free-flowing spherical structural urea from Eleme petrochemical complexes. Maximizes leaf greening.', 
+    imageUrl: '/farm/urea-fertilizer.jpg', // Direct real macro photograph of granular agronomy mineral fertilizer pellets
+    category: 'agric-farm-produce', subCategory: 'Fertilizers & Soil',
+    brand: 'INDORAMA UREA', rating: 5, reviewsCount: 890, isOfficialStore: true,
+    merchantId: 'eleme-fertilizer-brokers'
+  },
+  { 
+    id: 'ng-agric-017', 
+    title: 'Notore Premium NPK 20-10-10 Root Booster Fertilizer - 50kg', 
+    price: 46500, oldPrice: 52000,
+    description: 'Specially optimized mineral ratio for early-stage vegetative root growth across Nigerian savannah topsoil properties.', 
+    imageUrl: '/farm/notore-fertilizer.jpg', // Real-world dark organic topsoil mixed with granular compound fertilizers
+    category: 'agric-farm-produce', subCategory: 'Fertilizers & Soil',
+    brand: 'NOTORE', rating: 5, reviewsCount: 612, isOfficialStore: true,
+    merchantId: 'eleme-fertilizer-brokers'
+  },
+
+  // --- Sub-Category: Animal Feed & Care ---
+  { 
+    id: 'ng-agric-018', 
+    title: 'Vital Feed High-Protein Fish Floating Pellets (2mm) - 15kg Bag', 
+    price: 24500, oldPrice: 28000,
+    description: 'Premium aquaculture nutrition with balanced crude protein levels to optimize fingerling conversion scaling matrices.', 
+    imageUrl: '/farm/floating-fish-pellets.webp', // Real commercial pond aquaculture water backdrop
+    category: 'agric-farm-produce', subCategory: 'Animal Feed & Care',
+    brand: 'VITAL FEEDS', rating: 4, reviewsCount: 304, isOfficialStore: true,
+    merchantId: 'chi-poultry-depot'
+  },
+  { 
+    id: 'ng-agric-019', 
+    title: 'TopFeeds Layer Mash Peak Production Feed - 25kg Bag', 
+    price: 18500, oldPrice: 21000,
+    description: 'Fortified with extra dietary calcium compounds to ensure exceptionally thick, brown eggshell development.', 
+    imageUrl: '/farm/hen-mash-feed.webp', // Dense, textured milling profile of real blended poultry organic grains
+    category: 'agric-farm-produce', subCategory: 'Animal Feed & Care',
+    brand: 'TOPFEEDS', rating: 4, reviewsCount: 189, isOfficialStore: true,
+    merchantId: 'agro-allied-input-hub'
+  },
+
+  // --- Sub-Category: Farm Tools & Machinery ---
+  { 
+    id: 'ng-agric-020', 
+    title: 'Heavy Duty Manual Single-Row Crop Planter / Seed Seeder', 
+    price: 68000, oldPrice: 78000,
+    description: 'Walk-behind precision planter with swap-out seed wheels for maize, cowpea, and groundnut operations.', 
+    imageUrl: '/farm/maize-seeder-corn.webp', // Authentic vibrant daylight photo of a cultivation tool on an active open field
+    category: 'agric-farm-produce', subCategory: 'Farm Tools & Machinery',
+    brand: 'AGRO-MECH TECH', rating: 5, reviewsCount: 42, isOfficialStore: false,
+    merchantId: 'agro-allied-input-hub'
   }
+
 ];
