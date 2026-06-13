@@ -36,6 +36,7 @@ export interface Product {
 export const categoryBrands: Record<string, string[]> = {
   // Agriculture & Farm
   'agric-farm-produce': ['Mama Gold', 'Caprice', 'Olam', 'Vital Feeds', 'Farm Fresh', 'Dangote'],
+  'books': ['Dr. David Ogbueli', 'Other Authors'],
   
   // Electronics
   'appliances': ['Scanfrost', 'Haier Thermocool', 'Binatone', 'Century', 'LG', 'Samsung'],
@@ -102,7 +103,17 @@ export const MOCK_STORES_DATABASE: Record<string, { merchant: MerchantProfile; c
 
 export const mainCategories = [
      // 🌾 Master Category 1: Consumable Farm Food Stocks & Wholesale Foodstuff
+
   { 
+    id: 'books', 
+    label: 'Books', 
+    subCats: ['Dr. David Ogbueli', 'Leadership', 'Faith & Spirituality', 'Personal Development'] 
+  },
+
+  { id: 'official-store', label: 'Official Store', subCats: ['All Brands', 'Samsung Exclusive', 'Adidas official', 'Intel Zone'] },
+  { id: 'appliances', label: 'Appliances', subCats: ['Air Fryers', 'Refrigerators', 'Microwaves', 'Blenders'] },
+  { id: 'phones-tablets', label: 'Phones & Tablets', subCats: ['Mobile Phones', 'Tablets', 'Accessories', 'Power Banks'] },
+    { 
     id: 'agric-farm-produce', 
     label: 'Agric & Farm Produce', 
     subCats: [
@@ -113,17 +124,13 @@ export const mainCategories = [
       'Fresh Fruits & Veggies',
       'Cash Crops Bulk',
       
-           'Cash Crops Bulk',     
+      'Cash Crops Bulk',     
       'Agro-Chemicals',        
       'Fertilizers & Soil',    
       'Animal Feed & Care',   
       'Farm Tools & Machinery' 
     ] 
   },
-
-  { id: 'official-store', label: 'Official Store', subCats: ['All Brands', 'Samsung Exclusive', 'Adidas official', 'Intel Zone'] },
-  { id: 'appliances', label: 'Appliances', subCats: ['Air Fryers', 'Refrigerators', 'Microwaves', 'Blenders'] },
-  { id: 'phones-tablets', label: 'Phones & Tablets', subCats: ['Mobile Phones', 'Tablets', 'Accessories', 'Power Banks'] },
   { id: 'health-beauty', label: 'Health & Beauty', subCats: ['Skin Care', 'Fragrances', 'Hair Care', 'Makeup'] },
   { id: 'home-office', label: 'Home & Office', subCats: ['Office Furniture', 'Lighting', 'Bedding', 'Stationery'] },
   // 🌱 Master Category 2: Agro-Inputs, Farm Tools & Propagation Stocks
@@ -292,6 +299,33 @@ export const mockProducts: Product[] = [
   { id: 'ng-agric-018', title: 'Vital Feed High-Protein Fish Floating Pellets (2mm) - 15kg Bag', price: 24500, oldPrice: 28000, description: 'Premium aquaculture nutrition with balanced crude protein levels to optimize fingerling conversion scaling matrices.', imageUrl: '/farm/floating-fish-pellets.webp', category: 'agric-farm-produce', subCategory: 'Animal Feed & Care', brand: 'VITAL FEEDS', rating: 4, reviewsCount: 304, isOfficialStore: true, merchantId: 'chi-poultry-depot' },
   { id: 'ng-agric-019', title: 'TopFeeds Layer Mash Peak Production Feed - 25kg Bag', price: 18500, oldPrice: 21000, description: 'Fortified with extra dietary calcium compounds to ensure exceptionally thick, brown eggshell development.', imageUrl: '/farm/hen-mash-feed.webp', category: 'agric-farm-produce', subCategory: 'Animal Feed & Care', brand: 'TOPFEEDS', rating: 4, reviewsCount: 189, isOfficialStore: true, merchantId: 'agro-allied-input-hub' },
   { id: 'ng-agric-020', title: 'Heavy Duty Manual Single-Row Crop Planter / Seed Seeder', price: 68000, oldPrice: 78000, description: 'Walk-behind precision planter with swap-out seed wheels for maize, cowpea, and groundnut operations.', imageUrl: '/farm/maize-seeder-corn.webp', category: 'agric-farm-produce', subCategory: 'Farm Tools & Machinery', brand: 'AGRO-MECH TECH', rating: 5, reviewsCount: 42, isOfficialStore: false, merchantId: 'agro-allied-input-hub' },
+
+
+  //  ---------------- BOOKS ------------------------------- //
+    // ==========================================
+  // MASTER CATEGORY: BOOKS
+  // ==========================================
+
+  { id: 'book-001', title: 'The Essence of Life', price: 9500, oldPrice: 4500, description: 'A transformative look into the fundamental purpose and meaning of existence.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 120, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-002', title: 'Tools of Prophetic Dominion', price: 8000, oldPrice: 5000, description: 'Understanding the mechanics of spiritual authority and influence.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 85, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-003', title: 'The Law of Proper Speech', price: 9000, oldPrice: 3500, description: 'Mastering the power of words to shape your destiny and environment.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Personal Development', brand: 'Dr. David Ogbueli', rating: 4, reviewsCount: 92, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-004', title: 'The Dominion Mandate', price: 9500, oldPrice: 5000, description: 'A deep dive into the mandate for believers to exert influence in all spheres of life.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Leadership', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 210, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-005', title: 'Principles of Discipleship', price: 9800, oldPrice: 5000, description: 'Foundational principles for effective Christian discipleship and mentorship.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 155, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-006', title: 'The Glory of the Eagle', price: 7200, oldPrice: 4000, description: 'Unlocking the vision and strength required for high-level accomplishment.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Personal Development', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 112, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-007', title: 'Building a Word Foundation', price: 9800, oldPrice: 5000, description: 'Establishing your life upon the unshakable foundation of the Word.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 78, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-008', title: 'The Spirit of Absalom', price: 8500, oldPrice: 5000, description: 'Identifying and overcoming the spirit of division and rebellion.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 95, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-009', title: 'Power of the Blood Covenant', price: 7200, oldPrice: 5000, description: 'A study on the power and significance of the blood covenant.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 130, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-010', title: 'Building Friendship', price: 2500, oldPrice: 3000, description: 'Essential wisdom for building and maintaining godly relationships.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Personal Development', brand: 'Dr. David Ogbueli', rating: 4, reviewsCount: 88, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-011', title: 'Praying Through the Gates of Time', price: 6000, oldPrice: 5000, description: 'Aligning your life with divine timing through prayer.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 140, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-012', title: 'Love Revolution: The Key for Transforming Africa & The World', price: 5000, oldPrice: 6500, description: 'A strategic look at how love serves as the catalyst for societal transformation.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Leadership', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 180, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-013', title: 'The Tabernacle Model of Ministry', price: 9800, oldPrice: 5000, description: 'Understanding the biblical framework for ministry effectiveness.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 65, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-014', title: 'Steps to Academic Excellence', price: 2500, oldPrice: 3000, description: 'Personal strategies used to move from an average student to a top performer.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Personal Development', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 300, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-015', title: 'Discipleship Codes', price: 7200, oldPrice: 5000, description: 'Installing the Divine Nature in Every Believer.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 98, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-016', title: 'The Principle of the Great Commission', price: 3500, oldPrice: 5000, description: 'Understanding the mandate to reach the nations.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 72, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-017', title: 'The Law of Reflection', price: 9000, oldPrice: 3500, description: 'Applying the law of reflection for personal growth.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Personal Development', brand: 'Dr. David Ogbueli', rating: 4, reviewsCount: 60, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-018', title: 'The Power of Altar', price: 8800, oldPrice: 4500, description: 'The significance of the altar in spiritual transactions.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 110, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-019', title: 'Voices from the Edge of Eternity (Vol 1 & 2)', price: 6000, oldPrice: 7500, description: 'Profound insights captured from the threshold of the eternal.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 5, reviewsCount: 150, isOfficialStore: true, merchantId: 'ogbueli-publishing' },
+  { id: 'book-020', title: 'The Location of Hell', price: 8200, oldPrice: 5000, description: 'A theological exploration of the reality and location of hell.', imageUrl: '/categories/books.jpg', category: 'books', subCategory: 'Faith & Spirituality', brand: 'Dr. David Ogbueli', rating: 4, reviewsCount: 80, isOfficialStore: true, merchantId: 'ogbueli-publishing' }
 
 
 ];

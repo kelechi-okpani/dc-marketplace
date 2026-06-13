@@ -153,7 +153,7 @@ export default function ECommerceHeroSection() {
         <aside className="col-span-1 lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 items-stretch lg:max-h-[480px]">
           
           {/* Service Banner 1 */}
-          <div className=" rounded-2xl border border-blue-500/20 p-6 flex flex-col justify-between shadow-xl group relative overflow-hidden">
+          <div className="bg-white rounded-2xl border border-blue-500/20 p-6 flex flex-col justify-between shadow-xl group relative overflow-hidden">
             <div className="absolute inset-0 bg-blue-500/[0.02] mix-blend-overlay pointer-events-none" />
             <div className="flex gap-4 items-start relative z-10">
               <div className="h-10 w-10 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center shrink-0 border border-blue-500/20 shadow-inner">
@@ -173,7 +173,7 @@ export default function ECommerceHeroSection() {
           </div>
 
           {/* Service Banner 2 */}
-          <div className=" rounded-2xl border border-amber-500/20 p-6 flex flex-col justify-between shadow-xl group relative overflow-hidden">
+          <div className="bg-white rounded-2xl border border-amber-500/20 p-6 flex flex-col justify-between shadow-xl group relative overflow-hidden">
             <div className="absolute inset-0 bg-amber-500/[0.02] mix-blend-overlay pointer-events-none" />
             <div className="flex gap-4 items-start relative z-10">
               <div className="h-10 w-10 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center shrink-0 border border-amber-500/20 shadow-inner">

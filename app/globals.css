@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+
+/* body {
+  min-height: 100vh;
+  background-image: url('/body.png');
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: repeat-y;
+  background-color: #fff;
+} */
+
+
+body {
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background-image: url('/body.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+} 
+

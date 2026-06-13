@@ -16,6 +16,7 @@ interface CategoryItem {
 const CATEGORY_IMAGE_REGISTRY: Record<string, string> = {
   'official-store': '/categories/office.jpg',
   'agric-farm-produce': '/categories/farm.jpg',
+  'books': '/categories/books.jpg',
   'appliances': '/categories/appliances.jpg',
   'phones-tablets': '/categories/phones.jpg',
   'health-beauty': '/categories/beauty.jpg',
@@ -48,7 +49,7 @@ export default function CategoriesTab() {
   };
 
   return (
-    <div className="w-full bg-white py-6 px-4 md:px-8 select-none font-sans border-b border-slate-100">
+    <div className="w-full  py-6 px-4 md:px-8 select-none font-sans border-b border-slate-100">
       <div className="max-w-[1400px] mx-auto relative group">
         
         {/* Title Section */}
@@ -71,7 +72,7 @@ export default function CategoriesTab() {
         {/* Scaled Slider Rail for Full-Bleed square cards */}
         <div
           ref={sliderRef}
-          className="flex items-start gap-3 sm:gap-4 overflow-x-auto scroll-smooth pb-3 pt-1 no-scrollbar"
+          className="bg-white px-4 flex items-start gap-3 sm:gap-4 rounded-lg overflow-x-auto scroll-smooth pb-3 pt-1 no-scrollbar"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
           {mainCategories.map((cat) => {
@@ -86,7 +87,7 @@ export default function CategoriesTab() {
               >
                 {/* Square Container Edge-to-Edge Imagery Layout */}
                 <div 
-                  className={`w-full aspect-square rounded-xl overflow-hidden bg-slate-50 border transition-all duration-300
+                  className={`w-full aspect-square rounded-xl overflow-hidden bg-slate-50 border transition-all duration-300 
                     ${isSelected 
                       ? 'border-emerald-600 ring-2 ring-emerald-600/20 shadow-md scale-[1.02]' 
                       : 'border-slate-100 group-hover/item:border-emerald-300 group-hover/item:shadow-xs'
@@ -105,10 +106,10 @@ export default function CategoriesTab() {
 
                 {/* Exact Text Label System */}
                 <span 
-                  className={`text-[12px] sm:text-[13px] leading-tight px-1 tracking-tight max-w-full break-words line-clamp-2 transition-colors duration-200
+                  className={`text-[12px] sm:text-[13px] leading-tight px-1 font-bold  max-w-full break-words line-clamp-2 transition-colors duration-200
                     ${isSelected 
                       ? 'text-emerald-700 font-bold' 
-                      : 'text-slate-800 font-medium group-hover/item:text-emerald-600'
+                      : 'text-slate-800  group-hover/item:text-emerald-600 font-bold'
                     }`}
                 >
                   {cat.label}

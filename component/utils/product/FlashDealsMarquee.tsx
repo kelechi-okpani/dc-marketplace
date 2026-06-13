@@ -180,7 +180,7 @@ export default function FlashDealsMarquee() {
 
                 {/* Title & Price Information */}
                 <div className="flex flex-col flex-1">
-                  <h4 className="line-clamp-2 text-xs font-black text-slate-800 leading-tight group-hover:text-emerald-600 transition-colors h-8">
+                  <h4 className="line-clamp-2 text-xs font-medium font-black text-slate-800 leading-tight group-hover:text-emerald-600 transition-colors h-8">
                     {product.title}
                   </h4>
                   
