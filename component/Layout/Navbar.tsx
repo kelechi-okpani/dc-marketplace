@@ -17,7 +17,7 @@ interface NavRoute {
 }
 
 const routes: NavRoute[] = [
-  { label: 'Marketplace', href: '/' },
+  // { label: 'Marketplace', href: '/' },
   { label: 'Products', href: '/products' },
   { label: 'Agro Products', href: '/agric' },
   { label: 'Services', href: '/services' },
@@ -116,6 +116,34 @@ const handleSearchSubmit = (e: React.FormEvent) => {
               })}
             </nav> */}
 
+
+<div className="hidden md:flex flex-1  mx-auto px-4 sm:px-6">
+  <form 
+    onSubmit={handleSearchSubmit} 
+    className="flex items-center border border-gray-300 rounded-full pl-4 pr-1 focus-within:ring-2 focus-within:ring-emerald-500 bg-white"
+  >
+    <Search className="w-5 h-5 text-gray-400 flex-shrink-0" />
+    
+    <input 
+      type="text" 
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      placeholder="Search products..." 
+      className="w-full py-2  px-3 outline-none text-gray-700 text-sm sm:text-sm bg-transparent"
+    />
+    
+    <button 
+      type="submit" 
+      className="bg-emerald-600 text-white px-4 sm:px-6 py-1 rounded-full hover:bg-emerald-600 transition flex-shrink-0 text-sm sm:text-sm font-medium"
+    >
+      <span className="hidden sm:inline">Search</span>
+      {/* Icon only on very small screens if needed, but text is usually better */}
+      <span className="sm:hidden">Go</span>
+    </button>
+  </form>
+</div>
+
+
             {/* ================= DESKTOP NAV ROUTES ================= */}
 <nav className="hidden h-full items-center gap-1 md:flex">
   {routes.map((route) => {
@@ -138,7 +166,7 @@ const handleSearchSubmit = (e: React.FormEvent) => {
 </nav>
 
           {/* ================= DESKTOP SEARCH INPUT ================= */}
-          <div className="hidden md:flex flex-1 max-w-xs mx-4">
+          {/* <div className="hidden md:flex flex-1 max-w-xs mx-4">
             <form onSubmit={handleSearchSubmit} className="relative w-full group">
               <Search className="absolute left-3 top-2.5 h-3.5 w-3.5 text-slate-400 group-focus-within:text-emerald-600 transition-colors" />
               <input
@@ -149,7 +177,8 @@ const handleSearchSubmit = (e: React.FormEvent) => {
                 className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2 pl-9 pr-4 text-xs font-medium text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/10 focus:border-emerald-500 transition-all shadow-xs"
               />
             </form>
-          </div>
+          </div> */}
+
 
 
 

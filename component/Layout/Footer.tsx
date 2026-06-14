@@ -20,24 +20,24 @@ const footerData: FooterSection[] = [
   {
     title: 'Marketplace',
     links: [
-      { label: 'Directory', href: '/products' },
-      { label: 'Verified Services', href: '/services' },
-      { label: 'Flash Catalog', href: '/flash-deals' },
+  { label: 'Marketplace', href: '/' },
+  { label: 'Products', href: '/products' },
+  { label: 'Agro Products', href: '/agric' },
+  { label: 'Services', href: '/services' },
+
     ],
   },
   {
     title: 'Escrow Security',
     links: [
-      { label: 'Secured Pipelines', href: '/escrow/pipelines' },
-      { label: 'Arbitration Center', href: '/escrow/arbitration' },
-      { label: 'Fee Structure', href: '/escrow/fees' },
+      { label: 'Escrow Hub', href: '/escrow' },
+  
     ],
   },
   {
     title: 'Platform',
     links: [
-      { label: 'Verification Metrics', href: '/verification' },
-      { label: 'Developer API', href: '/docs' },
+      { label: 'Privacy Policy', href: '/privacy' },
       { label: 'Support Channels', href: '/support' },
     ],
   },
@@ -113,7 +113,6 @@ export default function Footer() {
             {[
               { icon: FaXTwitter, href: '#', label: 'Twitter Profile' },
               { icon: FaLinkedinIn, href: '#', label: 'LinkedIn Page' },
-              { icon: FaGithub, href: '#', label: 'GitHub Repository' },
             ].map((social, idx) => {
               const Icon = social.icon;
               return (
