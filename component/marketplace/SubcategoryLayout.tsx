@@ -31,13 +31,13 @@ const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const categoryContext = useMemo(() => getCategoryCardContext(currentSelection), [currentSelection]);
 
   // Derived filters based on current selection
-  // const filters = useMemo(() => getDynamicFiltersForSubcategory(currentSelection), [currentSelection]);
+  const filters = useMemo(() => getDynamicFiltersForSubcategory(currentSelection), [currentSelection]);
 
-  
+
   // Inside SubcategoryLayout.tsx
-const filters = useMemo(() => {
-  return getDynamicFiltersForSubcategory(currentSelection, initialProducts);
-}, [currentSelection, initialProducts]);
+// const filters = useMemo(() => {
+//   return getDynamicFiltersForSubcategory(currentSelection, initialProducts);
+// }, [currentSelection, initialProducts]);
 
   // Reset filters when selection changes
   useEffect(() => {
