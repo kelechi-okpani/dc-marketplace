@@ -151,14 +151,14 @@ export default function MarketplaceHome() {
         {/* Dynamic Display Rendering */}
         {activeTab === 'products' ? (
           <div className="space-y-6">
-            <ProductDealCarousel 
+            {/* <ProductDealCarousel 
               title="Jessica Store" 
               products={paginatedProducts} 
               storeId="08y92y924" 
               gradientTheme="emerald"
-            />   
+            />    */}
 
-            <FlashDealsMarquee />
+            {/* <FlashDealsMarquee /> */}
 
             <ProductGrid
               products={paginatedProducts}
@@ -169,14 +169,14 @@ export default function MarketplaceHome() {
               onViewDetails={(prod) => console.log('Details preview triggered:', prod.id)}
             /> 
 
-            <FlashDealsMarquee />
+            {/* <FlashDealsMarquee /> */}
 
-            <ProductDealCarousel 
+            {/* <ProductDealCarousel 
               title="Kelvin Electronics" 
               products={paginatedProducts} 
               storeId="08y92y924" 
               gradientTheme="emerald"
-            />   
+            />    */}
           </div>
         ) : (
           <ServiceGrid_ />

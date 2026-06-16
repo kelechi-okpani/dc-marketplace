@@ -18,7 +18,7 @@ export default function HomeLayout({
       <main className="flex-grow flex flex-col justify-between">
         {children}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

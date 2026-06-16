@@ -59,10 +59,10 @@ export default function Footer() {
               <Image
                 src="/dc.svg"
                 alt="DC Marketplace Logo"
-                width={400}     
+                width={200}     
                 height={100}     
                 priority       
-                className="h-20 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
             </Link>
             <p className="text-xs text-slate-500 leading-relaxed max-w-sm">

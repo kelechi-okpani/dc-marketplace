@@ -1,28 +1,13 @@
-<svg viewBox="0 0 500 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Icon Group -->
-  <g id="logo-icon">
-    <!-- Background rounded square - safe neutral dark slate base -->
-    <rect x="20" y="20" width="80" height="80" rx="12" fill="#0f172a" />
-    
-    <!-- Circular badge background - shifted from blue to solid green -->
-    <circle cx="70" cy="60" r="30" fill="#16a34a" />
-    
-    <!-- White checkmark inside the circular badge -->
-    <path d="M62 60L68 66L78 54" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-    
-    <!-- The prominent 'C' sweep wrapper - matched to your layout accent green -->
-    <path d="M80 30C50 30 35 43 35 60C35 77 50 90 80 90" stroke="#15803d" stroke-width="14" stroke-linecap="round" />
-  </g>
-
-  <!-- Typography Layout Group -->
-  <g id="logo-text">
-    <!-- "DC" Bold Monolith Text -->
-    <text x="130" y="70" fill="#0f172a" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="900" letter-spacing="-1">DC</text>
-
-    <!-- "MARKETPLACE" Text - Swapped from blue to your brand green -->
-    <text x="195" y="70" fill="#16a34a" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="400" letter-spacing="1">MARKETPLACE</text>
-
-    <!-- Subtitle tag description text: PRODUCTS • SERVICES • ESCROW -->
-    <text x="132" y="98" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="5">PRODUCTS • SERVICES • ESCROW</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 160" width="800" height="160">
+  <rect x="0" y="0" width="140" height="140" rx="30" fill="#1877F2"/>
+  
+  <path d="M100 40 A 50 50 0 1 0 100 100" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/>
+  
+  <path d="M45 70 L65 90 L105 50" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <text x="170" y="85" font-family="Arial, sans-serif" font-weight="900" font-size="80" fill="#1877F2">DC</text>
+  
+  <text x="310" y="85" font-family="Arial, sans-serif" font-weight="700" font-size="80" fill="#1877F2">Marketplace</text>
+  
+  <text x="170" y="130" font-family="Arial, sans-serif" font-weight="600" font-size="24" fill="#1877F2" letter-spacing="6">PRODUCTS • SERVICES • ESCROW</text>
 </svg>
