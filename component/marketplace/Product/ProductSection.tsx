@@ -43,7 +43,7 @@ export default function ProductSection({ selectedCategory, selectedSubCategory, 
   }, [filteredProducts, currentPage]);
 
   return (
-    <section className="container mx-auto px-1 ">
+    <section className="container mx-auto px-1">
       <ProductGrid
         products={paginatedProducts}
         currentPage={currentPage}

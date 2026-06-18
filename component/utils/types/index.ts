@@ -1,4 +1,11 @@
-// types.ts (or at the top of your page)
+export interface Brand {
+  label: string;
+  value: string;
+  count: number;
+  icon: string;
+  categoryId: number; 
+}
+
 export interface Subcategory {
   id: number;
   name: string;

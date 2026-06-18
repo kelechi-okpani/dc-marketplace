@@ -13,11 +13,18 @@ export default function HomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen flex flex-col w-full">
+    <div className="min-h-screen flex flex-col w-full ">
       <Navbar />
-      <main className="flex-grow flex flex-col justify-between">
+      {/* <main className="flex-grow flex flex-col justify-center max-w-6xl">
         {children}
-      </main>
+      </main> */}
+
+      <main className="flex-grow flex flex-col items-center w-full">
+          {/* <div className="w-full max-w-6xl"> */}
+          <div className="w-full">
+            {children}
+          </div>
+        </main>
       {/* <Footer /> */}
     </div>
   );

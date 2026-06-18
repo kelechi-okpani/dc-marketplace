@@ -18,7 +18,7 @@ export const MobileGrid = ({
   
 
     {/* Categories Grid */}
-    <div className="grid grid-cols-4 gap-2 p-3">
+    <div className="grid grid-cols-2 gap-2 p-3">
       {categories.map((cat) => (
         <div 
           key={cat.id} 
@@ -28,7 +28,7 @@ export const MobileGrid = ({
           <img 
             src={cat.icon} 
             alt={cat.name} 
-            className="w-8 h-8 object-contain" 
+            className="w-14 h-14 object-contain" 
           />
           <p className="text-[10px] font-bold text-slate-800 leading-tight text-center">
             {cat.name}

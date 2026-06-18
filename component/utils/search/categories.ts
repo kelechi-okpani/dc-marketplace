@@ -1,4 +1,8 @@
 
+
+
+
+
 export const categories = [
   { id: 1, name: "Vehicles", icon: "/jiji/car.png", totalItems: 40230, subcategories: [
       { id: 101, name: "Cars", icon: "🚙", count: 18450 },
@@ -114,6 +118,19 @@ export const categories = [
       { id: 1602, name: "Technical/IT/Eng CVs", icon: "💻", count: 4800 },
       { id: 1603, name: "Vocational/Teaching CVs", icon: "📚", count: 3700 },
   ]},
+  { id: 17, name: "Health & Medical", icon: "/jiji/medical.png", totalItems: 12000, subcategories: [
+      { id: 1701, name: "Pharmaceuticals", icon: "💊", count: 5000 },
+      { id: 1702, name: "Medical Equipment", icon: "🩺", count: 4000 },
+      { id: 1703, name: "Supplements & Vitamins", icon: "🧪", count: 3000 },
+  ]},
+  { id: 18, name: "Office & Stationery", icon: "/jiji/office.png", totalItems: 15000, subcategories: [
+      { id: 1801, name: "Office Furniture", icon: "🪑", count: 5000 },
+      { id: 1802, name: "Stationery & Supplies", icon: "🖊️", count: 10000 },
+  ]},
+  { id: 19, name: "Automotive Services", icon: "/jiji/auto-service.png", totalItems: 8000, subcategories: [
+      { id: 1901, name: "Insurance", icon: "🛡️", count: 3000 },
+      { id: 1902, name: "Logistics & Clearing", icon: "🚢", count: 5000 },
+  ]}
 ];
 
 

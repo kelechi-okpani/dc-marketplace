@@ -148,7 +148,7 @@ export default function MainNavbar() {
               <div className="hidden h-4 w-px bg-slate-200 sm:block mx-1.5" />
 
               {/* ACCOUNT DROPDOWN */}
-              <div className="relative hidden sm:block" ref={profileRef}>
+              {/* <div className="relative hidden sm:block" ref={profileRef}>
                 <button 
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
                   className="focus:outline-none flex items-center gap-1.5 p-1 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer"
@@ -177,6 +177,55 @@ export default function MainNavbar() {
                     <button className="w-full flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-bold text-red-600 hover:bg-red-50 transition-colors text-left cursor-pointer">
                       <LogOut className="h-4 w-4 stroke-[2]" /> Sign Out
                     </button>
+                  </div>
+                )}
+              </div> */}
+
+              {/* ACCOUNT DROPDOWN */}
+              <div className="relative hidden sm:block" ref={profileRef}>
+                <button 
+                  onClick={() => setIsProfileOpen(!isProfileOpen)}
+                  className="focus:outline-none flex items-center gap-1.5 p-1 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer"
+                >
+                  <div className="h-8 w-8 overflow-hidden rounded-xl bg-[#1877F2] shadow-sm border border-[#1877F2]/10 flex items-center justify-center text-xs font-black text-white transition-transform active:scale-95">
+                    KO
+                  </div>
+                </button>
+
+                {isProfileOpen && (
+                  <div className="absolute right-0 mt-4 w-60 origin-top-right rounded-lg border border-slate-200 bg-white p-2 shadow-xl animate-in fade-in slide-in-from-top-2 duration-150 z-50">
+                    {/* Sign In / Register Header */}
+                    <div className="px-2 pb-2">
+                      <button className="w-full bg-blue-500 text-white py-2 rounded-lg text-sm font-bold hover:bg-blue-800 transition">Sign in</button>
+                      <button className="w-full text-slate-700 py-2 rounded-lg text-sm font-semibold hover:bg-slate-50 transition mt-1">Register</button>
+                    </div>
+                    
+                    <hr className="border-slate-100 mb-2" />
+
+                    {/* Main Links */}
+                    <div className="flex flex-col gap-0.5">
+                      <Link href="/orders" className="flex items-center gap-3 px-3 py-3 text-xs font-semibold text-slate-600 hover:bg-slate-50 rounded-lg"><User className="h-4 w-4" /> My Orders</Link>
+                      <Link href="/coins" className="flex items-center gap-3 px-3 py-3 text-xs font-semibold text-slate-600 hover:bg-slate-50 rounded-lg"><User className="h-4 w-4" /> My Coins</Link>
+                      <Link href="/messages" className="flex items-center gap-3 px-3 py-3 text-xs font-semibold text-slate-600 hover:bg-slate-50 rounded-lg"><MessageSquare className="h-4 w-4" /> Message Center</Link>
+                      <Link href="/payments" className="flex items-center gap-3 px-3 py-3 text-xs font-semibold text-slate-600 hover:bg-slate-50 rounded-lg"><Settings className="h-4 w-4" /> Payment</Link>
+                      <Link href="/wishlist" className="flex items-center gap-3 px-3 py-3 text-xs font-semibold text-slate-600 hover:bg-slate-50 rounded-lg"><Heart className="h-4 w-4" /> Wish List</Link>
+                      <Link href="/coupons" className="flex items-center gap-3 px-3 py-3 text-xs font-semibold text-slate-600 hover:bg-slate-50 rounded-lg"><ShieldCheck className="h-4 w-4" /> My Coupons</Link>
+                    </div>
+
+                    <hr className="my-2 border-slate-100" />
+
+                    {/* Secondary Links */}
+                    <div className="flex flex-col gap-0.5">
+                      <Link href="/settings" className="px-3 py-2 text-[11px] text-slate-500 hover:text-slate-900">Settings</Link>
+                      <Link href="/business" className="px-3 py-2 text-[11px] text-slate-500 hover:text-slate-900">Marketplace Business</Link>
+                      <Link href="/ds-center" className="px-3 py-2 text-[11px] text-slate-500 hover:text-slate-900">DS Center</Link>
+                      <Link href="/seller-login" className="px-3 py-2 text-[11px] text-slate-500 hover:text-slate-900">Seller Log In</Link>
+                      <Link href="/returns" className="px-3 py-2 text-[11px] text-slate-500 hover:text-slate-900">Return & refund policy</Link>
+                      <Link href="/help" className="px-3 py-2 text-[11px] text-slate-500 hover:text-slate-900">Help Center</Link>
+                      <Link href="/disputes" className="px-3 py-2 text-[11px] text-slate-500 hover:text-slate-900">Disputes & Reports</Link>
+                      <Link href="/ipr" className="px-3 py25 text-[11px] text-slate-500 hover:text-slate-900">Report IPR infringement</Link>
+                      <Link href="/penalties" className="px-3 py-2 text-[11px] text-slate-500 hover:text-slate-900">Penalties information</Link>
+                    </div>
                   </div>
                 )}
               </div>

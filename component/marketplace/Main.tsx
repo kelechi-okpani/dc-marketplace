@@ -7,7 +7,6 @@ import { Category } from '../utils/types';
 import { categories } from '../utils/search/categories';
 import { MobileSubcategoryView } from './Mobile/MobileSubcategoryView';
 import ProductSection from './Product/ProductSection';
-import { Products } from '../utils/data/data';
 import { ReusableSearch } from '../utils/search/ReusableSearch';
 
 
@@ -19,19 +18,15 @@ export default function HomePage() {
 
 
   return (
-   <div className="bg-gray-100 min-h-screen pt-2 pb-6 px-2">
+   <div className="min-h-screen pt-2 pb-6 rounded-lg">
 
-    {/* --- SHARED SEARCH (Visible everywhere) --- */}
-      {/* <div className="max-w-7xl mx-auto mb-4 pt-4 hidden md:flex"> */}
-      <div className="max-w-7xl mx-auto mb-4 pt-4">
+      <div className="mx-auto mb-4 pt-4 max-w-7xl">
         <ReusableSearch 
           placeholder="Search products in DC Marketplace..." 
           onSearch={(query) => setSearchQuery(query)}
         />
       </div>
-
-
-{/* --- MOBILE VIEW --- */}
+      {/* --- MOBILE VIEW --- */}
       <div className="md:hidden">
         {/* If we have a subcategory, show the Results Header and Product List */}
         {activeSubCategory ? (
@@ -76,13 +71,11 @@ export default function HomePage() {
           )
         )}
       </div>
-
-
       {/* Desktop View */}
       <div className="hidden md:block max-w-7xl mx-auto mt-6">
 
       
-      <div   className="relative flex h-[980px]  shadow-sm border border-slate-200 overflow-hidden"
+      <div className="relative flex h-[980px]  overflow-hidden"
             onMouseLeave={() => setActiveCategory(null)} // Wraps sidebar + drawer
             >
           {/* Sidebar */}
@@ -113,13 +106,9 @@ export default function HomePage() {
           )}
 
           {/* Main Content Area */}
-        <div className="flex-1 p-1 overflow-y-auto h-full px-4">
+        <div className="flex-1 p-1 overflow-y-auto h-full px-4 bg-transparent">
             <h4 className="text-1xl font-bold text-gray-800 px-4 mt-2">
-               {/* {activeSubCategory ? `Results for ${activeSubCategory}` : "All Products"} */}
-            
-            
-            
-          {activeSubCategory && `${activeSubCategory} Found` }
+                   {activeSubCategory && `${activeSubCategory} Found` }
               
             </h4>
             

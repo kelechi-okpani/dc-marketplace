@@ -34,7 +34,7 @@ export const SubcategoryDrawer = ({
   return (
     <div 
       ref={drawerRef}
-      className="absolute left-61 top-0 w-72 h-full bg-white shadow-lg z-50 border-l border-slate-100 animate-in slide-in-from-left-2 duration-300 overflow-y-auto scrollbar-thin"
+      className="absolute left-80 top-0 w-72 h-full bg-white shadow-lg z-10 border-l border-slate-100 animate-in slide-in-from-left-2 duration-300 overflow-y-auto scrollbar-thin"
       onMouseLeave={onMouseLeave}
     >
       <div>
