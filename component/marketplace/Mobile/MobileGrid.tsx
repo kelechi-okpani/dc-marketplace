@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { Category } from '@/component/utils/types';
-import { ReusableSearch } from '@/component/utils/search/ReusableSearch';
 
 export const MobileGrid = ({ 
   categories, 
