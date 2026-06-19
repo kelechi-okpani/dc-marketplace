@@ -7,7 +7,6 @@ import { Category } from '../utils/types';
 import { categories } from '../utils/search/categories';
 import { MobileSubcategoryView } from './Mobile/MobileSubcategoryView';
 import ProductSection from './Product/ProductSection';
-import { ReusableSearch } from '../utils/search/ReusableSearch';
 
 
 export default function HomePage() {
@@ -20,12 +19,7 @@ export default function HomePage() {
   return (
    <div className="min-h-screen pt-2 pb-6 rounded-lg">
 
-      <div className="mx-auto mb-4 pt-4 max-w-7xl">
-        <ReusableSearch 
-          placeholder="Search products in DC Marketplace..." 
-          onSearch={(query) => setSearchQuery(query)}
-        />
-      </div>
+  
       {/* --- MOBILE VIEW --- */}
       <div className="md:hidden">
         {/* If we have a subcategory, show the Results Header and Product List */}

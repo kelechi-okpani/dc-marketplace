@@ -1,3 +1,5 @@
+import { ALL_BRANDS } from "./brandList";
+
 export interface FilterOption {
   label: string;
   value: string;
@@ -36,10 +38,18 @@ export interface SubcategoryData {
   count: number;
 }
 
+
 export interface CategoryGroup {
+
+  id: number; // Add this
   parentName: string;
+  icon: string; // Add this
   subcategories: SubcategoryData[];
   filters: FilterConfig[];
+
+  // parentName: string;
+  // subcategories: SubcategoryData[];
+  // filters: FilterConfig[];
 }
 
 export interface SubcategoryContextItem {
@@ -53,22 +63,24 @@ export interface CategoryCardContext {
   subcategories: SubcategoryContextItem[];
 }
 
-export const CATEGORY_CONFIG = {
+
+
+export const CATEGORY_CONFIG: Record<string, CategoryGroup> = {
   "vehicles": {
     id: 1,
     parentName: "Vehicles",
     icon: "/jiji/car.png",
     subcategories: [
-      { id: 101, name: "Cars", icon: "🚙", count: 18450 },
-      { id: 102, name: "Buses & Microbuses", icon: "🚌", count: 820 },
-      { id: 103, name: "Trucks & Trailers", icon: "🚛", count: 640 },
-      { id: 104, name: "Motorcycles & Scooters", icon: "🏍️", count: 3100 },
-      { id: 105, name: "Heavy Equipment", icon: "🏗️", count: 540 },
-      { id: 106, name: "Watercraft & Boats", icon: "🚤", count: 120 },
-      { id: 107, name: "Vehicle Parts", icon: "🔧", count: 9800 },
-      { id: 108, name: "Vehicle Accessories", icon: "🛞", count: 4500 },
-      { id: 109, name: "Auto Repair Services", icon: "🧰", count: 1560 },
-      { id: 110, name: "Vehicle Rentals", icon: "🔑", count: 700 }
+      { name: "Cars", count: 18450 },
+      { name: "Buses & Microbuses", count: 820 },
+      { name: "Trucks & Trailers", count: 640 },
+      { name: "Motorcycles & Scooters", count: 3100 },
+      { name: "Heavy Equipment", count: 540 },
+      { name: "Watercraft & Boats", count: 120 },
+      { name: "Vehicle Parts", count: 9800 },
+      { name: "Vehicle Accessories", count: 4500 },
+      { name: "Auto Repair Services", count: 1560 },
+      { name: "Vehicle Rentals", count: 700 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }, { id: 'brand', title: 'Make-Brand', type: 'search-checkbox' }]
   },
@@ -77,13 +89,13 @@ export const CATEGORY_CONFIG = {
     parentName: "Property",
     icon: "/jiji/property.png",
     subcategories: [
-      { id: 201, name: "Houses & Apartments for Sale", icon: "🏡", count: 14500 },
-      { id: 202, name: "Houses & Apartments for Rent", icon: "🏢", count: 18300 },
-      { id: 203, name: "Land & Plots", icon: "🌍", count: 7600 },
-      { id: 204, name: "Commercial Property", icon: "🏬", count: 4100 },
-      { id: 205, name: "Short Let", icon: "🛏️", count: 3400 },
-      { id: 206, name: "Event Centers", icon: "🎪", count: 890 },
-      { id: 207, name: "Property Services", icon: "🧑‍🔧", count: 6500 }
+      { name: "Houses & Apartments for Sale", count: 14500 },
+      { name: "Houses & Apartments for Rent", count: 18300 },
+      { name: "Land & Plots", count: 7600 },
+      { name: "Commercial Property", count: 4100 },
+      { name: "Short Let", count: 3400 },
+      { name: "Event Centers", count: 890 },
+      { name: "Property Services", count: 6500 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }]
   },
@@ -92,10 +104,10 @@ export const CATEGORY_CONFIG = {
     parentName: "Phones & Tablets",
     icon: "/jiji/phones.png",
     subcategories: [
-      { id: 301, name: "Smartphones", icon: "📱", count: 32000 },
-      { id: 302, name: "Tablets", icon: "📲", count: 5800 },
-      { id: 303, name: "Smart Watches", icon: "⌚", count: 4100 },
-      { id: 304, name: "Accessories", icon: "🔌", count: 16600 }
+      { name: "Smartphones", count: 32000 },
+      { name: "Tablets", count: 5800 },
+      { name: "Smart Watches", count: 4100 },
+      { name: "Accessories", count: 16600 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }, { id: 'brand', title: 'Brand', type: 'search-checkbox' }]
   },
@@ -104,17 +116,17 @@ export const CATEGORY_CONFIG = {
     parentName: "Electronics",
     icon: "/jiji/electronics.png",
     subcategories: [
-      { id: 401, name: "TVs", icon: "📺", count: 12500 },
-      { id: 402, name: "Audio & Music Equipment", icon: "🎧", count: 4200 },
-      { id: 403, name: "Computer Hardware", icon: "🖥️", count: 14500 },
-      { id: 404, name: "Computer Accessories", icon: "🖱️", count: 18000 },
-      { id: 405, name: "Cameras", icon: "📷", count: 3100 },
-      { id: 406, name: "Printers", icon: "🖨️", count: 1800 },
-      { id: 407, name: "Networking Equipment", icon: "📡", count: 4200 },
-      { id: 408, name: "Video Game Consoles", icon: "🎮", count: 4200 },
-      { id: 409, name: "Security Equipment", icon: "📹", count: 1500 },
-      { id: 410, name: "Generators", icon: "⚡", count: 2000 },
-      { id: 411, name: "Solar Equipment", icon: "☀️", count: 2000 }
+      { name: "TVs", count: 12500 },
+      { name: "Audio & Music Equipment", count: 4200 },
+      { name: "Computer Hardware", count: 14500 },
+      { name: "Computer Accessories", count: 18000 },
+      { name: "Cameras", count: 3100 },
+      { name: "Printers", count: 1800 },
+      { name: "Networking Equipment", count: 4200 },
+      { name: "Video Game Consoles", count: 4200 },
+      { name: "Security Equipment", count: 1500 },
+      { name: "Generators", count: 2000 },
+      { name: "Solar Equipment", count: 2000 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }, { id: 'condition', title: 'Condition', type: 'radio' }]
   },
@@ -123,17 +135,17 @@ export const CATEGORY_CONFIG = {
     parentName: "Home, Furniture & Appliances",
     icon: "/jiji/homes.png",
     subcategories: [
-      { id: 501, name: "Furniture", icon: "🪑", count: 12500 },
-      { id: 502, name: "Kitchen Appliances", icon: "🍳", count: 14500 },
-      { id: 503, name: "Home Decor", icon: "🖼️", count: 6100 },
-      { id: 504, name: "Beds & Mattresses", icon: "🛏️", count: 5400 },
-      { id: 505, name: "Chairs", icon: "💺", count: 4300 },
-      { id: 506, name: "Tables", icon: "🪵", count: 3900 },
-      { id: 507, name: "Sofas", icon: "🛋️", count: 5100 },
-      { id: 508, name: "Wardrobes", icon: "🚪", count: 2700 },
-      { id: 509, name: "Air Conditioners", icon: "❄️", count: 4600 },
-      { id: 510, name: "Refrigerators", icon: "🧊", count: 5200 },
-      { id: 511, name: "Washing Machines", icon: "🧺", count: 4200 }
+      { name: "Furniture", count: 12500 },
+      { name: "Kitchen Appliances", count: 14500 },
+      { name: "Home Decor", count: 6100 },
+      { name: "Beds & Mattresses", count: 5400 },
+      { name: "Chairs", count: 4300 },
+      { name: "Tables", count: 3900 },
+      { name: "Sofas", count: 5100 },
+      { name: "Wardrobes", count: 2700 },
+      { name: "Air Conditioners", count: 4600 },
+      { name: "Refrigerators", count: 5200 },
+      { name: "Washing Machines", count: 4200 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }]
   },
@@ -142,12 +154,12 @@ export const CATEGORY_CONFIG = {
     parentName: "Fashion",
     icon: "/jiji/fashion.png",
     subcategories: [
-      { id: 601, name: "Clothing", icon: "👗", count: 15600 },
-      { id: 602, name: "Shoes", icon: "👟", count: 15600 },
-      { id: 603, name: "Bags", icon: "👜", count: 6500 },
-      { id: 604, name: "Watches", icon: "⌚", count: 5200 },
-      { id: 605, name: "Jewelry", icon: "💍", count: 4100 },
-      { id: 606, name: "Wedding Wear", icon: "👰", count: 1500 }
+      { name: "Clothing", count: 15600 },
+      { name: "Shoes", count: 15600 },
+      { name: "Bags", count: 6500 },
+      { name: "Watches", count: 5200 },
+      { name: "Jewelry", count: 4100 },
+      { name: "Wedding Wear", count: 1500 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }, { id: 'gender', title: 'Segment', type: 'radio' }]
   },
@@ -156,10 +168,10 @@ export const CATEGORY_CONFIG = {
     parentName: "Beauty & Personal Care",
     icon: "/jiji/health.png",
     subcategories: [
-      { id: 701, name: "Makeup", icon: "💋", count: 9000 },
-      { id: 702, name: "Hair Care", icon: "💇", count: 7200 },
-      { id: 703, name: "Skin Care", icon: "🧴", count: 18500 },
-      { id: 704, name: "Fragrances", icon: "🌸", count: 3500 }
+      { name: "Makeup", count: 9000 },
+      { name: "Hair Care", count: 7200 },
+      { name: "Skin Care", count: 18500 },
+      { name: "Fragrances", count: 3500 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }, { id: 'beauty_type', title: 'Product Focus', type: 'checkbox' }]
   },
@@ -168,12 +180,12 @@ export const CATEGORY_CONFIG = {
     parentName: "Services",
     icon: "/jiji/services.png",
     subcategories: [
-      { id: 801, name: "Cleaning", icon: "🧹", count: 5000 },
-      { id: 802, name: "Logistics", icon: "🚚", count: 5000 },
-      { id: 803, name: "Banking & Finance", icon: "🏦", count: 125000 },
-      { id: 804, name: "Telecommunications", icon: "🌐", count: 53200 },
-      { id: 805, name: "Photography", icon: "📸", count: 5000 },
-      { id: 806, name: "Digital Services", icon: "💻", count: 35000 }
+      { name: "Cleaning", count: 5000 },
+      { name: "Logistics", count: 5000 },
+      { name: "Banking & Finance", count: 125000 },
+      { name: "Telecommunications", count: 53200 },
+      { name: "Photography", count: 5000 },
+      { name: "Digital Services", count: 35000 }
     ],
     filters: [{ id: 'price', title: 'Budget (₦)', type: 'range' }]
   },
@@ -182,8 +194,8 @@ export const CATEGORY_CONFIG = {
     parentName: "Repair & Construction",
     icon: "/jiji/repair.png",
     subcategories: [
-      { id: 901, name: "Building Materials", icon: "🧱", count: 25500 },
-      { id: 902, name: "Industrial/Engineering", icon: "🏗️", count: 10000 }
+      { name: "Building Materials", count: 25500 },
+      { name: "Industrial/Engineering", count: 10000 }
     ],
     filters: [{ id: 'price', title: 'Service Fee Range (₦)', type: 'range' }]
   },
@@ -192,9 +204,9 @@ export const CATEGORY_CONFIG = {
     parentName: "Commercial Equipment & Tools",
     icon: "/jiji/equipment.png",
     subcategories: [
-      { id: 1001, name: "Industrial/Manufacturing", icon: "🏭", count: 8000 },
-      { id: 1002, name: "Restaurant/Store", icon: "🍳", count: 6000 },
-      { id: 1003, name: "Medical/Electrical", icon: "🩺", count: 7500 }
+      { name: "Industrial/Manufacturing", count: 8000 },
+      { name: "Restaurant/Store", count: 6000 },
+      { name: "Medical/Electrical", count: 7500 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }, { id: 'industrial_condition', title: 'Equipment State', type: 'radio' }]
   },
@@ -203,10 +215,10 @@ export const CATEGORY_CONFIG = {
     parentName: "Leisure & Activities",
     icon: "/jiji/hobbies.png",
     subcategories: [
-      { id: 1101, name: "Books", icon: "📚", count: 4200 },
-      { id: 1102, name: "Sports Equipment", icon: "⚽", count: 5100 },
-      { id: 1103, name: "Musical Instruments", icon: "🎸", count: 3600 },
-      { id: 1104, name: "Art/Camping/Gaming", icon: "🎮", count: 5300 }
+      { name: "Books", count: 4200 },
+      { name: "Sports Equipment", count: 5100 },
+      { name: "Musical Instruments", count: 3600 },
+      { name: "Art/Camping/Gaming", count: 5300 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }]
   },
@@ -215,10 +227,10 @@ export const CATEGORY_CONFIG = {
     parentName: "Babies & Kids",
     icon: "/jiji/babies.png",
     subcategories: [
-      { id: 1201, name: "Baby Clothing/Care", icon: "👶", count: 7600 },
-      { id: 1202, name: "Toys", icon: "🧸", count: 6100 },
-      { id: 1203, name: "Strollers/Car Seats", icon: "🛒", count: 4000 },
-      { id: 1204, name: "School Supplies", icon: "🎒", count: 1800 }
+      { name: "Baby Clothing/Care", count: 7600 },
+      { name: "Toys", count: 6100 },
+      { name: "Strollers/Car Seats", count: 4000 },
+      { name: "School Supplies", count: 1800 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }, { id: 'age_bracket', title: 'Target Age', type: 'checkbox' }]
   },
@@ -227,8 +239,9 @@ export const CATEGORY_CONFIG = {
     parentName: "Food, Agriculture & Farming",
     icon: "/jiji/agriculture.png",
     subcategories: [
-      { id: 1301, name: "FMCG Products", icon: "🍞", count: 110000 },
-      { id: 1302, name: "Agro-Inputs & Livestock", icon: "🐄", count: 18500 }
+      { name: "FMCG Products", count: 110000 },
+      { name: "Agro-Inputs & Livestock", count: 18500 },
+      { name: "Food & Drink", count: 18500 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }]
   },
@@ -237,8 +250,8 @@ export const CATEGORY_CONFIG = {
     parentName: "Animals & Pets",
     icon: "/jiji/animals.png",
     subcategories: [
-      { id: 1401, name: "Pets (Dogs/Cats/Birds)", icon: "🐕", count: 9100 },
-      { id: 1402, name: "Pet Accessories/Services", icon: "🦴", count: 5100 }
+      { name: "Pets (Dogs/Cats/Birds)", count: 9100 },
+      { name: "Pet Accessories/Services", count: 5100 }
     ],
     filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }]
   },
@@ -247,9 +260,9 @@ export const CATEGORY_CONFIG = {
     parentName: "Jobs",
     icon: "/jiji/jobs.png",
     subcategories: [
-      { id: 1501, name: "General/Admin/Sales", icon: "🏢", count: 15000 },
-      { id: 1502, name: "IT/Engineering/Healthcare", icon: "💻", count: 16200 },
-      { id: 1503, name: "Marketing/Teaching", icon: "📣", count: 5300 }
+      { name: "General/Admin/Sales", count: 15000 },
+      { name: "IT/Engineering/Healthcare", count: 16200 },
+      { name: "Marketing/Teaching", count: 5300 }
     ],
     filters: [{ id: 'salary', title: 'Salary Range (₦)', type: 'range' }]
   },
@@ -258,19 +271,53 @@ export const CATEGORY_CONFIG = {
     parentName: "Seeking Work - CVs",
     icon: "/jiji/jobseekers.png",
     subcategories: [
-      { id: 1601, name: "Corporate/Finance CVs", icon: "🧾", count: 3900 },
-      { id: 1602, name: "Technical/IT/Eng CVs", icon: "💻", count: 4800 },
-      { id: 1603, name: "Vocational/Teaching CVs", icon: "📚", count: 3700 }
+      { name: "Corporate/Finance CVs", count: 3900 },
+      { name: "Technical/IT/Eng CVs", count: 4800 },
+      { name: "Vocational/Teaching CVs", count: 3700 }
     ],
     filters: [{ id: 'salary', title: 'Expected Pay (₦)', type: 'range' }, { id: 'experience', title: 'Experience Level', type: 'checkbox' }]
+  },
+  "health-medical": {
+    id: 17,
+    parentName: "Health & Medical",
+    icon: "/jiji/medical.png",
+    subcategories: [
+      { name: "Pharmaceuticals", count: 5000 },
+      { name: "Medical Equipment", count: 4000 },
+      { name: "Supplements & Vitamins", count: 3000 }
+    ],
+    filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }]
+  },
+  "office-stationery": {
+    id: 18,
+    parentName: "Office & Stationery",
+    icon: "/jiji/office.png",
+    subcategories: [
+      { name: "Office Furniture", count: 5000 },
+      { name: "Stationery & Supplies", count: 10000 }
+    ],
+    filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }]
+  },
+  "automotive-services": {
+    id: 19,
+    parentName: "Automotive Services",
+    icon: "/jiji/auto-service.png",
+    subcategories: [
+      { name: "Insurance", count: 3000 },
+      { name: "Logistics & Clearing", count: 5000 }
+    ],
+    filters: [{ id: 'price', title: 'Price Range (₦)', type: 'range' }]
   }
 };
 
-// Derived helper for navigation components
+
 export const categories = Object.values(CATEGORY_CONFIG).map(cat => ({
   id: cat.id,
   name: cat.parentName,
   icon: cat.icon,
   totalItems: cat.subcategories.reduce((sum, sub) => sum + sub.count, 0),
-  subcategories: cat.subcategories
+  subcategories: cat.subcategories,
+
+  // Dynamically filter brands belonging to this category ID
+  brands: ALL_BRANDS.filter((brand) => brand.categoryId === cat.id)
 }));

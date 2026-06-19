@@ -37,12 +37,14 @@ export interface Product {
   description: string;
   imageUrl: string;
   category: string;
+  categoryId: number;
   subCategory: string;
   brand: string;
   rating: number;
   reviewsCount: number;
   isOfficialStore?: boolean; // Optional
   merchantId?: string; // Optional
+  condition?: 'new' | 'used' | 'refurbished';
 
 
   // Detailed Information
@@ -51,6 +53,7 @@ export interface Product {
   whatsInTheBox?: string[];
   warranty?: string;
 }
+
 
 export interface ProductSectionProps {
 selectedCategory?: string | undefined;

@@ -2,7 +2,6 @@
 import React, { useMemo } from 'react';
 import { Category } from '@/component/utils/types';
 import { ChevronLeft } from 'lucide-react';
-import { ReusableSearch } from '@/component/utils/search/ReusableSearch';
 
 interface MobileSubcategoryViewProps {
   category: Category;
@@ -39,11 +38,7 @@ export const MobileSubcategoryView = ({
           <ChevronLeft size={24} />
         </button>
         <div className="flex-1">
-          <ReusableSearch 
-            onSearch={onSearch} 
-            initialValue={searchQuery}
-            placeholder={`Search in ${category.name}...`} 
-          />
+       {/* search component here  */}
         </div>
       </div>
 

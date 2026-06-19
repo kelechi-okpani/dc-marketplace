@@ -51,7 +51,7 @@ export const Sidebar = ({
 
 
   return (
-<div className="relative w-80 h-[90vh] bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col">      {/* Up Button */}
+<div className="relative w-70 h-[90vh] bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col">      {/* Up Button */}
       <button 
         onClick={() => scrollCarousel('up')}
         className="w-full h-8 flex items-center justify-center bg-white hover:bg-slate-50 border-b border-slate-100 z-10 transition-colors"
